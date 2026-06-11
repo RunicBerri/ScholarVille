@@ -11,6 +11,7 @@ namespace ScholarVille
     {
         static void Main()
         {
+            RealorFake();
         }
 
         static void SnakeGame() 

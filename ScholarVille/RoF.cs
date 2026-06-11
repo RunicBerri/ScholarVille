@@ -55,12 +55,12 @@ public class RoF
         if ((answer == "R" && isReal[index]) ||
             (answer == "F" && !isReal[index]))
         {
-            Console.WriteLine("✔ Correct! You helped stop misinformation.");
+            Console.WriteLine("Correct! You helped stop misinformation.");
             score += 10;
         }
         else
         {
-            Console.WriteLine("❌ Wrong! This affects public safety.");
+            Console.WriteLine("Wrong! This affects public safety.");
             score -= 5;
         }
 
