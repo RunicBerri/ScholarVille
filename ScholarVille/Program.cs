@@ -11,29 +11,18 @@ namespace ScholarVille
     {
         static void Main()
         {
-
         }
 
         static void SnakeGame() 
         {
             Snake snake = new Snake(5,5);
-            Console.CursorVisible = false;
-
-            snake.SpawnFood();
-
-            while (true)
-            {
-                snake.Input();
-                snake.Update();
-                snake.Draw();
-                
-                Thread.Sleep(100);
-            }
+            snake.Start();
         }
 
         static void RealorFake() 
         {
             RoF rof = new RoF();
+            rof.Start();
         }
     }
 }

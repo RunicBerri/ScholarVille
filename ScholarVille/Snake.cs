@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Xml.Linq;
 
 public class Snake
 {
@@ -21,6 +23,22 @@ public class Snake
     {
         foodX = random.Next(1, width - 1);
         foodY = random.Next(1, height - 1);
+    }
+
+    public void Start() 
+    {
+        Console.CursorVisible = false;
+
+        SpawnFood();
+
+        while (true)
+        {
+            Input();
+            Update();
+            Draw();
+
+            Thread.Sleep(100);
+        }
     }
 
     public void Input()
