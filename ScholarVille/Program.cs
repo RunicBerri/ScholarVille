@@ -26,6 +26,7 @@ namespace ScholarVille
                 snake.Input();
                 snake.Update();
                 snake.Draw();
+                 
 
                 Thread.Sleep(100);
             }
