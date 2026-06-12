@@ -8,7 +8,7 @@ public class TreePlanter
 
 	private Random random = new Random();
 
-	public void Start()
+    public void Start()
     {
         Console.Clear();
 
