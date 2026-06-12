@@ -15,10 +15,12 @@ namespace ScholarVille
         //game objects
         static Snake snake = new Snake(5, 5);
         static RoF rof = new RoF();
+        static TreePlanter treePlanter = new TreePlanter();
+        static SDGquiz sdgQuiz = new SDGquiz();
 
         static void Main()
         {
-            Start();
+            TreePlant();
         }
 
         static void Start()
@@ -85,8 +87,6 @@ namespace ScholarVille
         {
             while (true)
             {
-                bool exists = false;
-
                 Console.Clear();
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine("                                  Enter your Username: ");
@@ -118,7 +118,6 @@ namespace ScholarVille
                     Console.WriteLine("=========================================================================================");
                     Console.ReadKey();
                     Console.Clear();
-                    exists = false;
                     continue;
                 }
                 Console.Clear();
@@ -244,9 +243,9 @@ namespace ScholarVille
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine($"|                              Welcome to ScholarVille!                                  |");
-                Console.WriteLine($"|                                    [1] Trash Collector!                                |");
-                Console.WriteLine($"|                                    [2] Real or Fake!?                                  |");
-                Console.WriteLine($"|                                    [3] n/a                                             |");
+                Console.WriteLine($"|                                    [1] Eco Snake                                       |");
+                Console.WriteLine($"|                                    [2] News Detective                                  |");
+                Console.WriteLine($"|                                    [3] Grow a Tree                                     |");
                 Console.WriteLine($"|                                    [4] n/a                                             |");
                 Console.WriteLine($"|                                    [5] n/a                                             |");
                 Console.WriteLine($"|                                    [6] Logout                                          |");
@@ -263,10 +262,10 @@ namespace ScholarVille
                         RealorFake();
                         break;
                     case "3":
-                        Console.WriteLine("Management Sim");
+                        TreePlant();
                         break;
                     case "4":
-                        Console.WriteLine("N/A");
+                        QuizGame();
                         break;
                     case "5":
                         Console.WriteLine("N/A");
@@ -284,7 +283,6 @@ namespace ScholarVille
                 }
             }
         }
-
         static void SnakeGame() 
         {
             snake.Start();
@@ -292,6 +290,14 @@ namespace ScholarVille
         static void RealorFake() 
         {
             rof.Start();
+        }
+        static void TreePlant() 
+        {
+            treePlanter.Start();
+        }
+        static void QuizGame()
+        {
+            sdgQuiz.Start();
         }
     }
 }

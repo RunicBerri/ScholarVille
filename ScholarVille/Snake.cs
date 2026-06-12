@@ -5,16 +5,16 @@ using System.Xml.Linq;
 
 public class Snake
 {
-    public static int width = 30;
-    public static int height = 20;
+    static int width = 30;
+    static int height = 20;
 
-    public static int foodX, foodY;
-    public static int snakeScore = 0;
+    static int foodX, foodY;
+    public int snakeScore = 0;
 
-    public static string direction = "RIGHT";
+    static string direction = "RIGHT";
 
-    public static List<(int x, int y)> snakeSpawn = new List<(int, int)>();
-    public static Random random = new Random();
+    static List<(int x, int y)> snakeSpawn = new List<(int, int)>();
+    static Random random = new Random();
     public Snake(int startX, int startY)
     {
         snakeSpawn.Add((startX, startY));
