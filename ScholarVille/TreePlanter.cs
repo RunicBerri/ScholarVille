@@ -1,75 +1,115 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.IO;
 
 public class TreePlanter
 {
-	private int seeds = 0;
+	private int fertilizer = 0;
 	private int water = 0;
 	private int growth = 0;
+    private bool game = true;
+    private bool win = false;
 
 	private Random random = new Random();
+    static List<string> Users = new List<string>();
+    static List<string> UserTreeCollection = new List<string>();
 
-    public void Start()
+    public void Start(string userName)
     {
+        UserTreeCollection = File.ReadAllLines("UserTrees.txt").ToList();
+
+        Console.Clear();
+        Users = File.ReadAllLines("Users.txt").ToList();
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine("<><><><><><><><><><><><><><><><><><><><Grow a Tree><><><><><><><><><><><><><><><><><><><>");
+        Console.WriteLine("\n                                    Collect all Trees!");
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine("\n\n                                 Press any key to start.");
+        Console.ReadKey();
         Console.Clear();
 
-        Console.WriteLine("=================================");
-        Console.WriteLine("      TREE COLLECTION GAME");
-        Console.WriteLine("=================================");
-        Console.WriteLine("\nCollect Seeds and Water");
-        Console.WriteLine("Avoid Trash and Pests");
-        Console.WriteLine("Reach 100% Growth to Win!");
-
-        while (growth < 100)
+        while (game)
         {
-            Console.WriteLine("\n-------------------------");
-            Console.WriteLine($"Tree Growth : {growth}%");
-            Console.WriteLine($"Seeds       : {seeds}");
-            Console.WriteLine($"Water       : {water}");
-            Console.WriteLine("-------------------------");
-
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
+            Console.WriteLine("                                                                                      (X)");
+            Console.WriteLine($"                                    Tree Growth : {growth}%");
+            Console.WriteLine($"                                    Feritlizer  : {fertilizer}");
+            Console.WriteLine($"                                    Water       : {water}");
+            Console.WriteLine("                                    Press \"X\" to leave the game.");
+            Console.WriteLine("-----------------------------------------------------------------------------------------");
             Console.WriteLine("\nPress any key to explore...");
-            Console.ReadKey();
+            string input = Console.ReadLine().ToLower();
+            if (input == "x") 
+            {
+                Console.Clear();
+                return;
+            }
+            Console.Clear();   
 
-            int item = random.Next(1, 5);
+            int item = random.Next(1, 9);
 
             switch (item)
             {
                 case 1:
-                    Console.WriteLine("\n🌱 You found a Seed!");
-                    seeds++;
+                    Console.WriteLine("\nYou found a sack of fertilizer!");
+                    Console.WriteLine("<You gained 1 fertilizer>");
+                    fertilizer++;
                     break;
-
                 case 2:
-                    Console.WriteLine("\n💧 You found Water!");
+                    Console.WriteLine("\nEW! You found a huge animal poop!");
+                    Console.WriteLine("<You gained 1 fertilizer>");
+                    fertilizer++;
+                    break;
+                case 3:
+                    Console.WriteLine("\nYou found A lot of food waste!");
+                    Console.WriteLine("<You gained 1 fertilizer>");
+                    fertilizer++;
+                    break;
+                case 4:
+                    Console.WriteLine("\nYou found a gallon of water!");
+                    Console.WriteLine("<You gained 1 water>");
                     water++;
                     break;
-
-                case 3:
-                    Console.WriteLine("\n🗑️ You found Trash!");
-                    growth -= 10;
-
-                    if (growth < 0)
-                        growth = 0;
+                case 5:
+                    Console.WriteLine("\nYou found a very clean pond!");
+                    Console.WriteLine("<You gained 1 water>");
+                    water++;
                     break;
-
-                case 4:
-                    Console.WriteLine("\n🐛 Pests attacked your tree!");
-                    growth -= 15;
-
-                    if (growth < 0)
-                        growth = 0;
+                case 6:
+                    Console.WriteLine("\nRain suddenly started!");
+                    Console.WriteLine("<You gained 1 water>");
+                    water++;
+                    break;
+                case 7:
+                    Console.WriteLine("\nOof! A pest attacked your tree!");
+                    growth -= 2;
+                    break;
+                case 8:
+                    Console.WriteLine("\nOH NO! A swarm of pests attacked your tree!");
+                    growth -= 10;
                     break;
             }
-
-            // Grow tree when player has both resources
-            if (seeds > 0 && water > 0)
+            if (fertilizer > 0 && water > 0)
             {
-                seeds--;
+                fertilizer--;
                 water--;
 
-                growth += 20;
+                growth += 10;
 
-                Console.WriteLine("\n🌳 Your tree grew by 20%!");
+                Console.WriteLine("\nYour tree grew by 10%!");
+            }
+            if (growth < 0)
+            {
+                break;
+            }
+            else if (growth >= 100) 
+            {
+                win = true;
+                break;
             }
 
             Console.WriteLine("\nPress any key...");
@@ -77,14 +117,102 @@ public class TreePlanter
             Console.Clear();
         }
 
-        Console.WriteLine("=================================");
-        Console.WriteLine("          YOU WIN!");
-        Console.WriteLine("=================================");
+        if (win == false)
+        {
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("                                         GAME OVER!");
+            Console.WriteLine("\n                                Your sapling failed to grow.");
+            Console.WriteLine("=========================================================================================");
 
-        Console.WriteLine("\n🌳 Congratulations!");
-        Console.WriteLine("Your tree is fully grown.");
+        }
+        else if (win == true) 
+        {
 
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("                                          YOU WIN!");
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("\nCongratulations!");
+            var treeType = GenerateTree(userName);
+            Console.WriteLine($"Your tree grew into a {treeType}");
+
+            UpdateInfo(userName);
+        }
         Console.WriteLine("\nPress any key to return to menu...");
         Console.ReadKey();
+        Console.Clear();
+        return;
+    }
+
+    public void UpdateInfo(string userName) 
+    {
+        for (int i = 0; i < Users.Count; i++) 
+        {
+            string[] parts = Users[i].Split(',');
+
+            if (parts[1] == userName)
+            {
+                int newTreesPlanted = Convert.ToInt32(parts[5]);
+                newTreesPlanted++;
+
+                parts[5]= newTreesPlanted.ToString();
+                Users[i] = string.Join(",", parts);
+
+                break;
+            }
+        }
+        File.WriteAllLines("Users.txt", Users);
+    }
+    private string GenerateTree(string userName)
+    {
+        string treeType = "";
+        int treeGen = random.Next(1, 6);
+        switch (treeGen)
+        {
+            case 1:
+                treeType = "Pine Tree";
+                break;
+            case 2:
+                treeType = "Sakura Tree";
+                break;
+            case 3:
+                treeType = "Nara Tree";
+                break;
+            case 4:
+                treeType = "Birch Tree";
+                break;
+            case 5:
+                treeType = "Oak Tree";
+                break;
+        }
+
+        for (int i = 0; i < UserTreeCollection.Count; i++)
+        {
+            string[] parts = UserTreeCollection[i].Split(',');
+
+            if (parts[1] == userName)
+            {
+                switch (treeType) 
+                {
+                    case "Pine Tree":
+                        parts[2] = "true";
+                        break;
+                    case "Sakura Tree":
+                        parts[3] = "true";
+                        break;
+                    case "Nara Tree":
+                        parts[4] = "true";
+                        break;
+                    case "Birch Tree":
+                        parts[5] = "true";
+                        break;
+                    case "Oak Tree":
+                        parts[6] = "true";
+                        break;
+                }
+                UserTreeCollection[i] = string.Join(",", parts);
+            }
+        }
+        File.WriteAllLines("UserTrees.txt", UserTreeCollection);
+        return treeType;
     }
 }

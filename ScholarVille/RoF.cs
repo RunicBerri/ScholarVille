@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.IO;
 
 public class RoF
 {    
@@ -24,7 +30,7 @@ public class RoF
         false
     };
 
-    public void Start()
+    public void Start(string username)
     {
         Console.WriteLine("====================================");
         Console.WriteLine(" FAKE NEWS CRISIS SIMULATOR PH");

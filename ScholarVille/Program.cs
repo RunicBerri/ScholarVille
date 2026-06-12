@@ -11,13 +11,6 @@ namespace ScholarVille
     internal class Program
     {
         static List<string> Users = new List<string>();
-
-        //game objects
-        static Snake snake = new Snake(5, 5);
-        static RoF rof = new RoF();
-        static TreePlanter treePlanter = new TreePlanter();
-        static SDGquiz sdgQuiz = new SDGquiz();
-
         static void Main()
         {
             Start();
@@ -25,8 +18,12 @@ namespace ScholarVille
 
         static void Start()
         {
+            CreateFile("UserTrees.txt");
+            CreateFile("UserFish.txt");
             CreateFile("Users.txt");
             Users = File.ReadAllLines("Users.txt").ToList();
+
+            
 
             string input = "";
             while (true)
@@ -162,11 +159,24 @@ namespace ScholarVille
                 string userID = "U" + nextNumber.ToString("D3");
 
                 //labels
-                int snakeScore = 0;
+                int trashCollected = 0;
                 int rofScore = 0;
-                int jeepScore = 0;
+                int treesPlanted = 0;
+                int treesCollected = 0;
+                int fishSaved = 0;
+                int quizHiScore = 0;
 
-                File.AppendAllText("Users.txt", $"{userID},{inputUser},{inputPass},{snakeScore},{rofScore},{jeepScore}{Environment.NewLine}");
+                File.AppendAllText("Users.txt", $"{userID},{inputUser},{inputPass}," +
+                    $"{trashCollected}," +
+                    $"{rofScore}," +
+                    $"{treesPlanted}," +
+                    $"{treesCollected}," +
+                    $"{fishSaved}," +
+                    $"{quizHiScore}" +
+                    $"{Environment.NewLine}");
+
+                File.AppendAllText("UserTrees.txt", $"{userID},{inputUser},false,false,false,false,false{Environment.NewLine}");
+                File.AppendAllText("UserFish.txt", $"{userID},{inputUser},false,false,false,false,false{Environment.NewLine}");
                 break;
             }
             Console.WriteLine("=========================================================================================");
@@ -233,7 +243,7 @@ namespace ScholarVille
                 break;
             }
         }
-        static void MainMenu(string userName)
+        static void MainMenu(string userName) 
         {
             while (true)
             {
@@ -243,12 +253,11 @@ namespace ScholarVille
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine($"|                              Welcome to ScholarVille!                                  |");
-                Console.WriteLine($"|                                    [1] Eco Snake                                       |");
-                Console.WriteLine($"|                                    [2] News Detective                                  |");
-                Console.WriteLine($"|                                    [3] Grow a Tree                                     |");
-                Console.WriteLine($"|                                    [4] n/a                                             |");
-                Console.WriteLine($"|                                    [5] n/a                                             |");
-                Console.WriteLine($"|                                    [6] Logout                                          |");
+                Console.WriteLine($"|                                    [1] Play Games                                      |");
+                Console.WriteLine($"|                                    [2] My Scores                                       |");
+                Console.WriteLine($"|                                    [3] Achievements                                    |");
+                Console.WriteLine($"|                                    [4] What are SDGs?                                  |");
+                Console.WriteLine($"|                                    [5] Logout                                          |");
                 Console.WriteLine("=========================================================================================");
                 input = Console.ReadLine();
                 Console.Clear();
@@ -256,21 +265,18 @@ namespace ScholarVille
                 switch (input)
                 {
                     case "1":
-                        SnakeGame();
+                        GameMenu(userName);
                         break;
                     case "2":
-                        RealorFake();
+                        Console.WriteLine("My Scores ");
                         break;
                     case "3":
-                        TreePlant();
+                        Console.WriteLine("Achievements");
                         break;
                     case "4":
-                        QuizGame();
+                        Console.WriteLine("SDG definitions");
                         break;
                     case "5":
-                        Console.WriteLine("N/A");
-                        break;
-                    case "6":
                         Start();
                         break;
                     default:
@@ -283,21 +289,81 @@ namespace ScholarVille
                 }
             }
         }
-        static void SnakeGame()
+        static void GameMenu(string userName)
         {
-            snake.Start();
+            while (true)
+            {
+                string input = "";
+                Console.WriteLine("=========================================================================================");
+                Console.WriteLine("                                      Choose a game              ");
+                Console.WriteLine("=========================================================================================");
+                Console.WriteLine("=========================================================================================");
+                Console.WriteLine($"|                              Come and play while learning!                             |");
+                Console.WriteLine($"|                                    [1] Eco Snake                                       |");
+                Console.WriteLine($"|                                    [2] News Detective                                  |");
+                Console.WriteLine($"|                                    [3] Grow a Tree                                     |");
+                Console.WriteLine($"|                                    [4] Sea Life Hero                                   |");
+                Console.WriteLine($"|                                    [5] SDG Quiz                                        |");
+                Console.WriteLine($"|                                    [6] Return                                          |");
+                Console.WriteLine("=========================================================================================");
+                input = Console.ReadLine();
+                Console.Clear();
+
+                switch (input)
+                {
+                    case "1":
+                        SnakeGame(userName);
+                        break;
+                    case "2":
+                        RealorFake(userName);
+                        break;
+                    case "3":
+                        TreePlant(userName);
+                        break;
+                    case "4":
+                        FishingGame(userName);
+                        break;
+                    case "5":
+                        QuizGame(userName);
+                        break;
+                    case "6":
+                        MainMenu(userName);
+                        break;
+                    default:
+                        Console.WriteLine("=========================================================================================");
+                        Console.WriteLine("                                       Invalid Input.");
+                        Console.WriteLine("=========================================================================================");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                }
+            }
         }
-        static void RealorFake()
+        static void SnakeGame(string userName)
         {
-            rof.Start();
+            Snake snake = new Snake(5, 5);
+            snake.Start(userName);
         }
-        static void TreePlant()
+        static void RealorFake(string userName)
         {
-            treePlanter.Start();
+            RoF rof = new RoF();
+            rof.Start(userName);
         }
-        static void QuizGame()
+        static void TreePlant(string userName)
         {
-            sdgQuiz.Start();
+            TreePlanter treePlanter = new TreePlanter();
+            treePlanter.Start(userName);
         }
+        static void FishingGame(string userName)
+        {
+            Fishing fishing = new Fishing();
+            fishing.Start(userName);
+        }
+        static void QuizGame(string userName)
+        {
+            SDGquiz sdgQuiz = new SDGquiz();
+            sdgQuiz.Start(userName);
+        }
+        
     }
 }

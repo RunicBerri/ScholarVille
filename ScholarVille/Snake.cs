@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
-using System.Xml.Linq;
+using System.Threading.Tasks;
+using System.IO;
 
 public class Snake
 {
@@ -25,7 +28,7 @@ public class Snake
         foodY = random.Next(1, height - 1);
     }
 
-    public void Start() 
+    public void Start(string username) 
     {
         Console.CursorVisible = false;
 
