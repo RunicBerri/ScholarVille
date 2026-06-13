@@ -8,83 +8,211 @@ using System.IO;
 
 public class RoF
 {    
-    private int score = 0;
+    private int rofScore = 0;
+    Random rnd = new Random();
+    static List<string> Users = new List<string>();
+    private List<NewsQuestion> questions = new List<NewsQuestion>()
+{
+    new NewsQuestion("School Announcement: Classes are suspended tomorrow because of heavy rain.", true, "Official"),
+    new NewsQuestion("Message: Share this post 20 times or bad luck will follow you for a year.", false, "Chain"),
+    new NewsQuestion("Weather Alert: A typhoon is expected to arrive this weekend.", true, "Official"),
+    new NewsQuestion("Post: Eating 10 candies every day makes you grow taller instantly.", false, "Impossible"),
+    new NewsQuestion("Principal's Notice: Bring your ID during the school field trip.", true, "Official"),
+    new NewsQuestion("Viral Post: Dinosaurs were found alive in a nearby city.", false, "Impossible"),
+    new NewsQuestion("Library Announcement: New books are available for students to borrow.", true, "Official"),
+    new NewsQuestion("Message: Click here to win a free gaming laptop.", false, "Giveaway"),
+    new NewsQuestion("Barangay Notice: Free tree planting activity this Saturday.", true, "Official"),
+    new NewsQuestion("Post: The moon will disappear forever next week.", false, "Impossible"),
 
-    private string[] news =
-    {
-        "BREAKING: Evacuation center opened in Barangay Hall.",
-        "URGENT: Send money to this number for relief goods donation.",
-        "Weather Alert: Typhoon will make landfall tonight.",
-        "FREE CASH assistance from unknown Facebook account, click link.",
-        "LGU: Classes suspended tomorrow due to heavy rain forecast.",
-        "Message: Share your OTP to receive disaster aid."
-    };
+    new NewsQuestion("School Nurse: Wash your hands before eating to stay healthy.", true, "Official"),
+    new NewsQuestion("Message: A cartoon character is secretly living in your school.", false, "Impossible"),
+    new NewsQuestion("PAGASA Alert: Strong winds are expected this afternoon.", true, "Official"),
+    new NewsQuestion("Post: You can breathe underwater if you hold your breath long enough.", false, "Impossible"),
+    new NewsQuestion("Teacher's Reminder: Submit your project on Friday.", true, "Official"),
+    new NewsQuestion("Message: A dragon was seen flying over the city last night.", false, "Impossible"),
+    new NewsQuestion("Health Advisory: Drink plenty of water during hot weather.", true, "Official"),
+    new NewsQuestion("Post: All dogs can speak English at midnight.", false, "Impossible"),
+    new NewsQuestion("School Notice: The sports festival starts next week.", true, "Official"),
+    new NewsQuestion("Message: Forward this to 10 friends to get free Robux.", false, "Giveaway"),
 
-    private bool[] isReal =
-    {
-        true,
-        false,
-        true,
-        false,
-        true,
-        false
-    };
+    new NewsQuestion("Barangay Announcement: Community clean-up drive this Sunday.", true, "Official"),
+    new NewsQuestion("Post: The Earth is actually shaped like a cube.", false, "Impossible"),
+    new NewsQuestion("Weather Update: Thunderstorms may occur later today.", true, "Official"),
+    new NewsQuestion("Message: A secret button on your phone gives unlimited money.", false, "Giveaway"),
+    new NewsQuestion("School Advisory: Bring an umbrella because rain is expected.", true, "Official"),
+    new NewsQuestion("Post: Sharks can live comfortably on trees.", false, "Impossible"),
+    new NewsQuestion("Library Notice: Reading contest registration is now open.", true, "Official"),
+    new NewsQuestion("Message: This magical sticker can charge your phone instantly.", false, "Giveaway"),
+    new NewsQuestion("Health Tip: Fruits and vegetables help keep your body healthy.", true, "Official"),
+    new NewsQuestion("Post: Drinking soda makes you invisible.", false, "Impossible"),
+
+    new NewsQuestion("School Announcement: Fire drill scheduled this afternoon.", true, "Official"),
+    new NewsQuestion("Message: A famous superhero will visit every school tomorrow.", false, "Impossible"),
+    new NewsQuestion("Weather Advisory: Flooding is possible in low-lying areas.", true, "Official"),
+    new NewsQuestion("Post: Cats can naturally fly if they flap their tails.", false, "Impossible"),
+    new NewsQuestion("Teacher's Notice: Quiz moved to next Monday.", true, "Official"),
+    new NewsQuestion("Message: Send your password to unlock a secret game level.", false, "Giveaway"),
+    new NewsQuestion("Barangay Notice: Recycling bins have been placed near the park.", true, "Official"),
+    new NewsQuestion("Post: The sun rises in the west every Sunday.", false, "Impossible"),
+    new NewsQuestion("Health Center: Get enough sleep to stay healthy and focused.", true, "Official"),
+    new NewsQuestion("Message: Everyone who shares this gets a free bicycle.", false, "Giveaway"),
+
+    new NewsQuestion("School Notice: Parent-teacher meeting scheduled next week.", true, "Official"),
+    new NewsQuestion("Post: Fish can survive for years without water.", false, "Impossible"),
+    new NewsQuestion("Weather Alert: Stay indoors during lightning storms.", true, "Official"),
+    new NewsQuestion("Message: This website can predict your future perfectly.", false, "Giveaway"),
+    new NewsQuestion("Community Notice: Volunteers are planting trees in the park.", true, "Official")
+};
 
     public void Start(string username)
     {
-        Console.WriteLine("====================================");
-        Console.WriteLine(" FAKE NEWS CRISIS SIMULATOR PH");
-        Console.WriteLine(" SDG 16 - Peace, Justice & Strong Institutions");
-        Console.WriteLine("====================================\n");
+        Console.Clear();
+        Users = File.ReadAllLines("Users.txt").ToList();
 
-        Console.WriteLine("Instructions:");
-        Console.WriteLine("Type R = Real News");
-        Console.WriteLine("Type F = Fake News\n");
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine("                              FAKE NEWS CRISIS SIMULATOR PH");
+        Console.WriteLine("                      SDG 16 - Peace, Justice & Strong Institutions");
+        Console.WriteLine("=========================================================================================\n");
 
-        for (int i = 0; i < news.Length; i++)
+        Console.WriteLine("                                     Instructions:");
+        Console.WriteLine("                                  Type R = Real News");
+        Console.WriteLine("                                  Type F = Fake News\n");
+        Console.WriteLine("                              Press \"X\" to leave the game.");
+        Console.WriteLine("                               Press any key to continue."); 
+        string input = Console.ReadLine().ToLower();
+        Console.Clear();
+
+        if (input == "x")
         {
-            AskQuestion(i);
+            Console.WriteLine("Returning to Game Selection.");
+            Console.WriteLine("Press any key to continue.");
+            Console.Clear();
+            return;
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            bool continueGame = AskQuestion();
+
+            if (!continueGame)
+            {
+                Console.Clear();
+                Console.WriteLine("Returning to Game Selection.");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                Console.Clear();
+                return;
+            }
         }
 
         ShowResults();
     }
 
-    private void AskQuestion(int index)
+    public class NewsQuestion
     {
-        Console.WriteLine("------------------------------------");
-        Console.WriteLine("NEWS:");
-        Console.WriteLine(news[index]);
+        public string Question { get; set; }
+        public bool IsReal { get; set; }
+        public string TipType { get; set; }
 
-        Console.Write("\nIs this REAL or FAKE? (R/F): ");
-        string answer = Console.ReadLine().ToUpper();
-
-        if ((answer == "R" && isReal[index]) ||
-            (answer == "F" && !isReal[index]))
+        public NewsQuestion(string question, bool isReal, string tipType)
         {
-            Console.WriteLine("Correct! You helped stop misinformation.");
-            score += 10;
+            Question = question;
+            IsReal = isReal;
+            TipType = tipType;
         }
-        else
-        {
-            Console.WriteLine("Wrong! This affects public safety.");
-            score -= 5;
-        }
+    }
 
-        Console.WriteLine($"Current Score: {score}\n");
+    private void ShowTip(string tipType)
+    {
+        switch (tipType)
+        {
+            case "Official":
+                Console.WriteLine("Tip: Official announcements from schools, weather agencies, and community leaders are usually reliable.");
+                break;
+
+            case "Chain":
+                Console.WriteLine("Tip: Messages asking you to share them are often fake.");
+                break;
+
+            case "Giveaway":
+                Console.WriteLine("Tip: Be careful of posts promising free prizes, money, or game items.");
+                break;
+
+            case "Impossible":
+                Console.WriteLine("Tip: If something sounds impossible or magical, it is probably fake.");
+                break;
+        }
+    }
+
+    private bool AskQuestion()
+    {
+        var question = questions[rnd.Next(questions.Count)];
+        while(true)
+        {
+            Console.WriteLine("=========================================================================================\n");
+            Console.WriteLine("                                            NEWS:");
+            Console.WriteLine(question.Question);
+            Console.WriteLine("=========================================================================================\n");
+
+            Console.Write("\nIs this REAL or FAKE? (R/F): ");
+            string answer = Console.ReadLine().ToLower();
+
+            if ((answer == "r" && question.IsReal) || (answer == "f" && !question.IsReal))
+            {
+
+                rofScore++;
+                ShowTip(question.TipType);
+                Console.WriteLine($"Current Score: {rofScore}\n");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                Console.Clear();
+                break;
+            }
+            else if ((answer == "r" && !question.IsReal) || (answer == "f" && question.IsReal))
+            {
+                if (rofScore <= 0)
+                {
+                    rofScore = 0;
+                }
+                else
+                {
+                    rofScore--;
+                }
+
+                Console.WriteLine("Wrong! This affects public safety.");
+                Console.WriteLine($"Current Score: {rofScore}\n");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                Console.Clear();
+                break;
+            }
+            else if (answer == "x") 
+            {
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid answer.");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+        return true;
     }
 
     private void ShowResults()
     {
-        Console.WriteLine("====================================");
-        Console.WriteLine(" FINAL RESULT");
-        Console.WriteLine("====================================");
-        Console.WriteLine($"Final Score: {score}");
+        Console.WriteLine("=========================================================================================\n");
+        Console.WriteLine("                                          FINAL RESULT");
+        Console.WriteLine("=========================================================================================\n");
+        Console.WriteLine($"                                       Final Score: {rofScore}");
 
-        if (score >= 40)
+        if (rofScore >= 5)
         {
             Console.WriteLine("Excellent! You can detect fake news well.");
         }
-        else if (score >= 20)
+        else if (rofScore >= 3)
         {
             Console.WriteLine("Good awareness, but improve fact-checking.");
         }
@@ -95,6 +223,26 @@ public class RoF
 
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
+    }
+
+    public void UpdateInfo(string userName)
+    {
+        for (int i = 0; i < Users.Count; i++)
+        {
+            string[] parts = Users[i].Split(',');
+
+            if (parts[1] == userName)
+            {
+                int newScore = Convert.ToInt32(parts[4]);
+                newScore++;
+
+                parts[4] = newScore.ToString();
+                Users[i] = string.Join(",", parts);
+
+                break;
+            }
+        }
+        File.WriteAllLines("Users.txt", Users);
     }
 }
 

@@ -14,7 +14,7 @@ public class TreePlanter
     private bool game = true;
     private bool win = false;
 
-	private Random random = new Random();
+	private Random rnd = new Random();
     static List<string> Users = new List<string>();
     static List<string> UserTreeCollection = new List<string>();
 
@@ -45,12 +45,14 @@ public class TreePlanter
             string input = Console.ReadLine().ToLower();
             if (input == "x") 
             {
+                Console.WriteLine("Returning to Game Selection.");
+                Console.WriteLine("Press any key to continue.");
                 Console.Clear();
                 return;
             }
             Console.Clear();   
 
-            int item = random.Next(1, 9);
+            int item = rnd.Next(1, 9);
 
             switch (item)
             {
@@ -151,10 +153,10 @@ public class TreePlanter
 
             if (parts[1] == userName)
             {
-                int newTreesPlanted = Convert.ToInt32(parts[5]);
-                newTreesPlanted++;
+                int newScore = Convert.ToInt32(parts[5]);
+                newScore++;
 
-                parts[5]= newTreesPlanted.ToString();
+                parts[5]= newScore.ToString();
                 Users[i] = string.Join(",", parts);
 
                 break;
@@ -165,7 +167,7 @@ public class TreePlanter
     private string GenerateTree(string userName)
     {
         string treeType = "";
-        int treeGen = random.Next(1, 6);
+        int treeGen = rnd.Next(1, 6);
         switch (treeGen)
         {
             case 1:

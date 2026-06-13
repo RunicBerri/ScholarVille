@@ -17,15 +17,15 @@ public class Snake
     static string direction = "RIGHT";
 
     static List<(int x, int y)> snakeSpawn = new List<(int, int)>();
-    static Random random = new Random();
+    static Random rnd = new Random();
     public Snake(int startX, int startY)
     {
         snakeSpawn.Add((startX, startY));
     }
     public void SpawnFood()
     {
-        foodX = random.Next(1, width - 1);
-        foodY = random.Next(1, height - 1);
+        foodX = rnd.Next(1, width - 1);
+        foodY = rnd.Next(1, height - 1);
     }
 
     public void Start(string username) 
