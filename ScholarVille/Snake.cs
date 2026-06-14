@@ -8,6 +8,9 @@ using System.IO;
 
 public class Snake
 {
+    //needs better ui
+    //tweak to my liking
+
     static int width = 30;
     static int height = 20;
 

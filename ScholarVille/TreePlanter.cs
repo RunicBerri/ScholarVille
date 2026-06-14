@@ -8,7 +8,9 @@ using System.IO;
 
 public class TreePlanter
 {
-	private int fertilizer = 0;
+    //needs better ui
+
+    private int fertilizer = 0;
 	private int water = 0;
 	private int growth = 0;
     private bool game = true;
@@ -20,17 +22,24 @@ public class TreePlanter
 
     public void Start(string userName)
     {
+        Console.Clear();
         UserTreeCollection = File.ReadAllLines("UserTrees.txt").ToList();
-
-        Console.Clear();
         Users = File.ReadAllLines("Users.txt").ToList();
+
         Console.WriteLine("=========================================================================================");
-        Console.WriteLine("<><><><><><><><><><><><><><><><><><><><Grow a Tree><><><><><><><><><><><><><><><><><><><>");
-        Console.WriteLine("\n                                    Collect all Trees!");
+        Console.WriteLine("                                          Grow a Tree");
         Console.WriteLine("=========================================================================================");
-        Console.WriteLine("\n\n                                 Press any key to start.");
-        Console.ReadKey();
-        Console.Clear();
+        Console.WriteLine("game desc.");
+        Console.WriteLine("\n                                 Press \"X\" to leave the game.");
+        Console.WriteLine("                                      Press any key to start.");
+        string input1 = Console.ReadLine().ToLower();
+        if (input1 == "x")
+        {
+            Console.WriteLine("Returning to Game Selection.");
+            Console.WriteLine("Press any key to continue.");
+            Console.Clear();
+            return;
+        }
 
         while (game)
         {
@@ -42,8 +51,8 @@ public class TreePlanter
             Console.WriteLine("                                    Press \"X\" to leave the game.");
             Console.WriteLine("-----------------------------------------------------------------------------------------");
             Console.WriteLine("\nPress any key to explore...");
-            string input = Console.ReadLine().ToLower();
-            if (input == "x") 
+            string input2 = Console.ReadLine().ToLower();
+            if (input2 == "x") 
             {
                 Console.WriteLine("Returning to Game Selection.");
                 Console.WriteLine("Press any key to continue.");
