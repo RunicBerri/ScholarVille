@@ -10,13 +10,13 @@ public class TreePlanter
 {
     //needs better ui
 
-    private int fertilizer = 0;
-	private int water = 0;
-	private int growth = 0;
-    private bool game = true;
-    private bool win = false;
+    int fertilizer = 0;
+	int water = 0;
+	int growth = 0;
+    bool game = true;
+    bool win = false;
 
-	private Random rnd = new Random();
+	Random rnd = new Random();
     static List<string> Users = new List<string>();
     static List<string> UserTreeCollection = new List<string>();
 
@@ -36,8 +36,9 @@ public class TreePlanter
         Console.Clear();
         if (input1 == "x")
         {
+            Console.Clear();
             Console.WriteLine("Returning to Game Selection.");
-            Console.WriteLine("Press any key to continue.");
+            Thread.Sleep(1000);
             Console.Clear();
             return;
         }
@@ -55,8 +56,9 @@ public class TreePlanter
             string input2 = Console.ReadLine().ToLower();
             if (input2 == "x") 
             {
+                Console.Clear();
                 Console.WriteLine("Returning to Game Selection.");
-                Console.WriteLine("Press any key to continue.");
+                Thread.Sleep(1000);
                 Console.Clear();
                 return;
             }

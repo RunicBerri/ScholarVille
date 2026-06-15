@@ -11,15 +11,18 @@ public class Snake
     //needs better ui
     //tweak to my liking
 
-    static int width = 90;
-    static int height = 20;
+    int width = 90;
+    int height = 20;
 
-    static int foodX, foodY;
-    public int snakeScore = 0;
+    int foodX, foodY;
+    int snakeScore = 0;
+    bool play = true;
 
-    static string direction = "RIGHT";
+    string direction = "RIGHT";
 
-    static List<(int x, int y)> snakeSpawn = new List<(int, int)>();
+    static List<string> Users = new List<string>();
+
+    List<(int x, int y)> snakeSpawn = new List<(int, int)>();
     static Random rnd = new Random();
     public Snake(int startX, int startY)
     {
@@ -33,8 +36,11 @@ public class Snake
         foodY = rnd.Next(1, height - 1);
     }
 
-    public void Start(string username) 
+    public void Start(string userName) 
     {
+        Users = File.ReadAllLines("Users.txt").ToList();
+
+        play = true;
         Console.WriteLine("=========================================================================================");
         Console.WriteLine("                                           Eco Snake");
         Console.WriteLine("=========================================================================================");
@@ -46,7 +52,7 @@ public class Snake
         if (input1 == "x")
         {
             Console.WriteLine("Returning to Game Selection.");
-            Console.WriteLine("Press any key to continue.");
+            Thread.Sleep(1000);
             Console.Clear();
             return;
         }
@@ -55,14 +61,19 @@ public class Snake
 
         SpawnFood();
 
-        while (true)
+        while (play)
         {
             Input();
-            Update();
+            Update(userName);
             Draw();
 
             Thread.Sleep(100);
         }
+        Console.Clear();
+        Console.WriteLine("Returning to Game Selection...");
+        Thread.Sleep(1000);
+        Console.Clear();
+        return;
     }
 
     public void Input()
@@ -92,11 +103,14 @@ public class Snake
                     if (direction != "LEFT")
                         direction = "RIGHT";
                     break;
+                case ConsoleKey.X:
+                    play = false;
+                    break;
             }
         }
     }
 
-    public void Update()
+    public void Update(string userName)
     {
         int headX = snakeSpawn[0].x;
         int headY = snakeSpawn[0].y;
@@ -120,14 +134,14 @@ public class Snake
         if (headX <= 0 || headX >= width - 1 ||
             headY <= 0 || headY >= height - 1)
         {
-            GameOver();
+            GameOver(userName);
         }
 
         foreach (var segment in snakeSpawn)
         {
             if (headX == segment.x && headY == segment.y)
             {
-                GameOver();
+                GameOver(userName);
             }
         }
 
@@ -169,7 +183,7 @@ public class Snake
                     {
                         if (snakeSpawn[i].x == x && snakeSpawn[i].y == y)
                         {
-                            if (i == 0) // Head
+                            if (i == 0)
                             {
                                 switch (direction)
                                 {
@@ -190,7 +204,7 @@ public class Snake
                                         break;
                                 }
                             }
-                            else // Body
+                            else
                             {
                                 Console.Write("O");
                             }
@@ -212,11 +226,36 @@ public class Snake
         Console.WriteLine("Controls: W A S D");
     }
 
-    public void GameOver()
+    public void GameOver(string userName)
     {
+        play = false;
         Console.Clear();
-        Console.WriteLine("GAME OVER!");
-        Console.WriteLine($"Final Score: {snakeScore}");
-        Environment.Exit(0);
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine("                                       GAME OVER!");
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine($"                                     Final Score: {snakeScore}");
+        Console.WriteLine("                                 Press any key to exit.");
+        UpdateInfo(userName, snakeScore);
+        Console.ReadKey();
+    }
+
+    public void UpdateInfo(string userName, int snakeScore)
+    {
+        for (int i = 0; i < Users.Count; i++)
+        {
+            string[] parts = Users[i].Split(',');
+
+            if (parts[1] == userName)
+            {
+                int newScore = Convert.ToInt32(parts[3]);
+                newScore += snakeScore;
+
+                parts[3] = newScore.ToString();
+                Users[i] = string.Join(",", parts);
+
+                break;
+            }
+        }
+        File.WriteAllLines("Users.txt", Users);
     }
 }

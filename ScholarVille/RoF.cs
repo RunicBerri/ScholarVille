@@ -10,10 +10,10 @@ public class RoF
 {
     //needs better ui
 
-    private int rofScore = 0;
+    int rofScore = 0;
     Random rnd = new Random();
     static List<string> Users = new List<string>();
-    private List<NewsQuestion> questions = new List<NewsQuestion>()
+    List<NewsQuestion> questions = new List<NewsQuestion>()
     {
         new NewsQuestion("School Announcement: Classes are suspended tomorrow because of heavy rain.", true, "Official"),
         new NewsQuestion("Message: Share this post 20 times or bad luck will follow you for a year.", false, "Chain"),
@@ -86,8 +86,9 @@ public class RoF
 
         if (input == "x")
         {
+            Console.Clear();
             Console.WriteLine("Returning to Game Selection.");
-            Console.WriteLine("Press any key to continue.");
+            Thread.Sleep(1000);
             Console.Clear();
             return;
         }
@@ -100,8 +101,7 @@ public class RoF
             {
                 Console.Clear();
                 Console.WriteLine("Returning to Game Selection.");
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
+                Thread.Sleep(1000);
                 Console.Clear();
                 return;
             }
@@ -265,9 +265,9 @@ public class RoF
             }
             else if (input == "x")
             {
-                Console.WriteLine("Returning to Game Selection.");
-                Console.WriteLine("Press any key to continue.");
                 Console.Clear();
+                Console.WriteLine("Returning to Game Selection.");
+                Thread.Sleep(1000);
                 return;
             }
             else 

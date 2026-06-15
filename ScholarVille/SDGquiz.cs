@@ -12,9 +12,9 @@ public class SDGquiz
     //tweak to my liking
     //use same logic from real or fake
 
-    private int sdgScore = 0;
+    int sdgScore = 0;
     static List<string> Users = new List<string>();
-    private List<SDGQuestion> questions = new List<SDGQuestion>()
+    List<SDGQuestion> questions = new List<SDGQuestion>()
     {
         new SDGQuestion("SDG 1: Which SDG aims to end poverty?", "a", new string[]{"A. No Poverty",
             "B. Zero Hunger",
@@ -101,8 +101,9 @@ public class SDGquiz
         Console.Clear();
         if (input1 == "x")
         {
+            Console.Clear();
             Console.WriteLine("Returning to Game Selection.");
-            Console.WriteLine("Press any key to continue.");
+            Thread.Sleep(1000);
             Console.Clear();
             return;
         }
@@ -114,8 +115,7 @@ public class SDGquiz
             {
                 Console.Clear();
                 Console.WriteLine("Returning to Game Selection.");
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
+                Thread.Sleep(1000);
                 Console.Clear();
                 return;
             }
@@ -159,7 +159,7 @@ public class SDGquiz
                 return false;
             }
 
-            if (userAnswer != "a" &&
+            else if (userAnswer != "a" &&
                 userAnswer != "b" &&
                 userAnswer != "c")
             {
@@ -170,7 +170,7 @@ public class SDGquiz
                 continue;
             }
 
-            if (userAnswer == question.CorrectAnswer)
+            else if (userAnswer == question.CorrectAnswer)
             {
                 sdgScore++;
                 Console.WriteLine("\nYou're Correct! You earned a point!");
