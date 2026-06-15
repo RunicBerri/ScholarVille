@@ -141,7 +141,7 @@ public class SDGquiz
     private bool AskQuestion(int i)
     {
         var question = questions[i];
-        while (true) 
+        while (true)
         {
             Console.WriteLine("=========================================================================================");
             Console.WriteLine(question.Question);
@@ -154,36 +154,38 @@ public class SDGquiz
             Console.Write("\nAnswer: ");
             string userAnswer = Console.ReadLine().ToLower();
 
-            if (userAnswer == question.CorrectAnswer)
-            {
-                sdgScore++;
-                Console.WriteLine($"\nYou're Correct! You earned a point!");
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
-                Console.Clear();
-                break;
-            }
-            else if(userAnswer != question.CorrectAnswer)
-            {
-                Console.WriteLine($"You're Wrong!");
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
-                Console.Clear();
-                break;
-            }
-            else if (userAnswer == "x")
+            if (userAnswer == "x")
             {
                 return false;
             }
-            else
+
+            if (userAnswer != "a" &&
+                userAnswer != "b" &&
+                userAnswer != "c")
             {
-                Console.WriteLine("Please enter a valid answer.");
+                Console.WriteLine("\nPlease enter A, B, C, or X.");
                 Console.WriteLine("Press any key to continue.");
                 Console.ReadKey();
                 Console.Clear();
+                continue;
             }
+
+            if (userAnswer == question.CorrectAnswer)
+            {
+                sdgScore++;
+                Console.WriteLine("\nYou're Correct! You earned a point!");
+            }
+
+            else
+            {
+                Console.WriteLine("\nYou're Wrong!");
+            }
+
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+            Console.Clear();
+            return true;
         }
-        return true;
     }
 
     private void ShowResults()

@@ -31,8 +31,9 @@ public class TreePlanter
         Console.WriteLine("=========================================================================================");
         Console.WriteLine("game desc.");
         Console.WriteLine("\n                                 Press \"X\" to leave the game.");
-        Console.WriteLine("                                      Press any key to start.");
+        Console.WriteLine("                                    Press any key to start.");
         string input1 = Console.ReadLine().ToLower();
+        Console.Clear();
         if (input1 == "x")
         {
             Console.WriteLine("Returning to Game Selection.");
@@ -108,7 +109,6 @@ public class TreePlanter
             {
                 fertilizer--;
                 water--;
-
                 growth += 10;
 
                 Console.WriteLine("\nYour tree grew by 10%!");
@@ -159,15 +159,39 @@ public class TreePlanter
         for (int i = 0; i < Users.Count; i++) 
         {
             string[] parts = Users[i].Split(',');
+            int totalCollected = 0;
 
             if (parts[1] == userName)
             {
+
                 int newScore = Convert.ToInt32(parts[5]);
                 newScore++;
 
-                parts[5]= newScore.ToString();
+                parts[5] = newScore.ToString();
                 Users[i] = string.Join(",", parts);
 
+
+                for (int k = 0; k < UserTreeCollection.Count; k++) 
+                {
+                    string[] collParts = UserTreeCollection[k].Split(',');
+
+                    int pine = Convert.ToInt32(collParts[2]);
+                    int sakura = Convert.ToInt32(collParts[3]);
+                    int nara = Convert.ToInt32(collParts[4]);
+                    int birch = Convert.ToInt32(collParts[5]);
+                    int oak = Convert.ToInt32(collParts[6]);
+
+                    totalCollected = pine + sakura + nara + birch + oak;
+
+                }
+                int oldTotalCollected = Convert.ToInt32(parts[6]);
+
+                if (totalCollected > oldTotalCollected) 
+                {
+                    parts[6] = totalCollected.ToString();
+                }
+                Users[i] = string.Join(",", parts);
+                
                 break;
             }
         }
@@ -205,19 +229,19 @@ public class TreePlanter
                 switch (treeType) 
                 {
                     case "Pine Tree":
-                        parts[2] = "true";
+                        parts[2] = "1";
                         break;
                     case "Sakura Tree":
-                        parts[3] = "true";
+                        parts[3] = "1";
                         break;
                     case "Nara Tree":
-                        parts[4] = "true";
+                        parts[4] = "1";
                         break;
                     case "Birch Tree":
-                        parts[5] = "true";
+                        parts[5] = "1";
                         break;
                     case "Oak Tree":
-                        parts[6] = "true";
+                        parts[6] = "1";
                         break;
                 }
                 UserTreeCollection[i] = string.Join(",", parts);

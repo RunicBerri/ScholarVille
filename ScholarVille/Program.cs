@@ -175,8 +175,8 @@ namespace ScholarVille
                     $"{quizHiScore}" +
                     $"{Environment.NewLine}");
 
-                File.AppendAllText("UserTrees.txt", $"{userID},{inputUser},false,false,false,false,false{Environment.NewLine}");
-                File.AppendAllText("UserFish.txt", $"{userID},{inputUser},false,false,false,false,false{Environment.NewLine}");
+                File.AppendAllText("UserTrees.txt", $"{userID},{inputUser},0,0,0,0,0{Environment.NewLine}");
+                File.AppendAllText("UserFish.txt", $"{userID},{inputUser},0,0,0,0,0{Environment.NewLine}");
                 break;
             }
             Console.WriteLine("=========================================================================================");
@@ -268,7 +268,7 @@ namespace ScholarVille
                         GameMenu(userName);
                         break;
                     case "2":
-                        Console.WriteLine("My Scores ");
+                        MyScores(userName);
                         break;
                     case "3":
                         Console.WriteLine("Achievements");
@@ -339,6 +339,33 @@ namespace ScholarVille
                 }
             }
         }
+        static void MyScores(string userName)
+        {
+            Users = File.ReadAllLines("Users.txt").ToList();
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("                                       My Scores");
+            Console.WriteLine("=========================================================================================");
+            
+            for (int i = 0; i < Users.Count; i++)
+            {
+                string[] parts = Users[i].Split(',');
+
+                if (parts[1] == userName)
+                {
+                    Console.WriteLine($"Name: {parts[1]}");
+                    Console.WriteLine($"Total Trash Collected: {parts[3]}");
+                    Console.WriteLine($"Real and Fakes News Identified: {parts[4]}");
+                    Console.WriteLine($"Total Trees Planted: {parts[5]}");
+                    Console.WriteLine($"Trees Collected: {parts[6]}");
+                    Console.WriteLine($"Total Fish Saved: {parts[7]}");
+                    Console.WriteLine($"Highest SDG Quiz Score: {parts[8]}");
+                    Console.WriteLine("\nPress any key to return to menu...");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+                }
+            }
+        }
         static void SnakeGame(string userName)
         {
             Snake snake = new Snake(5, 5);
@@ -363,7 +390,6 @@ namespace ScholarVille
         {
             SDGquiz sdgQuiz = new SDGquiz();
             sdgQuiz.Start(userName);
-        }
-        
+        } 
     }
 }

@@ -11,7 +11,7 @@ public class Snake
     //needs better ui
     //tweak to my liking
 
-    static int width = 30;
+    static int width = 90;
     static int height = 20;
 
     static int foodX, foodY;
@@ -24,6 +24,8 @@ public class Snake
     public Snake(int startX, int startY)
     {
         snakeSpawn.Add((startX, startY));
+        snakeSpawn.Add((startX - 1, startY));
+        snakeSpawn.Add((startX - 2, startY)); ;
     }
     public void SpawnFood()
     {
@@ -33,6 +35,22 @@ public class Snake
 
     public void Start(string username) 
     {
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine("                                           Eco Snake");
+        Console.WriteLine("=========================================================================================");
+        Console.WriteLine("game desc.");
+        Console.WriteLine("\n                                 Press \"X\" to leave the game.");
+        Console.WriteLine("                                    Press any key to start.");
+        string input1 = Console.ReadLine().ToLower();
+        Console.Clear();
+        if (input1 == "x")
+        {
+            Console.WriteLine("Returning to Game Selection.");
+            Console.WriteLine("Press any key to continue.");
+            Console.Clear();
+            return;
+        }
+
         Console.CursorVisible = false;
 
         SpawnFood();
@@ -147,11 +165,36 @@ public class Snake
                 {
                     bool snakePart = false;
 
-                    foreach (var segment in snakeSpawn)
+                    for (int i = 0; i < snakeSpawn.Count; i++)
                     {
-                        if (segment.x == x && segment.y == y)
+                        if (snakeSpawn[i].x == x && snakeSpawn[i].y == y)
                         {
-                            Console.Write("O");
+                            if (i == 0) // Head
+                            {
+                                switch (direction)
+                                {
+                                    case "UP":
+                                        Console.Write("^");
+                                        break;
+
+                                    case "DOWN":
+                                        Console.Write("v");
+                                        break;
+
+                                    case "LEFT":
+                                        Console.Write("<");
+                                        break;
+
+                                    case "RIGHT":
+                                        Console.Write(">");
+                                        break;
+                                }
+                            }
+                            else // Body
+                            {
+                                Console.Write("O");
+                            }
+
                             snakePart = true;
                             break;
                         }
