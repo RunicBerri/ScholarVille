@@ -109,6 +109,7 @@ public class RoF
 
         ShowResults();
         UpdateInfo(userName, rofScore);
+        Restart(userName);
     }
 
     public class NewsQuestion
@@ -223,7 +224,7 @@ public class RoF
             Console.WriteLine("High risk of misinformation influence.");
         }
 
-        Console.WriteLine("\nPress any key to exit...");
+        Console.WriteLine("\nPress any key to continue.");
         Console.ReadKey();
         Console.Clear();
     }
@@ -246,6 +247,37 @@ public class RoF
             }
         }
         File.WriteAllLines("Users.txt", Users);
+    }
+
+    private void Restart(string userName) 
+    {
+        while (true)
+        {
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("                                          Play Again?");
+            Console.WriteLine("=========================================================================================");
+            Console.WriteLine("Enter (Y/N): ");
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "y")
+            {
+                Start(userName);
+            }
+            else if (input == "x")
+            {
+                Console.WriteLine("Returning to Game Selection.");
+                Console.WriteLine("Press any key to continue.");
+                Console.Clear();
+                return;
+            }
+            else 
+            {
+                Console.WriteLine("Please enter valid option.");
+                Console.WriteLine("Press any key to continue.");
+                Console.Clear();
+                Console.ReadKey();
+            }
+        } 
     }
 }
 
