@@ -163,7 +163,8 @@ namespace ScholarVille
                 int rofScore = 0;
                 int treesPlanted = 0;
                 int treesCollected = 0;
-                int fishSaved = 0;
+                int fishCaught = 0;
+                int fishCollected = 0;
                 int quizHiScore = 0;
 
                 File.AppendAllText("Users.txt", $"{userID},{inputUser},{inputPass}," +
@@ -171,7 +172,8 @@ namespace ScholarVille
                     $"{rofScore}," +
                     $"{treesPlanted}," +
                     $"{treesCollected}," +
-                    $"{fishSaved}," +
+                    $"{fishCaught}," +
+                    $"{fishCollected}," +
                     $"{quizHiScore}" +
                     $"{Environment.NewLine}");
 
@@ -356,9 +358,10 @@ namespace ScholarVille
                     Console.WriteLine($"Total Trash Collected: {parts[3]}");
                     Console.WriteLine($"Real and Fakes News Identified: {parts[4]}");
                     Console.WriteLine($"Total Trees Planted: {parts[5]}");
-                    Console.WriteLine($"Trees Collected: {parts[6]}");
-                    Console.WriteLine($"Total Fish Saved: {parts[7]}");
-                    Console.WriteLine($"Highest SDG Quiz Score: {parts[8]}");
+                    Console.WriteLine($"Unique Trees Collected: {parts[6]}");
+                    Console.WriteLine($"Total Fish Caught: {parts[7]}");
+                    Console.WriteLine($"Unique Fish Caught: {parts[8]}");
+                    Console.WriteLine($"Highest SDG Quiz Score: {parts[9]}");
                     Console.WriteLine("\nPress any key to return to menu...");
                     Console.ReadKey();
                     Console.Clear();

@@ -225,14 +225,14 @@ public class SDGquiz
 
             if (parts[1] == userName)
             {
-                int oldScore = Convert.ToInt32(parts[8]);
+                int oldScore = Convert.ToInt32(parts[9]);
 
                 if (oldScore < sdgScore) 
                 {
                     Console.WriteLine("=========================================================================================");
                     Console.WriteLine("                                      NEW HIGH SCORE ACHIEVED!");
                     Console.WriteLine("=========================================================================================");
-                    parts[8] = sdgScore.ToString();
+                    parts[9] = sdgScore.ToString();
                 }
                 Users[i] = string.Join(",", parts);
 
