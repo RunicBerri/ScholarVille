@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +10,52 @@ namespace ScholarVille
 {
     internal class Program
     {
+        static bool running = true;
         static List<string> Users = new List<string>();
         static void Main()
         {
             Start();
         }
 
+        static void TitleScreenAnim()
+        {
+            Console.CursorVisible = false;
+            ConsoleColor[] colors =
+            {
+                ConsoleColor.DarkMagenta,
+                ConsoleColor.DarkGreen,
+            };
+
+            int index = 0;
+
+            while (running)
+            {
+                Console.SetCursorPosition(0, 0);
+
+                Console.ForegroundColor = colors[index];
+
+                Console.WriteLine("=========================================================================================");
+                Console.WriteLine("░██████╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░█████╗░██████╗░██╗░░░██╗██╗██╗░░░░██╗░░░░███████╗");
+                Console.WriteLine("██╔════╝██╔══██╗██║░░██║██╔══██╗██║░░░░██╔══██╗██╔══██╗██║░░░██║██║██║░░░░██║░░░░██╔════╝");
+                Console.WriteLine("╚█████╗░██║░░╚═╝███████║██║░░██║██║░░░░███████║██████╔╝██║░░░██║██║██║░░░░██║░░░░█████╗░░");
+                Console.WriteLine("░╚═══██╗██║░░██╗██╔══██║██║░░██║██║░░░░██╔══██║██╔══██╗╚██╗░██╔╝██║██║░░░░██║░░░░██╔══╝░░");
+                Console.WriteLine("██████╔╝╚█████╔╝██║░░██║╚█████╔╝██████╗██║░░██║██║░░██║░╚████╔╝░██║██████╗██████╗███████╗");
+                Console.WriteLine("╚═════╝░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═════╝╚═╝░░╚═╝╚═╝░░╚═╝░░╚═══╝░░╚═╝╚═════╝╚═════╝╚══════╝");
+                Console.WriteLine("=========================================================================================");
+
+                Console.ResetColor();
+                Console.WriteLine("=========================================================================================");
+                Console.WriteLine("|                                 Login or Register:                                    |");
+                Console.WriteLine("|                                    [1] Login                                          |");
+                Console.WriteLine("|                                    [2] Register                                       |");
+                Console.WriteLine("|                                    [3] Exit                                           |");
+                Console.WriteLine("=========================================================================================");
+
+                index = (index + 1) % colors.Length;
+
+                Thread.Sleep(700); 
+            }
+        }
         static void Start()
         {
             CreateFile("UserTrees.txt");
@@ -23,53 +63,51 @@ namespace ScholarVille
             CreateFile("Users.txt");
             Users = File.ReadAllLines("Users.txt").ToList();
 
-            
+            running = true;
 
-            string input = "";
-            while (true)
+            Thread animThread = new Thread(TitleScreenAnim);
+            animThread.Start();
+
+            ConsoleKey input = Console.ReadKey(true).Key;
+
+            running = false;
+
+            animThread.Join();
+
+            Console.ResetColor();
+            Console.Clear();
+            Console.CursorVisible = true;
+
+            switch (input)
             {
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                     ScholarVille                ");
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine($"|                                 Login or Register:                                    |");
-                Console.WriteLine($"|                                    [1] Login                                          |");
-                Console.WriteLine($"|                                    [2] Register                                       |");
-                Console.WriteLine($"|                                    [3] Exit                                           |");
-                Console.WriteLine("=========================================================================================");
-                input = Console.ReadLine();
-                Console.Clear();
-
-                switch (input)
-                {
-                    case "1":
-                        Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                      Login Selected");
-                        Console.WriteLine("=========================================================================================");
-                        Console.ReadKey();
-                        Console.Clear();
-                        Login();
-                        break;
-                    case "2":
-                        Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                     Register Selected");
-                        Console.WriteLine("=========================================================================================");
-                        Console.ReadKey();
-                        Console.Clear();
-                        Register();
-                        Users = File.ReadAllLines("Users.txt").ToList();
-                        break;
-                    case "3":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                  Invalid Input. Try Again");
-                        Console.WriteLine("=========================================================================================");
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
-                }
+                case ConsoleKey.D1:
+                case ConsoleKey.NumPad1:
+                    Console.WriteLine("=========================================================================================");
+                    Console.WriteLine("                                      Login Selected");
+                    Console.WriteLine("=========================================================================================");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Login();
+                    break;
+                case ConsoleKey.D2:
+                case ConsoleKey.NumPad2:
+                    Console.WriteLine("=========================================================================================");
+                    Console.WriteLine("                                     Register Selected");
+                    Console.WriteLine("=========================================================================================");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Register();
+                    Users = File.ReadAllLines("Users.txt").ToList();
+                    break;
+                case ConsoleKey.D3:
+                case ConsoleKey.NumPad3:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("=========================================================================================");
+                    Console.WriteLine("                                  Invalid Input. Try Again");
+                    Console.WriteLine("=========================================================================================");
+                    break;
             }
         }
         static void CreateFile(string fileName)
@@ -251,8 +289,12 @@ namespace ScholarVille
             {
                 string input = "";
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                     ScholarVille                ");
-                Console.WriteLine("=========================================================================================");
+                Console.WriteLine("░██████╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░█████╗░██████╗░██╗░░░██╗██╗██╗░░░░██╗░░░░███████╗");
+                Console.WriteLine("██╔════╝██╔══██╗██║░░██║██╔══██╗██║░░░░██╔══██╗██╔══██╗██║░░░██║██║██║░░░░██║░░░░██╔════╝");
+                Console.WriteLine("╚█████╗░██║░░╚═╝███████║██║░░██║██║░░░░███████║██████╔╝██║░░░██║██║██║░░░░██║░░░░█████╗░░");
+                Console.WriteLine("░╚═══██╗██║░░██╗██╔══██║██║░░██║██║░░░░██╔══██║██╔══██╗╚██╗░██╔╝██║██║░░░░██║░░░░██╔══╝░░");
+                Console.WriteLine("██████╔╝╚█████╔╝██║░░██║╚█████╔╝██████╗██║░░██║██║░░██║░╚████╔╝░██║██████╗██████╗███████╗");
+                Console.WriteLine("╚═════╝░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═════╝╚═╝░░╚═╝╚═╝░░╚═╝░░╚═══╝░░╚═╝╚═════╝╚═════╝╚══════╝");
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine($"|                              Welcome to ScholarVille!                                 |");
                 Console.WriteLine($"|                                    [1] Play Games                                     |");
@@ -297,7 +339,12 @@ namespace ScholarVille
             {
                 string input = "";
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                      Choose a game              ");
+                Console.WriteLine("░██████╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░█████╗░██████╗░██╗░░░██╗██╗██╗░░░░██╗░░░░███████╗");
+                Console.WriteLine("██╔════╝██╔══██╗██║░░██║██╔══██╗██║░░░░██╔══██╗██╔══██╗██║░░░██║██║██║░░░░██║░░░░██╔════╝");
+                Console.WriteLine("╚█████╗░██║░░╚═╝███████║██║░░██║██║░░░░███████║██████╔╝██║░░░██║██║██║░░░░██║░░░░█████╗░░");
+                Console.WriteLine("░╚═══██╗██║░░██╗██╔══██║██║░░██║██║░░░░██╔══██║██╔══██╗╚██╗░██╔╝██║██║░░░░██║░░░░██╔══╝░░");
+                Console.WriteLine("██████╔╝╚█████╔╝██║░░██║╚█████╔╝██████╗██║░░██║██║░░██║░╚████╔╝░██║██████╗██████╗███████╗");
+                Console.WriteLine("╚═════╝░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═════╝╚═╝░░╚═╝╚═╝░░╚═╝░░╚═══╝░░╚═╝╚═════╝╚═════╝╚══════╝");
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine("=========================================================================================");
                 Console.WriteLine($"|                              Come and play while learning!                            |");
