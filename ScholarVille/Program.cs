@@ -11,12 +11,14 @@ namespace ScholarVille
     internal class Program
     {
         static List<string> Users = new List<string>();
+        static ASCII ascii = new ASCII();
         static void Main()
         {
             Start();
         }
         static void Start()
         {
+            Console.CursorVisible = false;
             CreateFile("UserTrees.txt");
             CreateFile("UserFish.txt");
             CreateFile("Users.txt");
@@ -27,31 +29,28 @@ namespace ScholarVille
                 Console.CursorVisible = false;
 
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("░██████╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░█████╗░██████╗░██╗░░░██╗██╗██╗░░░░██╗░░░░███████╗");
-                Console.WriteLine("██╔════╝██╔══██╗██║░░██║██╔══██╗██║░░░░██╔══██╗██╔══██╗██║░░░██║██║██║░░░░██║░░░░██╔════╝");
-                Console.WriteLine("╚█████╗░██║░░╚═╝███████║██║░░██║██║░░░░███████║██████╔╝██║░░░██║██║██║░░░░██║░░░░█████╗░░");
-                Console.WriteLine("░╚═══██╗██║░░██╗██╔══██║██║░░██║██║░░░░██╔══██║██╔══██╗╚██╗░██╔╝██║██║░░░░██║░░░░██╔══╝░░");
-                Console.WriteLine("██████╔╝╚█████╔╝██║░░██║╚█████╔╝██████╗██║░░██║██║░░██║░╚████╔╝░██║██████╗██████╗███████╗");
-                Console.WriteLine("╚═════╝░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═════╝╚═╝░░╚═╝╚═╝░░╚═╝░░╚═══╝░░╚═╝╚═════╝╚═════╝╚══════╝");
+                ascii.Scholarville();
                 Console.WriteLine("=========================================================================================");
-
                 Console.ResetColor();
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine("|                                 Login or Register:                                    |");
                 Console.WriteLine("|                                    [1] Login                                          |");
                 Console.WriteLine("|                                    [2] Register                                       |");
                 Console.WriteLine("|                                    [3] Exit                                           |");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 ConsoleKey input = Console.ReadKey(true).Key;
                 switch (input)
                 {
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
                         Console.Clear();
+
                         Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                      Login Selected");
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        ascii.Login();
+                        ascii.Selected();
+                        Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
@@ -61,7 +60,10 @@ namespace ScholarVille
                     case ConsoleKey.NumPad2:
                         Console.Clear();
                         Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                     Register Selected");
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        ascii.Register();
+                        ascii.Selected();
+                        Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
@@ -74,8 +76,12 @@ namespace ScholarVille
                         break;
                     default:
                         Console.Clear();
+                        
                         Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                  Invalid Input. Try Again");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        ascii.InvalidInput();
+                        Console.WriteLine("                                 Please try again.");
+                        Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
@@ -97,16 +103,27 @@ namespace ScholarVille
             while (true)
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                  Enter your Username: ");
-                Console.WriteLine("                                 (Type \"return\" to Return)");
+                ascii.Register();
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
+                Console.WriteLine("                               Enter your Username: ");
+                Console.WriteLine("                             (Type \"return\" to Return)");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 string inputUser = Console.ReadLine();
+                Console.Clear();
                 if (inputUser == "")
-                {
+                { 
                     Console.WriteLine("=========================================================================================");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    ascii.InvalidInput();
                     Console.WriteLine("                          Please Enter Username. Try again.                         ");
+                    Console.ResetColor();
                     Console.WriteLine("=========================================================================================");
+                    Console.ResetColor();
                     Console.ReadKey();
                     Console.Clear();
                     continue;
@@ -123,22 +140,35 @@ namespace ScholarVille
                 if (existing == true)
                 {
                     Console.WriteLine("=========================================================================================");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    ascii.InvalidInput();               
                     Console.WriteLine("                                  User Already Exists. ");
+                    Console.ResetColor();
                     Console.WriteLine("=========================================================================================");
                     Console.ReadKey();
                     Console.Clear();
                     continue;
                 }
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                  Enter your Password: ");
-                Console.WriteLine("                                 (Type \"return\" to Return)");
+                ascii.Register();
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
+                Console.WriteLine("                               Enter your Password: ");
+                Console.WriteLine("                             (Type \"return\" to Return)");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 string inputPass = Console.ReadLine();
+                Console.Clear();
                 if (inputPass == "")
                 {
                     Console.WriteLine("=========================================================================================");
-                    Console.WriteLine("                           Please Enter Password. Try again.                         ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    ascii.InvalidInput();
+                    Console.WriteLine("                          Please Enter Password. Try again.                         ");
+                    Console.ResetColor();
                     Console.WriteLine("=========================================================================================");
                     Console.ReadKey();
                     Console.Clear();
@@ -151,16 +181,26 @@ namespace ScholarVille
                     return;
                 }
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                   Confirm Password: ");
-                Console.WriteLine("                                 (Type \"return\" to Return)");
+                ascii.Register();
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
+                Console.WriteLine("                                 Confirm Password: ");
+                Console.WriteLine("                             (Type \"return\" to Return)");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 string confirm = Console.ReadLine();
                 Console.Clear();
                 if (confirm != inputPass)
                 {
+                    
                     Console.WriteLine("=========================================================================================");
-                    Console.WriteLine("                         Passwords do not match! Try again.                                  ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    ascii.InvalidInput();
+                    Console.WriteLine("                         Passwords do not match! Try again.");
+                    Console.ResetColor();
                     Console.WriteLine("=========================================================================================");
                     Console.ReadKey();
                     Console.Clear();
@@ -193,9 +233,15 @@ namespace ScholarVille
                 File.AppendAllText("UserFish.txt", $"{userID},{inputUser},0,0,0,0,0{Environment.NewLine}");
                 break;
             }
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("=========================================================================================");
-            Console.WriteLine("                               Registration Succesfull!                                  ");
+            ascii.Register();
             Console.WriteLine("=========================================================================================");
+            Console.ResetColor();
+            Console.WriteLine("                              Registration Succesfull!                                  ");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("=========================================================================================");
+            Console.ResetColor();
             Console.ReadKey();
             Console.Clear();
         }
@@ -206,13 +252,18 @@ namespace ScholarVille
 
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                           LOGIN");
+                ascii.Login();
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                  Enter your Username: ");
-                Console.WriteLine("                                  (Press Enter to Return)");
+                Console.ResetColor();
+                Console.WriteLine("                                Enter your Username: ");
+                Console.WriteLine("                               (Press Enter to Return)");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 inputUser = Console.ReadLine();
+                Console.Clear();
 
                 if (inputUser == "" || inputUser == "return")
                 {
@@ -221,11 +272,18 @@ namespace ScholarVille
                     return;
                 }
 
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                  Enter your Password: ");
-                Console.WriteLine("                                  (Press Enter to Return)");
+                ascii.Login();
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
+                Console.WriteLine("                                Enter your Password: ");
+                Console.WriteLine("                               (Press Enter to Return)");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 inputPass = Console.ReadLine();
+                Console.Clear();
 
                 if (inputPass == "" || inputPass == "return")
                 {
@@ -248,9 +306,13 @@ namespace ScholarVille
                         return;
                     }
                 }
+                
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                  Invalid User or Password");
-                Console.WriteLine("                                         Returning...");
+                Console.ForegroundColor = ConsoleColor.Red;
+                ascii.InvalidInput();
+                Console.WriteLine("                              Invalid User or Password");
+                Console.WriteLine("                                     Returning...");
+                Console.ResetColor();
                 Console.WriteLine("=========================================================================================");
                 Console.ReadKey();
                 Console.Clear();
@@ -261,27 +323,21 @@ namespace ScholarVille
         {
             while (true)
             {
-                Console.CursorVisible = false;
-
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("░██████╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░█████╗░██████╗░██╗░░░██╗██╗██╗░░░░██╗░░░░███████╗");
-                Console.WriteLine("██╔════╝██╔══██╗██║░░██║██╔══██╗██║░░░░██╔══██╗██╔══██╗██║░░░██║██║██║░░░░██║░░░░██╔════╝");
-                Console.WriteLine("╚█████╗░██║░░╚═╝███████║██║░░██║██║░░░░███████║██████╔╝██║░░░██║██║██║░░░░██║░░░░█████╗░░");
-                Console.WriteLine("░╚═══██╗██║░░██╗██╔══██║██║░░██║██║░░░░██╔══██║██╔══██╗╚██╗░██╔╝██║██║░░░░██║░░░░██╔══╝░░");
-                Console.WriteLine("██████╔╝╚█████╔╝██║░░██║╚█████╔╝██████╗██║░░██║██║░░██║░╚████╔╝░██║██████╗██████╗███████╗");
-                Console.WriteLine("╚═════╝░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═════╝╚═╝░░╚═╝╚═╝░░╚═╝░░╚═══╝░░╚═╝╚═════╝╚═════╝╚══════╝");
+                ascii.Scholarville();
                 Console.WriteLine("=========================================================================================");
-
                 Console.ResetColor();
                 Console.WriteLine($"|                              Welcome to ScholarVille!                                 |");
                 Console.WriteLine($"|                                    [1] Play Games                                     |");
                 Console.WriteLine($"|                                    [2] My Scores                                      |");
                 Console.WriteLine($"|                                    [3] Achievements                                   |");
-                Console.WriteLine($"|                                    [4] What are SDGs?                                 |");
-                Console.WriteLine($"|                                    [5] Logout                                         |");
+                Console.WriteLine($"|                                    [4] My Collection                                  |");
+                Console.WriteLine($"|                                    [5] What are SDGs?                                 |");
+                Console.WriteLine($"|                                    [6] Logout                                         |");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 ConsoleKey input = Console.ReadKey(true).Key;
                 Console.Clear();
 
@@ -301,19 +357,27 @@ namespace ScholarVille
                         break;
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        Console.WriteLine("SDG definitions");
+                        Console.WriteLine("My Collection");
                         break;
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
+                        Console.WriteLine("SDG definitions");
+                        break;
+                    case ConsoleKey.D6:
+                    case ConsoleKey.NumPad6:
                         Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                       Logging Out...");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        ascii.LogOut();
+                        Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
-                        Thread.Sleep(1000);
+                        Console.ReadKey();
                         Console.Clear();
                         return;
                     default:
                         Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                       Invalid Input.");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        ascii.InvalidInput();
+                        Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
@@ -325,16 +389,11 @@ namespace ScholarVille
         {
             while (true)
             {
-                string input = "";
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("░██████╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░█████╗░██████╗░██╗░░░██╗██╗██╗░░░░██╗░░░░███████╗");
-                Console.WriteLine("██╔════╝██╔══██╗██║░░██║██╔══██╗██║░░░░██╔══██╗██╔══██╗██║░░░██║██║██║░░░░██║░░░░██╔════╝");
-                Console.WriteLine("╚█████╗░██║░░╚═╝███████║██║░░██║██║░░░░███████║██████╔╝██║░░░██║██║██║░░░░██║░░░░█████╗░░");
-                Console.WriteLine("░╚═══██╗██║░░██╗██╔══██║██║░░██║██║░░░░██╔══██║██╔══██╗╚██╗░██╔╝██║██║░░░░██║░░░░██╔══╝░░");
-                Console.WriteLine("██████╔╝╚█████╔╝██║░░██║╚█████╔╝██████╗██║░░██║██║░░██║░╚████╔╝░██║██████╗██████╗███████╗");
-                Console.WriteLine("╚═════╝░░╚════╝░╚═╝░░╚═╝░╚════╝░╚═════╝╚═╝░░╚═╝╚═╝░░╚═╝░░╚═══╝░░╚═╝╚═════╝╚═════╝╚══════╝");
+                ascii.Scholarville();
                 Console.WriteLine("=========================================================================================");
-                Console.WriteLine("=========================================================================================");
+                Console.ResetColor();
                 Console.WriteLine($"|                              Come and play while learning!                            |");
                 Console.WriteLine($"|                                    [1] Eco Snake                                      |");
                 Console.WriteLine($"|                                    [2] News Detective                                 |");
@@ -342,33 +401,43 @@ namespace ScholarVille
                 Console.WriteLine($"|                                    [4] Sea Life Hero                                  |");
                 Console.WriteLine($"|                                    [5] SDG Quiz                                       |");
                 Console.WriteLine($"|                                    [6] Return                                         |");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine("=========================================================================================");
-                input = Console.ReadLine();
+                Console.ResetColor();
+                ConsoleKey input = Console.ReadKey(true).Key;
                 Console.Clear();
 
                 switch (input)
                 {
-                    case "1":
+                    case ConsoleKey.D1:
+                    case ConsoleKey.NumPad1:
                         SnakeGame(userName);
                         break;
-                    case "2":
+                    case ConsoleKey.D2:
+                    case ConsoleKey.NumPad2:
                         RealorFake(userName);
                         break;
-                    case "3":
+                    case ConsoleKey.D3:
+                    case ConsoleKey.NumPad3:
                         TreePlant(userName);
                         break;
-                    case "4":
+                    case ConsoleKey.D4:
+                    case ConsoleKey.NumPad4:
                         FishingGame(userName);
                         break;
-                    case "5":
+                    case ConsoleKey.D5:
+                    case ConsoleKey.NumPad5:
                         QuizGame(userName);
                         break;
-                    case "6":
+                    case ConsoleKey.D6:
+                    case ConsoleKey.NumPad6:
                         MainMenu(userName);
                         break;
                     default:
                         Console.WriteLine("=========================================================================================");
-                        Console.WriteLine("                                       Invalid Input.");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        ascii.InvalidInput();
+                        Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
@@ -404,6 +473,9 @@ namespace ScholarVille
                 }
             }
         }
+        static void Achievements() { }
+        static void UserCollection() { }
+        static void SDGs() { }
         static void SnakeGame(string userName)
         {
             Snake snake = new Snake(5, 5);

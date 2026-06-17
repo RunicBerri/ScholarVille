@@ -1,10 +1,11 @@
+using ScholarVille;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
 
 public class Snake
 {
@@ -23,6 +24,7 @@ public class Snake
     static List<string> Users = new List<string>();
 
     List<(int x, int y)> snakeSpawn = new List<(int, int)>();
+    static ASCII ascii = new ASCII();
     static Random rnd = new Random();
     public Snake(int startX, int startY)
     {
