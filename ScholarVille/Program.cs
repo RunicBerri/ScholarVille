@@ -27,17 +27,13 @@ namespace ScholarVille
             while (true) 
             {
                 Console.CursorVisible = false;
-
+                Console.WriteLine("_________________________________________________________________________________________");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("=========================================================================================");
                 ascii.Scholarville();
-                Console.WriteLine("=========================================================================================");
                 Console.ResetColor();
-                Console.WriteLine("|                                    [1] Login                                          |");
-                Console.WriteLine("|                                    [2] Register                                       |");
-                Console.WriteLine("|                                    [3] Exit                                           |");
+                ascii.StartMenu();
+                Console.WriteLine("-----------------------------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("=========================================================================================");
                 Console.ResetColor();
                 ConsoleKey input = Console.ReadKey(true).Key;
                 switch (input)
@@ -323,21 +319,15 @@ namespace ScholarVille
         {
             while (true)
             {
+                
+                Console.WriteLine("_________________________________________________________________________________________");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("=========================================================================================");
                 ascii.Scholarville();
-                Console.WriteLine("=========================================================================================");
                 Console.ResetColor();
-                Console.WriteLine($"|                              Welcome to ScholarVille!                                 |");
-                Console.WriteLine($"|                                    [1] Play Games                                     |");
-                Console.WriteLine($"|                                    [2] My Scores                                      |");
-                Console.WriteLine($"|                                    [3] Achievements                                   |");
-                Console.WriteLine($"|                                    [4] My Collection                                  |");
-                Console.WriteLine($"|                                    [5] What are SDGs?                                 |");
-                Console.WriteLine($"|                                    [6] Logout                                         |");
+                ascii.MainMenu();
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("=========================================================================================");
                 Console.ResetColor();
+                Console.WriteLine("-----------------------------------------------------------------------------------------");
                 ConsoleKey input = Console.ReadKey(true).Key;
                 Console.Clear();
 
@@ -353,15 +343,15 @@ namespace ScholarVille
                         break;
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
-                        Console.WriteLine("Achievements");
+                        Achievements(userName);
                         break;
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        Console.WriteLine("My Collection");
+                        UserCollection(userName);
                         break;
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
-                        Console.WriteLine("SDG definitions");
+                        SDGs();
                         break;
                     case ConsoleKey.D6:
                     case ConsoleKey.NumPad6:
@@ -389,21 +379,14 @@ namespace ScholarVille
         {
             while (true)
             {
+                
+                Console.WriteLine("_________________________________________________________________________________________");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("=========================================================================================");
                 ascii.Scholarville();
-                Console.WriteLine("=========================================================================================");
                 Console.ResetColor();
-                Console.WriteLine($"|                              Come and play while learning!                            |");
-                Console.WriteLine($"|                                    [1] Eco Snake                                      |");
-                Console.WriteLine($"|                                    [2] News Detective                                 |");
-                Console.WriteLine($"|                                    [3] Grow a Tree                                    |");
-                Console.WriteLine($"|                                    [4] Sea Life Hero                                  |");
-                Console.WriteLine($"|                                    [5] SDG Quiz                                       |");
-                Console.WriteLine($"|                                    [6] Return                                         |");
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                Console.WriteLine("=========================================================================================");
+                ascii.GameMenu();
                 Console.ResetColor();
+                Console.WriteLine("-----------------------------------------------------------------------------------------");
                 ConsoleKey input = Console.ReadKey(true).Key;
                 Console.Clear();
 
@@ -473,8 +456,8 @@ namespace ScholarVille
                 }
             }
         }
-        static void Achievements() { }
-        static void UserCollection() { }
+        static void Achievements(string userName) { }
+        static void UserCollection(string userName) { }
         static void SDGs() { }
         static void SnakeGame(string userName)
         {
