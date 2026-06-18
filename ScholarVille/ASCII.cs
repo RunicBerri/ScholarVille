@@ -19,7 +19,6 @@ namespace ScholarVille
             Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("█████╔╝╚████╔╝██║ ██║╚█████╔╝█████╗██║ ██║██║ ██║ ╚████╔╝ ██║█████╗█████╗█████╗"); Console.ResetColor(); Console.Write("    | \n");
             Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("╚════╝  ╚═══╝ ╚═╝ ╚═╝ ╚════╝ ╚════╝╚═╝ ╚═╝╚═╝ ╚═╝  ╚═══╝  ╚═╝╚════╝╚════╝╚════╝"); Console.ResetColor(); Console.Write("    | \n");
         }
-
         public void StartMenu() 
         {
             Console.WriteLine("|                                                                                       |");
@@ -76,37 +75,97 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
         }
-
         public void Login() 
         {
-            Console.WriteLine("                       ██╗      ██████╗  ██████╗ ██╗███╗   ██╗");
-            Console.WriteLine("                       ██║     ██╔═══██╗██╔════╝ ██║████╗  ██║");
-            Console.WriteLine("                       ██║     ██║   ██║██║  ███╗██║██╔██╗ ██║");
-            Console.WriteLine("                       ██║     ██║   ██║██║   ██║██║██║╚██╗██║");
-            Console.WriteLine("                       ███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║");
-            Console.WriteLine("                       ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝");
+            Console.ResetColor();
+            Console.WriteLine("|                                                                                       |");
+            Console.Write("|                         "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██╗      ██████╗  ██████╗ ██╗███╗   ██╗"); Console.ResetColor(); Console.Write("                       | \n");
+            Console.Write("|                         "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██║     ██╔═══██╗██╔════╝ ██║████╗  ██║"); Console.ResetColor(); Console.Write("                       | \n");
+            Console.Write("|                         "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██║     ██║   ██║██║  ███╗██║██╔██╗ ██║"); Console.ResetColor(); Console.Write("                       | \n");
+            Console.Write("|                         "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██║     ██║   ██║██║   ██║██║██║╚██╗██║"); Console.ResetColor(); Console.Write("                       | \n");
+            Console.Write("|                         "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║"); Console.ResetColor(); Console.Write("                       | \n");
+            Console.Write("|                         "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝"); Console.ResetColor(); Console.Write("                       | \n");
         }
-
-        public void Register() 
+        public void LoginSelected() 
         {
-            Console.WriteLine("             ██████╗ ███████╗ ██████╗ ██╗███████╗████████╗███████╗██████╗");
-            Console.WriteLine("             ██╔══██╗██╔════╝██╔════╝ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗");
-            Console.WriteLine("             ██████╔╝█████╗  ██║  ███╗██║███████╗   ██║   █████╗  ██████╔╝");
-            Console.WriteLine("             ██╔══██╗██╔══╝  ██║   ██║██║╚════██║   ██║   ██╔══╝  ██╔══██╗");
-            Console.WriteLine("             ██║  ██║███████╗╚██████╔╝██║███████║   ██║   ███████╗██║  ██║");
-            Console.WriteLine("             ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |       Login Selected      |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
         }
-
-        public void Selected() 
+        public void Register()
         {
-            Console.WriteLine("           ███████╗███████╗██╗     ███████╗ ██████╗████████╗███████╗██████╗");
-            Console.WriteLine("           ██╔════╝██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗");
-            Console.WriteLine("           ███████╗█████╗  ██║     █████╗  ██║        ██║   █████╗  ██║  ██║");
-            Console.WriteLine("           ╚════██║██╔══╝  ██║     ██╔══╝  ██║        ██║   ██╔══╝  ██║  ██║");
-            Console.WriteLine("           ███████║███████╗███████╗███████╗╚██████╗   ██║   ███████╗██████╔╝");
-            Console.WriteLine("           ╚══════╝╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚══════╝╚═════╝");
+            Console.ResetColor();
+            Console.WriteLine("|                                                                                       |");
+            Console.Write("|             "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██████╗ ███████╗ ██████╗ ██╗███████╗████████╗███████╗██████╗"); Console.ResetColor(); Console.Write("              | \n");
+            Console.Write("|             "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██╔══██╗██╔════╝██╔════╝ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗"); Console.ResetColor(); Console.Write("             | \n");
+            Console.Write("|             "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██████╔╝█████╗  ██║  ███╗██║███████╗   ██║   █████╗  ██████╔╝"); Console.ResetColor(); Console.Write("             | \n");
+            Console.Write("|             "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██╔══██╗██╔══╝  ██║   ██║██║╚════██║   ██║   ██╔══╝  ██╔══██╗"); Console.ResetColor(); Console.Write("             | \n");
+            Console.Write("|             "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██║  ██║███████╗╚██████╔╝██║███████║   ██║   ███████╗██║  ██║"); Console.ResetColor(); Console.Write("             | \n");
+            Console.Write("|             "); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝"); Console.ResetColor(); Console.Write("             | \n");
         }
-
+        public void RegisterSelected()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |     Register Selected     |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+        }
+        public void RegisterSuccess()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |    Register Successful!   |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+        }
         public void InvalidInput() 
         {
             Console.WriteLine("|                                                                                       |");
@@ -130,7 +189,6 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
         }
-
         public void LogOut() 
         {
             Console.WriteLine("|                                                                                       |");
@@ -153,6 +211,49 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+        }
+
+        public void Achievement()
+        {
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.Write("|"); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write(" ████╗  █████╗██╗ ██╗██╗██████╗██╗  ██╗██████╗███╗   ███╗██████╗███╗   ██╗██████╗█████╗"); Console.ResetColor(); Console.Write("|\n");
+            Console.Write("|"); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██╔═██╗██╔═══╝██║ ██║██║██╔═══╝██║  ██║██╔═══╝████╗ ████║██╔═══╝████╗  ██║╚═██╔═╝██╔══╝"); Console.ResetColor(); Console.Write("|\n");
+            Console.Write("|"); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██████║██║    ██████║██║████╗  ██║  ██║████╗  ██╔████╔██║████╗  ██╔██╗ ██║  ██║  █████╗"); Console.ResetColor(); Console.Write("|\n");
+            Console.Write("|"); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██╔═██║██║    ██╔═██║██║██╔═╝  ╚██╗██╔╝██╔═╝  ██║╚██╔╝██║██╔═╝  ██║╚██╗██║  ██║  ╚══██║"); Console.ResetColor(); Console.Write("|\n");
+            Console.Write("|"); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("██║ ██║╚█████╗██║ ██║██║██████╗ ╚███╔╝ ██████╗██║ ╚═╝ ██║██████╗██║ ╚████║  ██║  █████║"); Console.ResetColor(); Console.Write("|\n");
+            Console.Write("|"); Console.ForegroundColor = ConsoleColor.DarkMagenta; Console.Write("╚═╝ ╚═╝ ╚════╝╚═╝ ╚═╝╚═╝╚═════╝  ╚══╝  ╚═════╝╚═╝     ╚═╝╚═════╝╚═╝  ╚═══╝  ╚═╝  ╚════╝"); Console.ResetColor(); Console.Write("|\n");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+        }
+
+        public void trash1() 
+        {
+            
+            Console.WriteLine("|                                 Beginner Trash Collector                              |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                           Collect a total of 10 pieces of trash.                      |");
+            Console.ResetColor();
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void trash2()
+        {
+
+            Console.WriteLine("|                                  Adept Trash Collector                                |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                           Collect a total of 50 pieces of trash.                      |");
+            Console.ResetColor();
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+
+        public void trash3()
+        {
+
+            Console.WriteLine("|                                 Master Trash Collector                                |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                          Collect a total of 100 pieces of trash.                      |");
+            Console.ResetColor();
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
     }
 }
