@@ -109,38 +109,50 @@ namespace ScholarVille
 
         public void InvalidInput() 
         {
-            //change
-            Console.WriteLine("                   ██╗███╗   ██╗██╗   ██╗ █████╗ ██╗     ██╗██████╗");
-            Console.WriteLine("                   ██║████╗  ██║██║   ██║██╔══██╗██║     ██║██╔══██╗");
-            Console.WriteLine("                   ██║██╔██╗ ██║██║   ██║███████║██║     ██║██║  ██║");
-            Console.WriteLine("                   ██║██║╚██╗██║╚██╗ ██╔╝██╔══██║██║     ██║██║  ██║");
-            Console.WriteLine("                   ██║██║ ╚████║ ╚████╔╝ ██║  ██║███████╗██║██████╔╝");
-            Console.WriteLine("                   ╚═╝╚═╝  ╚═══╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝╚═════╝");
-
-            Console.WriteLine("                        ██╗███╗   ██╗██████╗ ██╗   ██╗████████╗");
-            Console.WriteLine("                        ██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝");
-            Console.WriteLine("                        ██║██╔██╗ ██║██████╔╝██║   ██║   ██║");
-            Console.WriteLine("                        ██║██║╚██╗██║██╔═══╝ ██║   ██║   ██║");
-            Console.WriteLine("                        ██║██║ ╚████║██║     ╚██████╔╝   ██║");
-            Console.WriteLine("                        ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |       Invalid Input.      |                              |");
+            Console.WriteLine("|                            |      Please try again.    |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
         }
 
         public void LogOut() 
         {
-            //change
-            Console.WriteLine("               ██╗      ██████╗  ██████╗  ██████╗ ██╗███╗   ██╗ ██████╗");
-            Console.WriteLine("               ██║     ██╔═══██╗██╔════╝ ██╔════╝ ██║████╗  ██║██╔════╝");
-            Console.WriteLine("               ██║     ██║   ██║██║  ███╗██║  ███╗██║██╔██╗ ██║██║  ███╗");
-            Console.WriteLine("               ██║     ██║   ██║██║   ██║██║   ██║██║██║╚██╗██║██║   ██║");
-            Console.WriteLine("               ███████╗╚██████╔╝╚██████╔╝╚██████╔╝██║██║ ╚████║╚██████╔╝");
-            Console.WriteLine("               ╚══════╝ ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝");
-
-            Console.WriteLine("                              ██████╗ ██╗   ██╗████████╗");
-            Console.WriteLine("                             ██╔═══██╗██║   ██║╚══██╔══╝");
-            Console.WriteLine("                             ██║   ██║██║   ██║   ██║");
-            Console.WriteLine("                             ██║   ██║██║   ██║   ██║");
-            Console.WriteLine("                             ╚██████╔╝╚██████╔╝   ██║");
-            Console.WriteLine("                              ╚═════╝  ╚═════╝    ╚═╝");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |        Logging Out.       |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
         }
     }
 }

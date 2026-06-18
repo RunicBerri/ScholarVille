@@ -76,7 +76,6 @@ namespace ScholarVille
                         Console.WriteLine("=========================================================================================");
                         Console.ForegroundColor = ConsoleColor.Red;
                         ascii.InvalidInput();
-                        Console.WriteLine("                                 Please try again.");
                         Console.ResetColor();
                         Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
