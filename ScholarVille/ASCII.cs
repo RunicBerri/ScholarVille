@@ -427,13 +427,139 @@ namespace ScholarVille
         {
             Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
-            Console.Write("|        "); Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("███╗   ███╗██╗   ██╗    ███████╗ ██████╗ ██████╗ ██████╗ ███████╗███████╗"); Console.ResetColor(); Console.Write("      |\n");
-            Console.Write("|        "); Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("████╗ ████║╚██╗ ██╔╝    ██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝"); Console.ResetColor(); Console.Write("      |\n");
-            Console.Write("|        "); Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("██╔████╔██║ ╚████╔╝     ███████╗██║     ██║   ██║██████╔╝█████╗  ███████╗"); Console.ResetColor(); Console.Write("      |\n");
-            Console.Write("|        "); Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("██║╚██╔╝██║  ╚██╔╝      ╚════██║██║     ██║   ██║██╔══██╗██╔══╝  ╚════██║"); Console.ResetColor(); Console.Write("      |\n");
-            Console.Write("|        "); Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("██║ ╚═╝ ██║   ██║       ███████║╚██████╗╚██████╔╝██║  ██║███████╗███████║"); Console.ResetColor(); Console.Write("      |\n");
-            Console.Write("|        "); Console.ForegroundColor = ConsoleColor.Yellow; Console.Write("╚═╝     ╚═╝   ╚═╝       ╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝"); Console.ResetColor(); Console.Write("      |\n");
+            Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("███╗   ███╗██╗   ██╗    ███████╗ ██████╗ ██████╗ ██████╗ ███████╗███████╗"); Console.ResetColor(); Console.Write("       |\n");
+            Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("████╗ ████║╚██╗ ██╔╝    ██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔════╝"); Console.ResetColor(); Console.Write("       |\n");
+            Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("██╔████╔██║ ╚████╔╝     ███████╗██║     ██║   ██║██████╔╝█████╗  ███████╗"); Console.ResetColor(); Console.Write("       |\n");
+            Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("██║╚██╔╝██║  ╚██╔╝      ╚════██║██║     ██║   ██║██╔══██╗██╔══╝  ╚════██║"); Console.ResetColor(); Console.Write("       |\n");
+            Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("██║ ╚═╝ ██║   ██║       ███████║╚██████╗╚██████╔╝██║  ██║███████╗███████║"); Console.ResetColor(); Console.Write("       |\n");
+            Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("╚═╝     ╚═╝   ╚═╝       ╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝"); Console.ResetColor(); Console.Write("       |\n");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+
+
+        public void Collection() 
+        {
+            Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
+            Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write(" ██████╗ ██████╗ ██╗     ██╗     ███████╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗"); Console.ResetColor(); Console.Write("   |\n");
+            Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("██╔════╝██╔═══██╗██║     ██║     ██╔════╝██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║"); Console.ResetColor(); Console.Write("   |\n");
+            Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("██║     ██║   ██║██║     ██║     █████╗  ██║        ██║   ██║██║   ██║██╔██╗ ██║"); Console.ResetColor(); Console.Write("   |\n");
+            Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("██║     ██║   ██║██║     ██║     ██╔══╝  ██║        ██║   ██║██║   ██║██║╚██╗██║"); Console.ResetColor(); Console.Write("   |\n");
+            Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("╚██████╗╚██████╔╝███████╗███████╗███████╗╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║"); Console.ResetColor(); Console.Write("   |\n");
+            Console.Write("|    "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write(" ╚═════╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝"); Console.ResetColor(); Console.Write("   |\n");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+        }
+
+        //user collection
+
+        public void TilapiaArt() 
+        {
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                              ██                                       |" +
+                          "\r\n|                                          ████ ██                                      |" +
+                          "\r\n|                                        ███████ ███                                    |" +
+                          "\r\n|                                      ███    █ █ ███      █████                        |" +
+                          "\r\n|                                   ██     █     █  ██   ███  █                         |" +
+                          "\r\n|                                 ███ ██    █  █  █   ████ █ █                          |" +
+                          "\r\n|                                 █         █    █       █   █                          |" +
+                          "\r\n|                                 ███      █ ██████   ██████  █                         |" +
+                          "\r\n|                                   ███  ██  ██  █  ███   ██████                        |" +
+                          "\r\n|                                      █████   ██ █████                                 |" +
+                          "\r\n|                                           ███ ██                                      |" +
+                          "\r\n|                                             ██ █                                      |" +
+                          "\r\n|                                               █                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void MilkfishArt()
+        {
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                █                                      |" +
+                          "\r\n|                                               █ █                                     |" +
+                          "\r\n|                                            ██   ██                                    |" +
+                          "\r\n|              ██                          █        █                                   |" +
+                          "\r\n|                 ██                    ███ █████████████████████                       |" +
+                          "\r\n|               ██ █ █        █    ████████████████████████ ███████████                 |" +
+                          "\r\n|                ██    █   ████████████████████████      ████     █  █ █ ██             |" +
+                          "\r\n|                 █ ██████████                      ████      █   ████   █              |" +
+                          "\r\n|                ██   ███████            ████████ ███   ███ █ █ █     ████              |" +
+                          "\r\n|               █   █ █        ██████                        █    █████                 |" +
+                          "\r\n|                █ ██            █ ███   ██████████████████████                         |" +
+                          "\r\n|              ███                         █                                            |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void CatfishArt() 
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                        ████  █                                        |" +
+                          "\r\n|                          ██████████████████████                       ███             |" +
+                          "\r\n|                    ██████   ██            ███                     ████ █              |" +
+                          "\r\n|                    █  █ ███ █ ███             ███████    ████   ████  ██              |" +
+                          "\r\n|                  ████████   █          ██████        █████  ███████ ██                |" +
+                          "\r\n|                ███      ████████ ████   █  ████████████████████   █ █                 |" +
+                          "\r\n|              █  █        █   █       ██                           █ █                 |" +
+                          "\r\n|                 █    ███  █   ██       ██████████           █  ████ ██                |" +
+                          "\r\n|                ██      ████     ██    ███   █   █         ████   ███ ██               |" +
+                          "\r\n|                █          █ ███████      ███      ██ ██ ██████     █████              |" +
+                          "\r\n|                           █       ███████  ███████   █      █         ██              |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void TunaArt()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                         ██                                            |" +
+                          "\r\n|                                     ███                                               |" +
+                          "\r\n|                                   █ ██                                                |" +
+                          "\r\n|                                   █   █                                               |" +
+                          "\r\n|                                  █ █████                              ███             |" +
+                          "\r\n|                          █████           ███    ███                ██ █               |" +
+                          "\r\n|                      █████████████████████  █ ████  █            ██  █                |" +
+                          "\r\n|                   █████████████████████████████     ██         ██   █                 |" +
+                          "\r\n|                ████                        █████████  ████    ██   █                  |" +
+                          "\r\n|               █      ██      █          ██        █████████████   █                   |" +
+                          "\r\n|                ███   ███          ██████                      ███ █                   |" +
+                          "\r\n|               ██  ██           █████ █                     ████    █                  |" +
+                          "\r\n|                 ██           █ █    █                  ████    █   ██                 |" +
+                          "\r\n|                  ███       █   ████                 ██         ██  █                  |" +
+                          "\r\n|                      ███ ██                      ██████           █  █                |" +
+                          "\r\n|                          ████            ██████ ██ █                ████              |" +
+                          "\r\n|                              █████ ████           ██                  █               |" +
+                          "\r\n|                               ██  █                                                   |" +
+                          "\r\n|                                ██ █                                                   |" +
+                          "\r\n|                                 ███                                                   |" +
+                          "\r\n|                                    █                                                  |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void GoldfishArt()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                              ███████                                  |" +
+                          "\r\n|                                             ████    █████                             |" +
+                          "\r\n|                                          ███          ████ █                          |" +
+                          "\r\n|                                       ███      █████████ █                            |" +
+                          "\r\n|                                  ████     ████████████████                            |" +
+                          "\r\n|                  ███████              █ ███                ██                         |" +
+                          "\r\n|               ██    ██████████       ████ ████               ████                     |" +
+                          "\r\n|                            █████    ███       █                 ████                  |" +
+                          "\r\n|                            █  ███           █████    ██     █ ██                      |" +
+                          "\r\n|                          █ ██ █ ███       ███    ███   ██ █   ██   ███   █            |" +
+                          "\r\n|                         █ █ ███ ██████ ███   █ █  █  █     ██ █    ██    █            |" +
+                          "\r\n|                          █ █ █████████ █ ██ ██ ██   ██ █  █   █          █            |" +
+                          "\r\n|                                       ███    ██  ███   ██ █    █       ██             |" +
+                          "\r\n|                           ██████  ████████████ ██   ███      █  ██  ███               |" +
+                          "\r\n|                            ███  ████████      ██   █ █  █████ ██ ████                 |" +
+                          "\r\n|                            ██   ██ █ ██        ███  ██ █      █████                   |" +
+                          "\r\n|                           ██   ██ █ ███          ████ █ ██ ██   █                     |" +
+                          "\r\n|                        ████  █ █ █ ██                ███████████                      |" +
+                          "\r\n|              █    █████████  █ ███ ██  ██████████  ██      █████                      |" +
+                          "\r\n|                █████████     █ ██ ███  █████    ████      ████                        |" +
+                          "\r\n|                            █ █ ████          █████        ██                          |" +
+                          "\r\n|                            █   ███       ██████         ███                           |" +
+                          "\r\n|                               ███       ██             █                              |" +
+                          "\r\n|                          █ █████                                                      |" +
+                          "\r\n|                     █████████                                                         |");
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
     }

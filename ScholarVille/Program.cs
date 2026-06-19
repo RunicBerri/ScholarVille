@@ -11,6 +11,8 @@ namespace ScholarVille
     internal class Program
     {
         static List<string> Users = new List<string>();
+        static List<string> UserTreeCollection = new List<string>();
+        static List<string> UserFishCollection = new List<string>();
         static ASCII ascii = new ASCII();
         static void Main()
         {
@@ -19,10 +21,12 @@ namespace ScholarVille
         static void Start()
         {
             Console.CursorVisible = false;
+            CreateFile("Users.txt");
             CreateFile("UserTrees.txt");
             CreateFile("UserFish.txt");
-            CreateFile("Users.txt");
             Users = File.ReadAllLines("Users.txt").ToList();
+            UserTreeCollection = File.ReadAllLines("UserTrees.txt").ToList();
+            UserFishCollection = File.ReadAllLines("UserFish.txt").ToList();
 
             while (true) 
             {
@@ -356,7 +360,6 @@ namespace ScholarVille
         {
             while (true)
             {
-                
                 Console.WriteLine("_________________________________________________________________________________________");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 ascii.Scholarville();
@@ -385,10 +388,12 @@ namespace ScholarVille
                         break;
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
+                        Console.Clear();
                         UserCollection(userName);
                         break;
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
+                        Console.Clear();
                         SDGs();
                         break;
                     case ConsoleKey.D6:
@@ -472,24 +477,29 @@ namespace ScholarVille
             Users = File.ReadAllLines("Users.txt").ToList();
             ascii.myScore();
             Console.ResetColor();
-            
-            
+
             for (int i = 0; i < Users.Count; i++)
             {
                 string[] parts = Users[i].Split(',');
 
                 if (parts[1] == userName)
                 {
-                    Console.WriteLine($"Name: {parts[1]}");
-                    Console.WriteLine($"Total Trash Collected: {parts[3]}");
-                    Console.WriteLine($"Real and Fakes News Identified: {parts[4]}");
-                    Console.WriteLine($"Total Trees Planted: {parts[5]}");
-                    Console.WriteLine($"Unique Trees Collected: {parts[6]}");
-                    Console.WriteLine($"Total Fish Caught: {parts[7]}");
-                    Console.WriteLine($"Unique Fish Caught: {parts[8]}");
-                    Console.WriteLine($"Highest SDG Quiz Score: {parts[9]}");
-                    Console.WriteLine("\nPress any key to return to menu...");
                     Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine($"|     Name: {parts[1]}                                                                           |");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine($"|     Total Trash Collected: {parts[3]}                                                         |");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine($"|     Real and Fakes News Recognized: {parts[4]}                                                 |");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine($"|     Total Trees Planted: {parts[5]}                                                            |");
+                    Console.WriteLine($"|     Unique Trees Collected: {parts[6]}                                                         |");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine($"|     Total Fish Caught: {parts[7]}                                                              |");
+                    Console.WriteLine($"|     Unique Fish Caught: {parts[8]}                                                             |");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine($"|     Highest SDG Quiz Score: {parts[9]}                                                         |");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                          Press any key to return to menu...                           |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.ReadKey();
                     Console.Clear();
@@ -514,6 +524,7 @@ namespace ScholarVille
                     int quizHiScore = Convert.ToInt32(parts[9]);
 
                     ascii.Achievement();
+                    Console.WriteLine("|                             Press any key to return to menu...                        |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -941,7 +952,155 @@ namespace ScholarVille
                 ascii.sdgScore3();
             }
         }
-        static void UserCollection(string userName) { }
+        static void UserCollection(string userName)
+        {
+            UserTreeCollection = File.ReadAllLines("UserTrees.txt").ToList();
+            UserFishCollection = File.ReadAllLines("UserFish.txt").ToList();
+
+            for (int i = 0; i < UserTreeCollection.Count; i++)
+            {
+                string[] parts = UserTreeCollection[i].Split(',');
+                if (parts[1] == userName)
+                {
+                    int pine = Convert.ToInt32(parts[2]);
+                    int sakura = Convert.ToInt32(parts[3]);
+                    int nara = Convert.ToInt32(parts[4]);
+                    int birch = Convert.ToInt32(parts[5]);
+                    int oak = Convert.ToInt32(parts[6]);
+                }
+            }
+            for (int i = 0; i < UserFishCollection.Count; i++)
+            {
+                string[] parts = UserFishCollection[i].Split(',');
+                if (parts[1] == userName)
+                {
+                    int tilapia = Convert.ToInt32(parts[2]);
+                    int milkfish = Convert.ToInt32(parts[3]);
+                    int catfish = Convert.ToInt32(parts[4]);
+                    int tuna = Convert.ToInt32(parts[5]);
+                    int goldFish = Convert.ToInt32(parts[6]);
+
+
+                    ascii.Collection();
+                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                         Tilapia                                       |");
+                    fish1(tilapia);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                         Milkfish                                      |");
+                    fish2(milkfish);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                          Catfish                                      |");
+                    fish3(catfish);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                           Tuna                                        |");
+                    fish4(tuna);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                        Golden Fish                                    |");
+                    fish5(goldFish);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                }
+            }
+            Console.ReadKey();
+            Console.Clear();
+        }
+        static void fish1(int tilapia) 
+        {
+            if (tilapia >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.TilapiaArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.TilapiaArt();
+            }
+        }
+        static void fish2(int milkfish)
+        {
+            if (milkfish >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.MilkfishArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.MilkfishArt();
+            }
+        }
+        static void fish3(int catfish)
+        {
+            if (catfish >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.CatfishArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.CatfishArt();
+            }
+        }
+        static void fish4(int tuna)
+        {
+            if (tuna >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.TunaArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.TunaArt();
+            }
+        }
+        static void fish5(int goldFish)
+        {
+            if (goldFish >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.GoldfishArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.GoldfishArt();
+            }
+        }
         static void SDGs() { }
         static void SnakeGame(string userName)
         {
