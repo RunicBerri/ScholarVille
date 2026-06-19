@@ -380,6 +380,7 @@ namespace ScholarVille
                         break;
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
+                        Console.Clear();
                         Achievements(userName);
                         break;
                     case ConsoleKey.D4:
@@ -469,9 +470,9 @@ namespace ScholarVille
         static void MyScores(string userName)
         {
             Users = File.ReadAllLines("Users.txt").ToList();
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("                                       My Scores");
-            Console.WriteLine("=========================================================================================");
+            ascii.myScore();
+            Console.ResetColor();
+            
             
             for (int i = 0; i < Users.Count; i++)
             {
@@ -488,14 +489,17 @@ namespace ScholarVille
                     Console.WriteLine($"Unique Fish Caught: {parts[8]}");
                     Console.WriteLine($"Highest SDG Quiz Score: {parts[9]}");
                     Console.WriteLine("\nPress any key to return to menu...");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.ReadKey();
                     Console.Clear();
                     break;
                 }
-            }
+            }  
         }
         static void Achievements(string userName) 
         {
+            Users = File.ReadAllLines("Users.txt").ToList();
             for (int i= 0; i < Users.Count; i++) 
             {
                 string[] parts = Users[i].Split(',');
@@ -510,8 +514,41 @@ namespace ScholarVille
                     int quizHiScore = Convert.ToInt32(parts[9]);
 
                     ascii.Achievement();
-
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.WriteLine("|                                       Eco Snake                                       |");
+                    Console.ResetColor();
                     Achievments1(trashCollected);
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("|                                    News Detective                                     |");
+                    Console.ResetColor();
+                    Achievments2(rofScore);
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("|                                      Grow A Tree                                      |");
+                    Console.ResetColor();
+                    Achievments3(treesPlanted,treesCollected);
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkCyan;
+                    Console.WriteLine("|                                    Catch & Conserve                                   |");
+                    Console.ResetColor();
+                    Achievments4(fishCaught,fishCollected);
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                    Console.WriteLine("|                                        SDG Quiz                                       |");
+                    Console.ResetColor();
+                    Achievments5(quizHiScore);
 
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
@@ -527,7 +564,8 @@ namespace ScholarVille
             {
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.WriteLine("|                                                                                       |");
-                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
                 ascii.trash1();
             }
             else
@@ -544,7 +582,8 @@ namespace ScholarVille
             {
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.WriteLine("|                                                                                       |");
-                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
                 ascii.trash2();
             }
             else
@@ -561,7 +600,8 @@ namespace ScholarVille
             {
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.WriteLine("|                                                                                       |");
-                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
                 ascii.trash3();
             }
             else
@@ -571,6 +611,334 @@ namespace ScholarVille
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
                 ascii.trash3();
+            }
+        }
+        static void Achievments2(int rofScore)
+        {
+            //achivement 1
+            if (rofScore >= 15)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.rof1();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.rof1();
+            }
+
+            //achivement 2
+            if (rofScore >= 60)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.rof2();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.rof2();
+            }
+
+            //achivement 3
+            if (rofScore >= 120)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.rof3();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.rof3();
+            }
+        }
+        static void Achievments3(int treesPlanted, int treesCollected)
+        {
+            //tree plant
+            if (treesPlanted >= 3)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.treeP1();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.treeP1();
+            }
+
+            if (treesPlanted >= 15)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.treeP2();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.treeP2();
+            }
+
+            if (treesPlanted >= 30)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.treeP3();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.treeP3();
+            }
+
+            //tree collect
+            if (treesCollected >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.treeC1();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.treeC1();
+            }
+
+            if (treesCollected >= 3)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.treeC2();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.treeC2();
+            }
+
+            if (treesCollected >= 5)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.treeC3();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.treeC3();
+            }
+        }
+        static void Achievments4(int fishCaught, int fishCollected)
+        {
+            //achivement 1
+            if (fishCaught >= 15)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.Fishcaught1();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.Fishcaught1();
+            }
+
+            //achivement 2
+            if (fishCaught >= 60)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.Fishcaught2();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.Fishcaught2();
+            }
+
+            //achivement 3
+            if (fishCaught >= 120)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.Fishcaught3();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.Fishcaught3();
+            }
+
+            //achivement 1
+            if (fishCollected >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.FishCollect1();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.FishCollect1();
+            }
+
+            //achivement 2
+            if (fishCollected >= 3)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.FishCollect2();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.FishCollect2();
+            }
+
+            //achivement 3
+            if (fishCollected >= 5)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.FishCollect3();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.FishCollect3();
+            }
+        }
+        static void Achievments5(int quizHiScore)
+        {
+            //achivement 1
+            if (quizHiScore >= 10)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.sdgScore1();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.sdgScore1();
+            }
+
+            //achivement 2
+            if (quizHiScore >= 14)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.sdgScore2();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.sdgScore2();
+            }
+
+            //achivement 3
+            if (quizHiScore >= 17)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+                ascii.sdgScore3();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.sdgScore3();
             }
         }
         static void UserCollection(string userName) { }
