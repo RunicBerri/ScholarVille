@@ -178,12 +178,12 @@ public class TreePlanter
                     string[] collParts = UserTreeCollection[k].Split(',');
 
                     int pine = Convert.ToInt32(collParts[2]);
-                    int sakura = Convert.ToInt32(collParts[3]);
-                    int nara = Convert.ToInt32(collParts[4]);
+                    int oak= Convert.ToInt32(collParts[3]);
+                    int narra = Convert.ToInt32(collParts[4]);
                     int birch = Convert.ToInt32(collParts[5]);
-                    int oak = Convert.ToInt32(collParts[6]);
+                    int sakura = Convert.ToInt32(collParts[6]);
 
-                    totalCollected = pine + sakura + nara + birch + oak;
+                    totalCollected = pine + oak + narra + birch + sakura;
 
                 }
                 int oldTotalCollected = Convert.ToInt32(parts[6]);
@@ -209,16 +209,16 @@ public class TreePlanter
                 treeType = "Pine Tree";
                 break;
             case 2:
-                treeType = "Sakura Tree";
+                treeType = "Oak Tree";
                 break;
             case 3:
-                treeType = "Nara Tree";
+                treeType = "Narra Tree";
                 break;
             case 4:
                 treeType = "Birch Tree";
                 break;
             case 5:
-                treeType = "Oak Tree";
+                treeType = "Sakura Tree";
                 break;
         }
 
@@ -233,16 +233,16 @@ public class TreePlanter
                     case "Pine Tree":
                         parts[2] = "1";
                         break;
-                    case "Sakura Tree":
+                    case "Oak Tree":
                         parts[3] = "1";
                         break;
-                    case "Nara Tree":
+                    case "Narra Tree":
                         parts[4] = "1";
                         break;
                     case "Birch Tree":
                         parts[5] = "1";
                         break;
-                    case "Oak Tree":
+                    case "Sakura Tree":
                         parts[6] = "1";
                         break;
                 }

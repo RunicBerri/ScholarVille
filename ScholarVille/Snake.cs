@@ -12,7 +12,7 @@ public class Snake
     //needs better ui
     //tweak to my liking
 
-    int width = 90;
+    int width = 89;
     int height = 20;
 
     int foodX, foodY;
@@ -32,7 +32,7 @@ public class Snake
         snakeSpawn.Add((startX - 1, startY));
         snakeSpawn.Add((startX - 2, startY)); ;
     }
-    public void SpawnFood()
+    public void SpawnTrash()
     {
         foodX = rnd.Next(1, width - 1);
         foodY = rnd.Next(1, height - 1);
@@ -42,18 +42,24 @@ public class Snake
     {
         Users = File.ReadAllLines("Users.txt").ToList();
 
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
         play = true;
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                                           Eco Snake");
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("game desc.");
-        Console.WriteLine("\n                                 Press \"X\" to leave the game.");
-        Console.WriteLine("                                    Press any key to start.");
-        string input1 = Console.ReadLine().ToLower();
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                          Eco Snake                                    |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                        SDG 12: Responsible Consumption and Production                 |");
+        Console.WriteLine("|                  Grow your cleanup crew by collecting trash and help support!         |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.WriteLine("|                                   Press any key to start.                             |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        ConsoleKey input = Console.ReadKey(true).Key;
         Console.Clear();
-        if (input1 == "x")
+        if (input == ConsoleKey.X)
         {
-            Console.WriteLine("Returning to Game Selection.");
+            ascii.Returning();
             Thread.Sleep(1000);
             Console.Clear();
             return;
@@ -61,7 +67,7 @@ public class Snake
 
         Console.CursorVisible = false;
 
-        SpawnFood();
+        SpawnTrash();
 
         while (play)
         {
@@ -72,7 +78,7 @@ public class Snake
             Thread.Sleep(100);
         }
         Console.Clear();
-        Console.WriteLine("Returning to Game Selection...");
+        ascii.Returning();
         Thread.Sleep(1000);
         Console.Clear();
         return;
@@ -152,7 +158,7 @@ public class Snake
         if (headX == foodX && headY == foodY)
         {
             snakeScore++;
-            SpawnFood();
+            SpawnTrash();
         }
         else
         {
@@ -190,7 +196,7 @@ public class Snake
                                 switch (direction)
                                 {
                                     case "UP":
-                                        Console.Write("^");
+                                        Console.Write("^");                 
                                         break;
 
                                     case "DOWN":
@@ -223,24 +229,64 @@ public class Snake
 
             Console.WriteLine();
         }
-
-        Console.WriteLine($"Score: {snakeScore}");
-        Console.WriteLine("Controls: W A S D");
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine($"|                                         Score: {snakeScore}                                      |");
+        Console.WriteLine("|                                     Controls: W A S D                                 |");
+        Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
     }
 
     public void GameOver(string userName)
     {
         play = false;
-        Console.Clear();
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                                       GAME OVER!");
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine($"                                     Final Score: {snakeScore}");
-        Console.WriteLine("                                 Press any key to exit.");
-        UpdateInfo(userName, snakeScore);
-        Console.ReadKey();
+        
+
+        while (true) 
+        {
+            Console.Clear();
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                      GAME OVER!                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine($"|                                   Final Score: {snakeScore}                                      |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                    Play Again?  (Y/N)                                 |");
+            string input = Console.ReadLine().ToLower();
+            if (input == "y")
+            {
+                Console.Clear();
+                ResetGame();
+                Console.ResetColor();
+                UpdateInfo(userName, snakeScore);
+                Start(userName);
+                break;
+            }
+            else if(input == "n") 
+            {
+                Console.WriteLine("|                                Press any key to exit.                                 |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                UpdateInfo(userName, snakeScore);
+                Console.ReadKey();
+                break;
+            }
+        }
     }
 
+    private void ResetGame()
+    {
+        snakeSpawn.Clear();
+
+        snakeSpawn.Add((45, 10));
+        snakeSpawn.Add((44, 10));
+        snakeSpawn.Add((43, 10));
+
+        snakeScore = 0;
+        direction = "RIGHT";
+
+        SpawnTrash();
+    }
     public void UpdateInfo(string userName, int snakeScore)
     {
         for (int i = 0; i < Users.Count; i++)

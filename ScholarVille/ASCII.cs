@@ -213,6 +213,33 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
         }
 
+        public void Returning()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |        Returning to       |                              |");
+            Console.WriteLine("|                            |       Game Selection.     |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.ResetColor();
+        }
         public void Achievement()
         {
             Console.WriteLine("_________________________________________________________________________________________");
@@ -226,7 +253,6 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
         }
-
         //eco snake
         public void trash1() 
         {
@@ -255,7 +281,6 @@ namespace ScholarVille
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
         //rof
         public void rof1()
         {
@@ -284,7 +309,6 @@ namespace ScholarVille
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
         //treePlanter
         public void treeP1()
         {
@@ -340,7 +364,6 @@ namespace ScholarVille
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
         //Fishing
         public void Fishcaught1()
         {
@@ -393,7 +416,6 @@ namespace ScholarVille
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
         //sdg quiz
         public void sdgScore1()
         {
@@ -422,7 +444,6 @@ namespace ScholarVille
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
         public void myScore()
         {
             Console.WriteLine("_________________________________________________________________________________________");
@@ -435,8 +456,6 @@ namespace ScholarVille
             Console.Write("|       "); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write("╚═╝     ╚═╝   ╚═╝       ╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝"); Console.ResetColor(); Console.Write("       |\n");
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
-
         public void Collection() 
         {
             Console.WriteLine("_________________________________________________________________________________________");
@@ -450,9 +469,122 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
         }
-
         //user collection
-
+        public void PineArt() 
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                           ST                                          |" +
+                          "\r\n|                                          SUVSW                                        |" +
+                          "\r\n|                                        YSVWWVVRZ                                      |" +
+                          "\r\n|                                     USSTVWWWWWVUSSW                                   |" +
+                          "\r\n|                                      YRUQJUSTQRVR                                     |" +
+                          "\r\n|                                      QSSSSPSTSTSRT                                    |" +
+                          "\r\n|                                   YRTTUUVUUUUVUUTTSPO                                 |" +
+                          "\r\n|                                   SNMQTROTQKQTOLQLPR                                  |" +
+                          "\r\n|                                   ROLNROKNQRRMNORSSQO                                 |" +
+                          "\r\n|                                 VOSSSSSSSSTTSSSSSTTSRQMZ                              |" +
+                          "\r\n|                                 UMJLSRKQROPSQLSRJRSNLQ                                |" +
+                          "\r\n|                                 POLLNMMNMONKLNLLMONNNNM                               |" +
+                          "\r\n|                               ROQQPQQQQQQQPOPQQQQQQKQQPONQ                            |" +
+                          "\r\n|                               VKJIONJNPLQPMOPMPOHMNLIJKLWZ                            |" +
+                          "\r\n|                               MMLKMLIIJIJJKIMIKIJLLJJNNMJS                            |" +
+                          "\r\n|                           UNKNMNNOOONNNLMMMMMMMMMMMNNNLMLLKH                          |" +
+                          "\r\n|                            UQRQMLLMJNNKLMKKMIJMLJJKFLJKO                              |" +
+                          "\r\n|                                   QNU YWOKLLHJ RNZ                                    |" +
+                          "\r\n|                                         QMOOOL                                        |" +
+                          "\r\n|                                         NMNOPMZ                                       |" +
+                          "\r\n|                                       LNQIMNMPPP                                      |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void OakArt()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                       SMMMLPNM                                        |" +
+                          "\r\n|                                   WNMLMMKLMMMMLWWX                                    |" +
+                          "\r\n|                                  XLMMMKKMMKKKMMMMLP                                   |" +
+                          "\r\n|                               SLSKLKMLMMMMMMMIKMMMIXUX                                |" +
+                          "\r\n|                              QMMMMMMJJMMMMMMMMLJMMLMMMQ                               |" +
+                          "\r\n|                             YKMMLLMLLMMMMMMMMMMKMMMMMML                               |" +
+                          "\r\n|                            MMMLLMMJJLMMKKMMMLKMMLKIMILMMQ                             |" +
+                          "\r\n|                            LKILMMMMMLMMKMMMMMMKIMMMMMJLKL                             |" +
+                          "\r\n|                          XMMMMMMMMMMMMKMMMMMMMLKMMMMMMMMMMY                           |" +
+                          "\r\n|                           RLMJMMMMJMMMMJFGFIJMMMMLMMMMJMMN                            |" +
+                          "\r\n|                             LMMMMMLHEIIPNFFGMIIHHMMMMMMJ                              |" +
+                          "\r\n|                              SLIIIIHGHKOZOJLKGFFHIIJKLMW                              |" +
+                          "\r\n|                                WRSXOU   LOJI   MJSJKO                                 |" +
+                          "\r\n|                                          MHS                                          |" +
+                          "\r\n|                                         ZNHT                                          |" +
+                          "\r\n|                                         TOHO                                          |" +
+                          "\r\n|                                         PMHH                                          |" +
+                          "\r\n|                                       ZRQKHKMY                                        |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void NarraArt()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                       YTYYX                                           |" +
+                          "\r\n|                              Y     WTSTSUTUUQU   Z                                    |" +
+                          "\r\n|                             TUWVUUPPRQRQRTSPMLTTUTTVZ                                 |" +
+                          "\r\n|                        VUWYSQVVVUROKHKJIHJKHGIKNOONNW                                 |" +
+                          "\r\n|                         VRRMONQPQMKKOOOSTOLIHMSUTUTTPOW                               |" +
+                          "\r\n|                        XWVTPMJIKGIKSUSUVRNRMJKMRRUTQOOR                               |" +
+                          "\r\n|                      QQRVUTSSLIGFFGKLIJIIGGLRPOLNSSSRT                                |" +
+                          "\r\n|                     QJJLOMNNKJKHLRRSTTTVSQMHGIJNRQTVUUVRU                             |" +
+                          "\r\n|                       MIHJFIJMOTRVQRPTQRPTOSIIQHKNLMQURLMS                            |" +
+                          "\r\n|                     TQRQKMIFFJJMMNMNPKJKPQPPKOQOIGHHKKKLJQ                            |" +
+                          "\r\n|                     YNMLLMIIFEHIIHIJIGHFHLKFHJHJMSQJIJLNOX                            |" +
+                          "\r\n|                        WVJJKJHIJIKHFFEEDFEEFFIJIKKOQVT                                |" +
+                          "\r\n|                                 Z    IFFEEL                                           |" +
+                          "\r\n|                                       KGGFX                                           |" +
+                          "\r\n|                                      MIHGU                                            | " +
+                          "\r\n|                                      UJJHHM                                           |" +
+                          "\r\n|                                   XPLMJIMPOOQ                                         |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void BirchArt()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                    ZVSUUSVW                                          |" +
+                          "\r\n|                                   QTUUPRRUUUS                                         |" +
+                          "\r\n|                                SMOUTUSOTPQURMSS                                       |" +
+                          "\r\n|                              NPPOMUSSTQRUUROOPPO                                      |" +
+                          "\r\n|                            YPPPPPLNORMMROMMKNPPNNQZ                                   |" +
+                          "\r\n|                             NLMPPPPNMMVUOMLLLLMNPPY                                   |" +
+                          "\r\n|                              XKLLKJKLMWSLLJJHMPPK                                     |" +
+                          "\r\n|                                   XWSXZXVOQOSTW                                       |" +
+                          "\r\n|                                      UW UY                                            |" +
+                          "\r\n|                                      ZZX                                              |" +
+                          "\r\n|                                      WW                                               |" +
+                          "\r\n|                                      YZZZ                                             |" +
+                          "\r\n|                                      WZ                                               |" +
+                          "\r\n|                                      W Z                                              |" +
+                          "\r\n|                                      UW                                               |" +
+                          "\r\n|                                      TZZZ                                             |" +
+                          "\r\n|                                      RZ                                               |" +
+                          "\r\n|                                      STYY                                             |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+        public void SakuraArt()
+        {
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                   ZZZ     ZZY                                         |" +
+                          "\r\n|                                  YYYZZ ZZ   Z ZYY                                     |" +
+                          "\r\n|                            XXXYYZ  Z ZZZ  ZZ Z  YY                                    |" +
+                          "\r\n|                         ZYYZYYZZZ  ZY Z   ZZZZ  ZY                                    |" +
+                          "\r\n|                        Z ZZZ   ZYYWYXZXZXXPOWXYZYYZ                                   |" +
+                          "\r\n|                         ZWWXXY   Z  Z XZ   ZZZQYZ                                     |" +
+                          "\r\n|                            YXYYZYYXXXWXXSYYX   ZXXZZ                                  |" +
+                          "\r\n|                              YZ ZZ   XKKXUQWU Z   ZWVXZ                               |" +
+                          "\r\n|                               YYYYYYZYTPNUY Z YYZYYZ                                  |" +
+                          "\r\n|                                  ZZYYUJM   ZZYXYXZ                                    |" +
+                          "\r\n|                                      NK                                               |" +
+                          "\r\n|                                      JL                                               |" +
+                          "\r\n|                                      JM                                               |" +
+                          "\r\n|                                      JL                                               |" +
+                          "\r\n|                                      KKZ                                              |" +
+                          "\r\n|                                      MJV                                              |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
         public void TilapiaArt() 
         {
 
@@ -562,5 +694,19 @@ namespace ScholarVille
                           "\r\n|                     █████████                                                         |");
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
+        public void SdgList() 
+        {
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.Write("|                "); Console.ForegroundColor = ConsoleColor.DarkGreen; Console.Write("███████╗██████╗  ██████╗     ██╗     ██╗███████╗████████╗"); Console.ResetColor(); Console.Write("              |\n");
+            Console.Write("|                "); Console.ForegroundColor = ConsoleColor.DarkGreen; Console.Write("██╔════╝██╔══██╗██╔════╝     ██║     ██║██╔════╝╚══██╔══╝"); Console.ResetColor(); Console.Write("              |\n");
+            Console.Write("|                "); Console.ForegroundColor = ConsoleColor.DarkGreen; Console.Write("███████╗██║  ██║██║  ███╗    ██║     ██║███████╗   ██║"); Console.ResetColor(); Console.Write("                 |\n");
+            Console.Write("|                "); Console.ForegroundColor = ConsoleColor.DarkGreen; Console.Write("╚════██║██║  ██║██║   ██║    ██║     ██║╚════██║   ██║"); Console.ResetColor(); Console.Write("                 |\n");
+            Console.Write("|                "); Console.ForegroundColor = ConsoleColor.DarkGreen; Console.Write("███████║██████╔╝╚██████╔╝    ███████╗██║███████║   ██║"); Console.ResetColor(); Console.Write("                 |\n");
+            Console.Write("|                "); Console.ForegroundColor = ConsoleColor.DarkGreen; Console.Write("╚══════╝╚═════╝  ╚═════╝     ╚══════╝╚═╝╚══════╝   ╚═╝"); Console.ResetColor(); Console.Write("                 |\n");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+        }
+
     }
 }

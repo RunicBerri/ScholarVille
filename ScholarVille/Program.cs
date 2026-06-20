@@ -963,10 +963,39 @@ namespace ScholarVille
                 if (parts[1] == userName)
                 {
                     int pine = Convert.ToInt32(parts[2]);
-                    int sakura = Convert.ToInt32(parts[3]);
-                    int nara = Convert.ToInt32(parts[4]);
+                    int oak = Convert.ToInt32(parts[3]);
+                    int narra = Convert.ToInt32(parts[4]);
                     int birch = Convert.ToInt32(parts[5]);
-                    int oak = Convert.ToInt32(parts[6]);
+                    int sakura = Convert.ToInt32(parts[6]);
+
+                    ascii.Collection();
+                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                       Pine Tree                                       |");
+                    tree1(pine);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                       Oak Tree                                        |");
+                    tree2(oak);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                       Nara Tree                                       |");
+                    tree3(narra);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                       Birch Tree                                      |");
+                    tree4(birch);
+                    Console.ResetColor();
+
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                      Sakura Tree                                      |");
+                    tree5(sakura);
+                    Console.ResetColor();
                 }
             }
             for (int i = 0; i < UserFishCollection.Count; i++)
@@ -981,9 +1010,7 @@ namespace ScholarVille
                     int goldFish = Convert.ToInt32(parts[6]);
 
 
-                    ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                         Tilapia                                       |");
                     fish1(tilapia);
@@ -1015,6 +1042,91 @@ namespace ScholarVille
             }
             Console.ReadKey();
             Console.Clear();
+        }
+        static void tree1(int pine)
+        {
+            if (pine >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.PineArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.PineArt();
+            }
+        }
+        static void tree2(int oak)
+        {
+            if (oak >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.OakArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.OakArt();
+            }
+        }
+        static void tree3(int narra)
+        {
+            if (narra >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.NarraArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.NarraArt();
+            }
+        }
+        static void tree4(int birch)
+        {
+            if (birch >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.BirchArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.BirchArt();
+            }
+        }
+        static void tree5(int sakura)
+        {
+            if (sakura >= 1)
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.SakuraArt();
+            }
+            else
+            {
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                ascii.SakuraArt();
+            }
         }
         static void fish1(int tilapia) 
         {
@@ -1101,7 +1213,101 @@ namespace ScholarVille
                 ascii.GoldfishArt();
             }
         }
-        static void SDGs() { }
+        static void SDGs() 
+        {
+            ascii.SdgList();
+            Console.WriteLine("|                             Press any key to return to menu...                        |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                     SDG 1 - No Poverty                                |");
+            Console.WriteLine("|          Help everyone have enough money and resources to live a good life.           |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                     SDG 2 - Zero Hunger                               |");
+            Console.WriteLine("|                   Make sure everyone has healthy food to eat every day.               |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                               SDG 3 - Good Health and Well-Being                      |");
+            Console.WriteLine("|                           Help people stay healthy, safe, and strong.                 |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                   SDG 4 - Quality Education                           |");
+            Console.WriteLine("|                     Give every child the chance to learn and go to school.            |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                    SDG 5 - Gender Equality                            |");
+            Console.WriteLine("|            Treat boys and girls fairly and give them the same opportunities.          |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                SDG 6 - Clean Water and Sanitation                     |");
+            Console.WriteLine("|                    Make sure everyone has clean water and proper toilets.             |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             SDG 7 - Affordable and Clean Energy                       |");
+            Console.WriteLine("|                      Provide safe and clean energy that everyone can use.             |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                          SDG 8 - Decent Work and Economic Growth                      |");
+            Console.WriteLine("|                         Help people find good jobs and earn a living.                 |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                     SDG 9 - Industry, Innovation and Infrastructure                   |");
+            Console.WriteLine("|          Build useful roads, technology, and inventions that improve lives.           |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                               SDG 10 - Reduced Inequalities                           |");
+            Console.WriteLine("|      Give everyone a fair chance no matter who they are or where they come from.      |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                         SDG 11 - Sustainable Cities and Communities                   |");
+            Console.WriteLine("|                Create clean, safe, and friendly places for people to live.            |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                       SDG 12 - Responsible Consumption and Production                 |");
+            Console.WriteLine("|                     Use resources wisely and avoid wasting things.                    |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                               SDG 13 - Climate Action                                 |");
+            Console.WriteLine("|                     Protect the Earth by helping stop climate change.                 |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             SDG 14 - Life Below Water                                 |");
+            Console.WriteLine("|               Keep oceans, rivers, and marine animals clean and healthy.              |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                  SDG 15 - Life on Land                                |");
+            Console.WriteLine("|                 Protect forests, plants, and animals that live on land.               |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                     SDG 16 - Peace, Justice and Strong Institutions                   |");
+            Console.WriteLine("|                   Promote kindness, fairness, and peaceful communities.               |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                        SDG 17 - Partnerships for the Goals                            |");
+            Console.WriteLine("|             Work together to make the world a better place for everyone.              |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+
+            Console.ReadKey();
+            Console.Clear();
+        }
         static void SnakeGame(string userName)
         {
             Snake snake = new Snake(5, 5);

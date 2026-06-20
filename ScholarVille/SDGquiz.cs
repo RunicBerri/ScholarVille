@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ScholarVille;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
 
 public class SDGquiz
 {
@@ -14,6 +15,8 @@ public class SDGquiz
 
     int sdgScore = 0;
     static List<string> Users = new List<string>();
+    Random rnd = new Random();
+    static ASCII ascii = new ASCII();
     List<SDGQuestion> questions = new List<SDGQuestion>()
     {
         new SDGQuestion("SDG 1: Which SDG aims to end poverty?", "a", new string[]{"A. No Poverty",
@@ -91,18 +94,25 @@ public class SDGquiz
         Console.Clear();
         Users = File.ReadAllLines("Users.txt").ToList();
 
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                                         SDG QUIZ");
-        Console.WriteLine("=========================================================================================\n");
-        Console.WriteLine("game desc.");
-        Console.WriteLine("\n                                 Press \"X\" to leave the game.");
-        Console.WriteLine("                                    Press any key to start.");
-        string input1 = Console.ReadLine().ToLower();
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                         SDG QUIZ                                      |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                  Test your knowledge of the Sustainable Development Goals             |");
+        Console.WriteLine("|                and discover how you can help make the world a better place!           |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.WriteLine("|                                   Press any key to start.                             |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        ConsoleKey input = Console.ReadKey(true).Key;
         Console.Clear();
-        if (input1 == "x")
+
+        if (input == ConsoleKey.X)
         {
             Console.Clear();
-            Console.WriteLine("Returning to Game Selection.");
+            ascii.Returning();
             Thread.Sleep(1000);
             Console.Clear();
             return;
@@ -114,7 +124,7 @@ public class SDGquiz
             if (!continueGame)
             {
                 Console.Clear();
-                Console.WriteLine("Returning to Game Selection.");
+                ascii.Returning();
                 Thread.Sleep(1000);
                 Console.Clear();
                 return;
@@ -122,6 +132,7 @@ public class SDGquiz
         }
         ShowResults();
         UpdateInfo(userName, sdgScore);
+        Restart(userName);
     }
 
     public class SDGQuestion
@@ -140,18 +151,38 @@ public class SDGquiz
 
     private bool AskQuestion(int i)
     {
+        int color = rnd.Next(1, 6);
+        switch (color)
+        {
+            case 1:
+                Console.ForegroundColor = ConsoleColor.Red;
+                break;
+            case 2:
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                break;
+            case 3:
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                break;
+            case 4:
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                break;
+            case 5:
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                break;
+        }
         var question = questions[i];
         while (true)
         {
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine(question.Question);
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine($"   {question.Question}");
             foreach (string choice in question.Choices)
             {
-                Console.WriteLine(choice);
+                Console.WriteLine($"   { choice}");
             }
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine($"Current Score: {sdgScore}");
-            Console.Write("\nAnswer: ");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine($"|                                   Current Score: {sdgScore}                                    |");                            
+            Console.WriteLine("|                               Press \"X\" to leave the game.                            |");
             string userAnswer = Console.ReadLine().ToLower();
 
             if (userAnswer == "x")
@@ -163,8 +194,10 @@ public class SDGquiz
                 userAnswer != "b" &&
                 userAnswer != "c")
             {
-                Console.WriteLine("\nPlease enter A, B, C, or X.");
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                             Please enter A, B, C, or X.                               |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ReadKey();
                 Console.Clear();
                 continue;
@@ -173,15 +206,19 @@ public class SDGquiz
             else if (userAnswer == question.CorrectAnswer)
             {
                 sdgScore++;
-                Console.WriteLine("\nYou're Correct! You earned a point!");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                          You're Correct! You earned a point!                          |");
+                
             }
 
             else
             {
-                Console.WriteLine("\nYou're Wrong!");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                    You're Wrong!                                      |");
             }
 
-            Console.WriteLine("Press any key to continue.");
+            Console.WriteLine("|                              Press any key to continue.                               |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
             Console.ReadKey();
             Console.Clear();
             return true;
@@ -190,30 +227,79 @@ public class SDGquiz
 
     private void ShowResults()
     {
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                                          FINAL RESULT");
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine($"                                      Final Score: {sdgScore}");
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                    FINAL RESULT                                       |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine($"|                                   Final Score: {sdgScore}                                      |");
 
         if (sdgScore == 17)
         {
-            Console.WriteLine("Amazing! You have memorized every SDG!");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                         Amazing! You have memorized every SDG!                        |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         else if (sdgScore == 16)
         {
-            Console.WriteLine("Wow! You nearly got a perfect score!");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                          Wow! You nearly got a perfect score!                         |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         else if (sdgScore >= 13)
         {
-            Console.WriteLine("Great Job! You're know most SDGs!");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                           Great Job! You're know most SDGs!                           |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         else if (sdgScore >= 9)
         {
-            Console.WriteLine("Nice Job! You're gettint the hang of it now!");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                        Nice Job! You're gettint the hang of it now!                   |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         else
         {
-            Console.WriteLine("It's alright! Just keep practicing!");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                          It's alright! Just keep practicing!                          |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+        }
+    }
+
+    private void Restart(string userName)
+    {
+        while (true)
+        {
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                         Play Again?                                   |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                         Enter (Y/N)                                   |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "y")
+            {
+                Start(userName);
+            }
+            else if (input == "x")
+            {
+                Console.Clear();
+                ascii.Returning();
+                Thread.Sleep(1000);
+                return;
+            }
+            else
+            {
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Please enter valid option.                               |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.Clear();
+                Console.ReadKey();
+            }
         }
     }
 
@@ -229,15 +315,19 @@ public class SDGquiz
 
                 if (oldScore < sdgScore) 
                 {
-                    Console.WriteLine("=========================================================================================");
-                    Console.WriteLine("                                      NEW HIGH SCORE ACHIEVED!");
-                    Console.WriteLine("=========================================================================================");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                 NEW HIGH SCORE ACHIEVED!                              |");
                     parts[9] = sdgScore.ToString();
                 }
                 Users[i] = string.Join(",", parts);
 
-                Console.WriteLine("\nPress any key to exit...");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ReadKey();
+                Console.ResetColor();
                 Console.Clear();
                 break;
             }

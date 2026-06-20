@@ -1,18 +1,20 @@
-﻿using System;
+﻿using ScholarVille;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
 
 public class RoF
 {
     //needs better ui
 
     int rofScore = 0;
-    Random rnd = new Random();
     static List<string> Users = new List<string>();
+    Random rnd = new Random();
+    static ASCII ascii = new ASCII();
     List<NewsQuestion> questions = new List<NewsQuestion>()
     {
         new NewsQuestion("School Announcement: Classes are suspended tomorrow because of heavy rain.", true, "Official"),
@@ -71,23 +73,29 @@ public class RoF
         Console.Clear();
         Users = File.ReadAllLines("Users.txt").ToList();
 
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                              FAKE NEWS CRISIS SIMULATOR PH");
-        Console.WriteLine("                      SDG 16 - Peace, Justice & Strong Institutions");
-        Console.WriteLine("=========================================================================================\n");
-        Console.WriteLine("game desc.");
-        Console.WriteLine("                                     Instructions:");
-        Console.WriteLine("                                  Type R = Real News");
-        Console.WriteLine("                                  Type F = Fake News\n");
-        Console.WriteLine("                              Press \"X\" to leave the game.");
-        Console.WriteLine("                               Press any key to continue."); 
-        string input = Console.ReadLine().ToLower();
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                     News Detective                                    |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                     SDG 16 - Peace, Justice & Strong Institutions                     |");
+        Console.WriteLine("|     Put on your detective hat and uncover which stories are real and which are fake!  |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                         Controls:                                     |");
+        Console.WriteLine("|                                    Type R = Real News                                 |");
+        Console.WriteLine("|                                    Type F = Fake News                                 |");
+        Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.WriteLine("|                                   Press any key to start.                             |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+
+        ConsoleKey input = Console.ReadKey(true).Key;
         Console.Clear();
 
-        if (input == "x")
+        if (input == ConsoleKey.X)
         {
             Console.Clear();
-            Console.WriteLine("Returning to Game Selection.");
+            ascii.Returning();
             Thread.Sleep(1000);
             Console.Clear();
             return;
@@ -100,7 +108,7 @@ public class RoF
             if (!continueGame)
             {
                 Console.Clear();
-                Console.WriteLine("Returning to Game Selection.");
+                ascii.Returning();
                 Thread.Sleep(1000);
                 Console.Clear();
                 return;
@@ -131,43 +139,72 @@ public class RoF
         switch (tipType)
         {
             case "Official":
-                Console.WriteLine("Tip: Official announcements from schools, weather agencies, and community leaders are usually reliable.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|            Tip: Official announcements from schools, weather agencies,  and           |");
+                Console.WriteLine("|            community leaders are usually reliable.                                    |");
                 break;
 
             case "Chain":
-                Console.WriteLine("Tip: Messages asking you to share them are often fake.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                Tip: Messages asking you to share them are often fake.                 |");
                 break;
 
             case "Giveaway":
-                Console.WriteLine("Tip: Be careful of posts promising free prizes, money, or game items.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|          Tip: Be careful of posts promising free prizes, money, or game items.        |");
                 break;
 
             case "Impossible":
-                Console.WriteLine("Tip: If something sounds impossible or magical, it is probably fake.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|          Tip: If something sounds impossible or magical, it is probably fake.         |");
                 break;
         }
     }
 
     private bool AskQuestion()
     {
+        int color = rnd.Next(1,6);
         var question = questions[rnd.Next(questions.Count)];
         while(true)
         {
-            Console.WriteLine("=========================================================================================\n");
-            Console.WriteLine("NEWS:");
-            Console.WriteLine(question.Question);
-            Console.WriteLine("\n                                Press \"X\" to leave the game.");
-            Console.WriteLine("=========================================================================================\n");
-            Console.WriteLine($"Current Score: {rofScore}");
-            Console.Write("Is this REAL or FAKE? (R/F): ");
+            switch (color)
+            {
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case 2:
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
+                case 3:
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+                case 4:
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    break;
+                case 5:
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    break;
+            }
+            
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|  NEWS:                                                                                |");
+            Console.WriteLine($"   {question.Question}");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine($"|                                   Current Score: {rofScore}                                    |");
+            Console.WriteLine("|                               Is this REAL or FAKE? (R/F)                             |");
+            Console.WriteLine("|                               Press \"X\" to leave the game.                            |");
             string answer = Console.ReadLine().ToLower();
 
             if ((answer == "r" && question.IsReal) || (answer == "f" && !question.IsReal))
             {
                 rofScore++;
                 ShowTip(question.TipType);
-                Console.WriteLine("\nNice! You earned point.");
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                               Nice! You earned point.                                 |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ReadKey();
                 Console.Clear();
                 break;
@@ -182,9 +219,10 @@ public class RoF
                 {
                     rofScore--;
                 }
-
-                Console.WriteLine("Wrong! This affects public safety.");
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                           Wrong! This affects public safety.                          |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ReadKey();
                 Console.Clear();
                 break;
@@ -195,8 +233,10 @@ public class RoF
             }
             else
             {
-                Console.WriteLine("Please enter a valid answer.");
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                             Please enter a valid answer.                              |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -206,25 +246,32 @@ public class RoF
 
     private void ShowResults()
     {
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                                          FINAL RESULT");
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine($"                                      Final Score: {rofScore}");
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                      FINAL RESULT                                     |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine($"|                                   Final Score: {rofScore}                                        |");
 
         if (rofScore >= 5)
         {
-            Console.WriteLine("Excellent! You can detect fake news well.");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                      Excellent! You can detect fake news well.                        |");
         }
         else if (rofScore >= 3)
         {
-            Console.WriteLine("Good awareness, but improve fact-checking.");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                       Good awareness, but improve fact-checking.                      |");
         }
         else
         {
-            Console.WriteLine("High risk of misinformation influence.");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                       High risk of misinformation influence.                          |");
         }
 
-        Console.WriteLine("\nPress any key to continue.");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                              Press any key to continue.                               |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
         Console.ReadKey();
         Console.Clear();
     }
@@ -253,10 +300,13 @@ public class RoF
     {
         while (true)
         {
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("                                          Play Again?");
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("Enter (Y/N): ");
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                         Play Again?                                   |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                         Enter (Y/N)                                   |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            
             string input = Console.ReadLine().ToLower();
 
             if (input == "y")
@@ -266,14 +316,17 @@ public class RoF
             else if (input == "x")
             {
                 Console.Clear();
-                Console.WriteLine("Returning to Game Selection.");
+                ascii.Returning();
                 Thread.Sleep(1000);
                 return;
             }
             else 
             {
-                Console.WriteLine("Please enter valid option.");
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Please enter valid option.                               |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.Clear();
                 Console.ReadKey();
             }
