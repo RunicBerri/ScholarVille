@@ -252,6 +252,8 @@ public class Snake
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine($"|                                   Final Score: {snakeScore}                                      |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|       Good job! Your crew have reduce the waste and kept your surroundings clean!     |");
+            Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                    Play Again?  (Y/N)                                 |");
             string input = Console.ReadLine().ToLower();
             if (input == "y")

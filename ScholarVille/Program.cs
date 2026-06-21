@@ -571,7 +571,7 @@ namespace ScholarVille
         static void Achievments1(int trashCollected) 
         {
             //achivement 1
-            if (trashCollected >= 10)
+            if (trashCollected >= 20)
             {
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.WriteLine("|                                                                                       |");
@@ -589,7 +589,7 @@ namespace ScholarVille
             }
 
             //achivement 2
-            if (trashCollected >= 50)
+            if (trashCollected >= 70)
             {
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.WriteLine("|                                                                                       |");
@@ -607,7 +607,7 @@ namespace ScholarVille
             }
 
             //achivement 3
-            if (trashCollected >= 100)
+            if (trashCollected >= 150)
             {
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.WriteLine("|                                                                                       |");

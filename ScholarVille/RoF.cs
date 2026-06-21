@@ -251,6 +251,9 @@ public class RoF
         Console.WriteLine("|                                      FINAL RESULT                                     |");
         Console.WriteLine("|_______________________________________________________________________________________|");
         Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                      Being able to know which news or post is true,                   |");
+        Console.WriteLine("|                    can allow you to stop the spread of misinformation.                |");
+        Console.WriteLine("|                                                                                       |");
         Console.WriteLine($"|                                   Final Score: {rofScore}                                        |");
 
         if (rofScore >= 5)
@@ -296,41 +299,43 @@ public class RoF
         File.WriteAllLines("Users.txt", Users);
     }
 
-    private void Restart(string userName) 
+    private void Restart(string userName)
     {
         while (true)
         {
             Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                         Play Again?                                   |");
+            Console.WriteLine("|                                     Play Again?                                       |");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                         Enter (Y/N)                                   |");
+            Console.WriteLine("|                                     Enter (Y/N)                                       |");
             Console.WriteLine("|_______________________________________________________________________________________|");
-            
+
             string input = Console.ReadLine().ToLower();
 
             if (input == "y")
             {
+                rofScore = 0;
                 Start(userName);
             }
-            else if (input == "x")
+            else if (input == "n")
             {
                 Console.Clear();
                 ascii.Returning();
                 Thread.Sleep(1000);
                 return;
             }
-            else 
+            else
             {
                 Console.WriteLine("_________________________________________________________________________________________");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                              Please enter valid option.                               |");
                 Console.WriteLine("|                              Press any key to continue.                               |");
                 Console.WriteLine("|_______________________________________________________________________________________|");
-                Console.Clear();
                 Console.ReadKey();
+                Console.Clear();
+
             }
-        } 
+        }
     }
 }
 

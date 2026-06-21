@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ScholarVille;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
 
 public class TreePlanter
 {
@@ -17,6 +18,7 @@ public class TreePlanter
     bool win = false;
 
 	Random rnd = new Random();
+    static ASCII ascii = new ASCII();
     static List<string> Users = new List<string>();
     static List<string> UserTreeCollection = new List<string>();
 
@@ -26,18 +28,27 @@ public class TreePlanter
         UserTreeCollection = File.ReadAllLines("UserTrees.txt").ToList();
         Users = File.ReadAllLines("Users.txt").ToList();
 
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("                                          Grow a Tree");
-        Console.WriteLine("=========================================================================================");
-        Console.WriteLine("game desc.");
-        Console.WriteLine("\n                                 Press \"X\" to leave the game.");
-        Console.WriteLine("                                    Press any key to start.");
-        string input1 = Console.ReadLine().ToLower();
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("_________________________________________________________________________________________");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                      Grow A Tree                                      |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                 SDG 15 - Life on Land                                 |");
+        Console.WriteLine("|                 Care for your tree by giving it what it needs to grow                 |");
+        Console.WriteLine("|                                and help create a greener world.                       |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.WriteLine("|                                   Press any key to start.                             |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
+        ConsoleKey input = Console.ReadKey(true).Key;
         Console.Clear();
-        if (input1 == "x")
+
+        if (input == ConsoleKey.X)
         {
             Console.Clear();
-            Console.WriteLine("Returning to Game Selection.");
+            ascii.Returning();
             Thread.Sleep(1000);
             Console.Clear();
             return;
@@ -45,19 +56,22 @@ public class TreePlanter
 
         while (game)
         {
-            Console.WriteLine("-----------------------------------------------------------------------------------------");
-            Console.WriteLine("                                                                                      (X)");
-            Console.WriteLine($"                                    Tree Growth : {growth}%");
-            Console.WriteLine($"                                    Feritlizer  : {fertilizer}");
-            Console.WriteLine($"                                    Water       : {water}");
-            Console.WriteLine("                                    Press \"X\" to leave the game.");
-            Console.WriteLine("-----------------------------------------------------------------------------------------");
-            Console.WriteLine("\nPress any key to explore...");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine($"|                                    Tree Growth : {growth}");
+            Console.WriteLine($"|                                    Feritlizer  : {fertilizer}");
+            Console.WriteLine($"|                                    Water       : {water}");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+            Console.WriteLine("|                                   Press any key to explore.                           |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
             string input2 = Console.ReadLine().ToLower();
             if (input2 == "x") 
             {
                 Console.Clear();
-                Console.WriteLine("Returning to Game Selection.");
+                ascii.Returning();
                 Thread.Sleep(1000);
                 Console.Clear();
                 return;
@@ -69,41 +83,75 @@ public class TreePlanter
             switch (item)
             {
                 case 1:
-                    Console.WriteLine("\nYou found a sack of fertilizer!");
-                    Console.WriteLine("<You gained 1 fertilizer>");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                           You found a sack of fertilizer!                             |");
+                    Console.WriteLine("|                              <You gained 1 fertilizer>                                |");
+                    
                     fertilizer++;
                     break;
                 case 2:
-                    Console.WriteLine("\nEW! You found a huge animal poop!");
-                    Console.WriteLine("<You gained 1 fertilizer>");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                          EW! You found a huge animal poop!                            |");
+                    Console.WriteLine("|                              <You gained 1 fertilizer>                                |");
+                    
                     fertilizer++;
                     break;
                 case 3:
-                    Console.WriteLine("\nYou found A lot of food waste!");
-                    Console.WriteLine("<You gained 1 fertilizer>");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                           You found A lot of food waste!                              |");
+                    Console.WriteLine("|                              <You gained 1 fertilizer>                                |");
+                    
                     fertilizer++;
                     break;
                 case 4:
-                    Console.WriteLine("\nYou found a gallon of water!");
-                    Console.WriteLine("<You gained 1 water>");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                             You found a gallon of water!                              |");
+                    Console.WriteLine("|                                 <You gained 1 water>                                  |");
+                    
                     water++;
                     break;
                 case 5:
-                    Console.WriteLine("\nYou found a very clean pond!");
-                    Console.WriteLine("<You gained 1 water>");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                             You found a very clean pond!                              |");
+                    Console.WriteLine("|                                 <You gained 1 water>                                  |");
+                    
                     water++;
                     break;
                 case 6:
-                    Console.WriteLine("\nRain suddenly started!");
-                    Console.WriteLine("<You gained 1 water>");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                Rain suddenly started!                                 |");
+                    Console.WriteLine("|                                 <You gained 1 water>                                  |");
+                    
                     water++;
                     break;
                 case 7:
-                    Console.WriteLine("\nOof! A pest attacked your tree!");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                            Oof! A pest attacked your tree!                            |");
+                    Console.WriteLine("|                             <Your Tree lost 2% of growth>                             |");
+                    
                     growth -= 2;
                     break;
                 case 8:
-                    Console.WriteLine("\nOH NO! A swarm of pests attacked your tree!");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                      OH NO! A swarm of pests attacked your tree!                      |");
+                    Console.WriteLine("|                            <Your Tree lost 10% of growth>                             |");
+                    
                     growth -= 10;
                     break;
             }
@@ -113,7 +161,9 @@ public class TreePlanter
                 water--;
                 growth += 10;
 
-                Console.WriteLine("\nYour tree grew by 10%!");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                           <Your Tree gained 10% of growth>                            |");
+                Console.WriteLine("|                                                                                       |");
             }
             if (growth < 0)
             {
@@ -125,35 +175,90 @@ public class TreePlanter
                 break;
             }
 
-            Console.WriteLine("\nPress any key...");
+            Console.WriteLine("|                              Press any key to continue.                               |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.ResetColor();
             Console.ReadKey();
             Console.Clear();
         }
 
         if (win == false)
         {
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("                                         GAME OVER!");
-            Console.WriteLine("\n                                Your sapling failed to grow.");
-            Console.WriteLine("=========================================================================================");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                      GAME OVER!                                       |");
+            Console.WriteLine("|                               Your sapling failed to grow.                            |");
 
         }
         else if (win == true) 
         {
-
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("                                          YOU WIN!");
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("\nCongratulations!");
+            Console.ForegroundColor= ConsoleColor.DarkGreen;
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                       YOU WON!                                        |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|      By planting trees you are able to help reduce the effects of climate change!     |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                  Congratulations!                                     |");
+            Console.WriteLine("|                                Your tree grew into a:                                 |");
             var treeType = GenerateTree(userName);
-            Console.WriteLine($"Your tree grew into a {treeType}");
+            Console.WriteLine($"|                                     {treeType}");
+            
+            
 
             UpdateInfo(userName);
         }
-        Console.WriteLine("\nPress any key to return to menu...");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                              Press any key to continue.                               |");
+        Console.WriteLine("|_______________________________________________________________________________________|");
         Console.ReadKey();
         Console.Clear();
+        Console.ResetColor();
+        Restart(userName);
         return;
+    }
+
+
+    private void Restart(string userName)
+    {
+        while (true)
+        {
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                     Play Again?                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                     Enter (Y/N)                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            string input = Console.ReadLine().ToLower();
+
+            if (input == "y")
+            {
+                growth = 0;
+                fertilizer = 0;
+                water = 0;
+                Start(userName);
+            }
+            else if (input == "n")
+            {
+                Console.Clear();
+                ascii.Returning();
+                Thread.Sleep(1000);
+                return;
+            }
+            else
+            {
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Please enter valid option.                               |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ReadKey();
+                Console.Clear();
+                
+            }
+        }
     }
 
     public void UpdateInfo(string userName) 
@@ -207,18 +312,53 @@ public class TreePlanter
         {
             case 1:
                 treeType = "Pine Tree";
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.PineArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 break;
             case 2:
                 treeType = "Oak Tree";
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.PineArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 break;
             case 3:
                 treeType = "Narra Tree";
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.NarraArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 break;
             case 4:
                 treeType = "Birch Tree";
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.BirchArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 break;
             case 5:
                 treeType = "Sakura Tree";
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                ascii.SakuraArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 break;
         }
 

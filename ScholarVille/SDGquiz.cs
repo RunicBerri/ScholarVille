@@ -99,6 +99,7 @@ public class SDGquiz
         Console.WriteLine("|                                         SDG QUIZ                                      |");
         Console.WriteLine("|_______________________________________________________________________________________|");
         Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                SDG 4 - Quality Education                              |");
         Console.WriteLine("|                  Test your knowledge of the Sustainable Development Goals             |");
         Console.WriteLine("|                and discover how you can help make the world a better place!           |");
         Console.WriteLine("|                                                                                       |");
@@ -233,6 +234,9 @@ public class SDGquiz
         Console.WriteLine("|_______________________________________________________________________________________|");
         Console.WriteLine("|                                                                                       |");
         Console.WriteLine($"|                                   Final Score: {sdgScore}                                      |");
+        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|            By learning about the SDGs, you've taken a step toward helping             |");
+        Console.WriteLine("|                          build a better future for everyone!                          |");
 
         if (sdgScore == 17)
         {
@@ -272,18 +276,19 @@ public class SDGquiz
         {
             Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                         Play Again?                                   |");
+            Console.WriteLine("|                                     Play Again?                                       |");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                         Enter (Y/N)                                   |");
+            Console.WriteLine("|                                     Enter (Y/N)                                       |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
             string input = Console.ReadLine().ToLower();
 
             if (input == "y")
             {
+                sdgScore = 0;
                 Start(userName);
             }
-            else if (input == "x")
+            else if (input == "n")
             {
                 Console.Clear();
                 ascii.Returning();
@@ -297,8 +302,9 @@ public class SDGquiz
                 Console.WriteLine("|                              Please enter valid option.                               |");
                 Console.WriteLine("|                              Press any key to continue.                               |");
                 Console.WriteLine("|_______________________________________________________________________________________|");
-                Console.Clear();
                 Console.ReadKey();
+                Console.Clear();
+
             }
         }
     }

@@ -17,6 +17,7 @@ namespace ScholarVille
         bool win = false;
 
         Random rnd = new Random();
+        static ASCII ascii = new ASCII();
 
         static List<string> Users = new List<string>();
         static List<string> UserFishCollection = new List<string>();
@@ -28,38 +29,60 @@ namespace ScholarVille
             Users = File.ReadAllLines("Users.txt").ToList();
             UserFishCollection = File.ReadAllLines("UserFish.txt").ToList();
 
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("                                  Sustainable Fishing");
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("Catch only 5 fish.");
-            Console.WriteLine("Stop fishing afterwards to help prevent overfishing.");
-            Console.WriteLine();
-            Console.WriteLine("Trash can also be removed from the water.");
-            Console.WriteLine();
-            Console.WriteLine("Press any key to begin...");
-            Console.ReadKey();
-
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                    Catch & Conserve                                   |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                SDG 14 - Life on Below Water                           |");
+            Console.WriteLine("|                           Balance your catch, protect sea life,                       |");
+            Console.WriteLine("|                            and become a guardian of the ocean.                        |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                               Press \"Spacebar\" reel the fish.                         |");
+            Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+            Console.WriteLine("|                                   Press any key to start.                             |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            ConsoleKey input = Console.ReadKey(true).Key;
             Console.Clear();
+
+            if (input == ConsoleKey.X)
+            {
+                Console.Clear();
+                ascii.Returning();
+                Thread.Sleep(1000);
+                Console.Clear();
+                return;
+            }
 
             while (game)
             {
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine($"Fish Caught : {fishCaught}/5");
-                Console.WriteLine($"Trash Removed : {trashCollected}");
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine();
-                Console.WriteLine("Press any key to cast your line...");
+                if (input == ConsoleKey.X)
+                {
+                    Console.Clear();
+                    ascii.Returning();
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    return;
+                }
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine($"|                                     Fish Caught : {fishCaught}/5                                 |");
+                Console.WriteLine($"|                                     Trash Removed : {trashCollected}                                 |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Press any key to cast your line...                       |");
                 Console.ReadKey();
 
-                Console.WriteLine();
-                Console.WriteLine("Waiting for a bite...");
+                Console.WriteLine("\n|                                                                                       |");
+                Console.WriteLine("|                                    Waiting for a bite...                              |");
 
-                // Random wait between 2 and 5 seconds
+                
                 int waitTime = rnd.Next(2000, 5000);
 
                 DateTime waitStart = DateTime.Now;
 
-                // Clear spammed inputs while waiting
                 while ((DateTime.Now - waitStart).TotalMilliseconds < waitTime)
                 {
                     while (Console.KeyAvailable)
@@ -68,11 +91,10 @@ namespace ScholarVille
                     }
                 }
 
-                Console.WriteLine();
-                Console.WriteLine("A fish bit the hook!");
-                Console.WriteLine("PRESS SPACE QUICKLY!");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                   A fish bit the hook!                                |");
+                Console.WriteLine("|                                   PRESS SPACE QUICKLY!                                |");
 
-                // Clear any remaining buffered inputs
                 while (Console.KeyAvailable)
                 {
                     Console.ReadKey(true);
@@ -82,7 +104,6 @@ namespace ScholarVille
 
                 DateTime biteStart = DateTime.Now;
 
-                // 1 second reaction window
                 while ((DateTime.Now - biteStart).TotalMilliseconds < 1000)
                 {
                     if (Console.KeyAvailable)
@@ -107,20 +128,23 @@ namespace ScholarVille
 
                         fishCaught++;
 
-                        Console.WriteLine($"You caught a {fish}!");
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine($"|                               You caught a {fish}                                      ");
                     }
                     else
                     {
                         trashCollected++;
 
-                        Console.WriteLine("You removed trash from the water!");
-                        Console.WriteLine("The river is cleaner.");
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                              You removed trash from the water!                        |");
+                        Console.WriteLine("|                                   The river is cleaner.                               |");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Too slow!");
-                    Console.WriteLine("The fish escaped.");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                        Too slow!                                      |");
+                    Console.WriteLine("|                                     The fish escaped.                                 |");
                 }
 
                 if (fishCaught >= 5)
@@ -129,29 +153,39 @@ namespace ScholarVille
                     break;
                 }
 
-                Console.WriteLine();
-                Console.WriteLine("Press any key...");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ReadKey();
                 Console.Clear();
             }
-
+            Console.ReadKey();
             Console.Clear();
 
             if (win)
             {
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine("                                     YOU WIN!");
-                Console.WriteLine("=========================================================================================");
-                Console.WriteLine();
-                Console.WriteLine("You caught 5 fish and stopped.");
-                Console.WriteLine("By avoiding overfishing, you helped protect aquatic ecosystems.");
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                       YOU WON!                                        |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                            You caught 5 fish and stopped.                             |");
+                Console.WriteLine("|            By avoiding overfishing, you helped protect aquatic ecosystems.            |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
 
                 UpdateInfo(userName);
+                Restart(userName);
             }
 
-            Console.WriteLine();
-            Console.WriteLine("Press any key to return...");
+            Console.WriteLine("|                              Press any key to continue.                               |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
             Console.ReadKey();
+            Console.ResetColor();
+            Console.Clear();
         }
         public void UpdateInfo(string userName)
         {
@@ -163,9 +197,12 @@ namespace ScholarVille
                 if (parts[1] == userName)
                 {
                     int totalCaught = Convert.ToInt32(parts[7]);
+                    int totalTrash = Convert.ToInt32(parts[3]);
 
+                    totalTrash += trashCollected;
                     totalCaught += fishCaught;
 
+                    parts[3] = totalTrash.ToString();
                     parts[7] = totalCaught.ToString();
                     Users[i] = string.Join(",", parts);
 
@@ -197,6 +234,45 @@ namespace ScholarVille
 
             File.WriteAllLines("Users.txt", Users);
         }
+        private void Restart(string userName)
+        {
+            while (true)
+            {
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                     Play Again?                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                     Enter (Y/N)                                       |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+
+                string input = Console.ReadLine().ToLower();
+
+                if (input == "y")
+                {
+                    fishCaught = 0;
+                    trashCollected = 0;
+                    Start(userName);
+                }
+                else if (input == "n")
+                {
+                    Console.Clear();
+                    ascii.Returning();
+                    Thread.Sleep(1000);
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                              Please enter valid option.                               |");
+                    Console.WriteLine("|                              Press any key to continue.                               |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    Console.ReadKey();
+                    Console.Clear();
+
+                }
+            }
+        }
 
         private string GenerateFish(string userName)
         {
@@ -205,15 +281,60 @@ namespace ScholarVille
             int roll = rnd.Next(1, 101);
 
             if (roll <= 40)
+            {
                 fishType = "Tilapia";
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.TilapiaArt();
+                Console.ResetColor();
+                Console.ForegroundColor= ConsoleColor.Blue;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+            }
             else if (roll <= 70)
+            {
                 fishType = "Milkfish";
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.MilkfishArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+            }
             else if (roll <= 90)
+            {
                 fishType = "Catfish";
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.CatfishArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+            }
             else if (roll <= 99)
+            {
                 fishType = "Tuna";
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.TunaArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+            }
             else
+            {
                 fishType = "Golden Fish";
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                ascii.GoldfishArt();
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|_______________________________________________________________________________________|");
+            }
 
             for (int i = 0; i < UserFishCollection.Count; i++)
             {

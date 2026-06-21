@@ -259,7 +259,7 @@ namespace ScholarVille
             
             Console.WriteLine("|                                 Beginner Trash Collector                              |");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                           Collect a total of 10 pieces of trash.                      |");
+            Console.WriteLine("|                           Collect a total of 20 pieces of trash.                      |");
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
@@ -268,7 +268,7 @@ namespace ScholarVille
 
             Console.WriteLine("|                                  Adept Trash Collector                                |");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                           Collect a total of 50 pieces of trash.                      |");
+            Console.WriteLine("|                           Collect a total of 70 pieces of trash.                      |");
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
@@ -277,7 +277,7 @@ namespace ScholarVille
 
             Console.WriteLine("|                                 Master Trash Collector                                |");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                          Collect a total of 100 pieces of trash.                      |");
+            Console.WriteLine("|                          Collect a total of 150 pieces of trash.                      |");
             Console.ResetColor();
             Console.WriteLine("|_______________________________________________________________________________________|");
         }
