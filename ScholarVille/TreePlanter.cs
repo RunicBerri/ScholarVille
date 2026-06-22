@@ -68,15 +68,47 @@ public class TreePlanter
             Console.WriteLine("|                                   Press any key to explore.                           |");
             Console.WriteLine("|_______________________________________________________________________________________|");
             string input2 = Console.ReadLine().ToLower();
-            if (input2 == "x") 
+            switch (input2) 
             {
-                Console.Clear();
-                ascii.Returning();
-                Thread.Sleep(1000);
-                Console.Clear();
-                return;
+
+                case "l":
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                 You went left and...                                  |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    break;
+                case "f":
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                               You went forward and...                                 |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    break;
+                case "r":
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                You went right and...                                  |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    break;
+                case "x":
+                    Console.Clear();
+                    ascii.Returning();
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    return;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                                      Invalid Input                                    |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    Console.ReadKey();
+                    Console.ResetColor();
+                    Console.Clear();
+                    continue;
             }
-            Console.Clear();   
 
             int item = rnd.Next(1, 9);
 
@@ -122,7 +154,7 @@ public class TreePlanter
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("_________________________________________________________________________________________");
                     Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                             You found a very clean pond!                              |");
+                    Console.WriteLine("|                           WOW! You found a very clean pond!                           |");
                     Console.WriteLine("|                                 <You gained 1 water>                                  |");
                     
                     water++;
