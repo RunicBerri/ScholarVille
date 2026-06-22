@@ -10,7 +10,7 @@ namespace ScholarVille
 {
     public class Fishing
     {
-        int fishCaught = 0;
+        int fishCaught = 5;
         int trashCollected = 0;
 
         bool game = true;
@@ -113,14 +113,7 @@ namespace ScholarVille
                             caught = true;
                             break;
                         }
-                        else if (Console.ReadKey(true).Key == ConsoleKey.X)
-                        {
-                            Console.Clear();
-                            ascii.Returning();
-                            Thread.Sleep(1000);
-                            Console.Clear();
-                            return;
-                        }
+                        
                     }
                 }
 
@@ -155,20 +148,36 @@ namespace ScholarVille
                     Console.WriteLine("|                                     The fish escaped.                                 |");
                 }
 
-                if (fishCaught >= 5)
-                {
-                    win = true;
-                    break;
-                }
+                
 
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                              Press any key to continue.                               |");
                 Console.WriteLine("|_______________________________________________________________________________________|");
-                Console.ReadKey();
+                ConsoleKey input2 = Console.ReadKey(true).Key;
                 Console.Clear();
+
+                if (input2 == ConsoleKey.X)
+                {
+                    Console.Clear();
+                    ascii.Returning();
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    return;
+                }
+                else if (input2 == ConsoleKey.S)
+                {
+                    if (fishCaught == 5)
+                    {
+                        win = true;
+                        break;
+                    }
+                    else 
+                    {
+                        win = false;
+                        break;
+                    }
+                }
             }
-            Console.ReadKey();
-            Console.Clear();
 
             if (win)
             {
@@ -186,6 +195,40 @@ namespace ScholarVille
                 Console.Clear();
 
                 UpdateInfo(userName);
+                Restart(userName);
+            }
+            else if (win == false && fishCaught > 5) 
+            {
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                       YOU LOST!                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                        You caught more than 5 fish and stopped.                       |");
+                Console.WriteLine("|                Overfishing can be harmful for the aquatic ecosystems.                 |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+
+                Restart(userName);
+            }
+            else if (win == false && fishCaught < 5)
+            {
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                       YOU LOST!                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                          You caught less 5 fish and stopped.                          |");
+                Console.WriteLine("|                    You failed to catch the required amount of fish.                   |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                              Press any key to continue.                               |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+
                 Restart(userName);
             }
 
