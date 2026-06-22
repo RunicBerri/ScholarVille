@@ -78,7 +78,7 @@ namespace ScholarVille
                 Console.WriteLine("\n|                                                                                       |");
                 Console.WriteLine("|                                    Waiting for a bite...                              |");
 
-                
+
                 int waitTime = rnd.Next(2000, 5000);
 
                 DateTime waitStart = DateTime.Now;
@@ -112,6 +112,14 @@ namespace ScholarVille
                         {
                             caught = true;
                             break;
+                        }
+                        else if (Console.ReadKey(true).Key == ConsoleKey.X)
+                        {
+                            Console.Clear();
+                            ascii.Returning();
+                            Thread.Sleep(1000);
+                            Console.Clear();
+                            return;
                         }
                     }
                 }

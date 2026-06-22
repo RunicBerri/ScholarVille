@@ -226,8 +226,35 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                             __________________________                                |");
             Console.WriteLine("|                            |                           |                              |");
-            Console.WriteLine("|                            |        Returning to       |                              |");
-            Console.WriteLine("|                            |       Game Selection.     |                              |");
+            Console.WriteLine("|                            |       Returning to        |                              |");
+            Console.WriteLine("|                            |      Game Selection.      |                              |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                             ---------------------------                               |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.ResetColor();
+        }
+        public void ReturningMenu()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                             __________________________                                |");
+            Console.WriteLine("|                            |                           |                              |");
+            Console.WriteLine("|                            |       Returning to        |                              |");
+            Console.WriteLine("|                            |        Main Menu.         |                              |");
             Console.WriteLine("|                            |                           |                              |");
             Console.WriteLine("|                             ---------------------------                               |");
             Console.WriteLine("|                                                                                       |");
@@ -544,7 +571,7 @@ namespace ScholarVille
         public void BirchArt()
         {
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                    ZVSUUSVW                                          |" +
+            Console.WriteLine("|                                    ZVSUUSVW                                           |" +
                           "\r\n|                                   QTUUPRRUUUS                                         |" +
                           "\r\n|                                SMOUTUSOTPQURMSS                                       |" +
                           "\r\n|                              NPPOMUSSTQRUUROOPPO                                      |" +
