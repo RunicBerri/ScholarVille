@@ -394,7 +394,7 @@ namespace ScholarVille
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
                         Console.Clear();
-                        SDGs();
+                        SDGs(userName);
                         break;
                     case ConsoleKey.D6:
                     case ConsoleKey.NumPad6:
@@ -1033,7 +1033,7 @@ namespace ScholarVille
                     int sakura = Convert.ToInt32(parts[6]);
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Pine Tree                                       |");
@@ -1054,7 +1054,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Oak Tree                                        |");
@@ -1075,7 +1075,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Nara Tree                                       |");
@@ -1096,7 +1096,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Birch Tree                                      |");
@@ -1117,7 +1117,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                      Sakura Tree                                      |");
@@ -1151,7 +1151,7 @@ namespace ScholarVille
 
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                         Tilapia                                       |");
@@ -1171,7 +1171,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                         Milkfish                                      |");
@@ -1191,7 +1191,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                          Catfish                                      |");
@@ -1211,7 +1211,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                           Tuna                                        |");
@@ -1231,7 +1231,7 @@ namespace ScholarVille
                     }
 
                     ascii.Collection();
-                    Console.WriteLine("|                             Press any key to return to menu...                        |");
+                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                        Golden Fish                                    |");
@@ -1422,10 +1422,10 @@ namespace ScholarVille
                 ascii.GoldfishArt();
             }
         }
-        static void SDGs() 
+        static void SDGs(string userName) 
         {
             ascii.SdgList();
-            Console.WriteLine("|                             Press any key to return to menu...                        |");
+            Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
             Console.WriteLine("|                                                                                       |");
@@ -1453,6 +1453,24 @@ namespace ScholarVille
             Console.WriteLine("|            Treat boys and girls fairly and give them the same opportunities.          |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
+            ConsoleKey input = Console.ReadKey(true).Key;
+            Console.Clear();
+
+
+            if (input == ConsoleKey.X)
+            {
+                Console.Clear();
+                ascii.ReturningMenu();
+                Thread.Sleep(1000);
+                Console.Clear();
+                MainMenu(userName);
+            }
+
+
+            ascii.SdgList();
+            Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                SDG 6 - Clean Water and Sanitation                     |");
             Console.WriteLine("|                    Make sure everyone has clean water and proper toilets.             |");
@@ -1476,6 +1494,24 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                               SDG 10 - Reduced Inequalities                           |");
             Console.WriteLine("|      Give everyone a fair chance no matter who they are or where they come from.      |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            ConsoleKey input2 = Console.ReadKey(true).Key;
+            Console.Clear();
+
+
+            if (input2 == ConsoleKey.X)
+            {
+                Console.Clear();
+                ascii.ReturningMenu();
+                Thread.Sleep(1000);
+                Console.Clear();
+                MainMenu(userName);
+            }
+
+
+            ascii.SdgList();
+            Console.WriteLine("|                             Press any key to return to menu...                        |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
             Console.WriteLine("|                                                                                       |");
@@ -1514,8 +1550,11 @@ namespace ScholarVille
             Console.WriteLine("|_______________________________________________________________________________________|");
 
 
-            Console.ReadKey();
             Console.Clear();
+            ascii.ReturningMenu();
+            Thread.Sleep(1000);
+            Console.Clear();
+            MainMenu(userName);
         }
         static void SnakeGame(string userName)
         {
