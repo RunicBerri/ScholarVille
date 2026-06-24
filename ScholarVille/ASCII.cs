@@ -461,7 +461,7 @@ namespace ScholarVille
         public void sdgScore1()
         {
 
-            Console.WriteLine("|                                 Beginner SDG Learner                                  |");
+            Console.WriteLine("|                                 Beginner SDG Student                                  |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                               Achieve a high score of 10.                             |");
             Console.ResetColor();
@@ -470,7 +470,7 @@ namespace ScholarVille
         public void sdgScore2()
         {
 
-            Console.WriteLine("|                                   Adept SDG Learner                                   |");
+            Console.WriteLine("|                                   Adept SDG Student                                   |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                               Achieve a high score of 14.                             |");
             Console.ResetColor();
@@ -479,7 +479,7 @@ namespace ScholarVille
         public void sdgScore3()
         {
 
-            Console.WriteLine("|                                  Master SDG Learner                                   |");
+            Console.WriteLine("|                                  Master SDG Student                                   |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                               Achieve a high score of 17.                             |");
             Console.ResetColor();
