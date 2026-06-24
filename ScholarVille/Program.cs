@@ -398,14 +398,7 @@ namespace ScholarVille
                         break;
                     case ConsoleKey.D6:
                     case ConsoleKey.NumPad6:
-                        Console.WriteLine("=========================================================================================");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        ascii.LogOut();
-                        Console.ResetColor();
-                        Console.WriteLine("=========================================================================================");
-                        Console.ReadKey();
-                        Console.Clear();
-                        Start();
+                        Logout();
                         return;
                     default:
                         Console.WriteLine("=========================================================================================");
@@ -416,6 +409,50 @@ namespace ScholarVille
                         Console.ReadKey();
                         Console.Clear();
                         break;
+                }
+            }
+        }
+        static void Logout()
+        {
+            while (true)
+            {
+                Console.WriteLine("_________________________________________________________________________________________");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                   Confirm Logout?                                     |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                     Enter (Y/N)                                       |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+
+                string input = Console.ReadLine().ToLower();
+
+                if (input == "y")
+                {
+                    Console.WriteLine("=========================================================================================");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    ascii.LogOut();
+                    Console.ResetColor();
+                    Console.WriteLine("=========================================================================================");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Start();
+                }
+                else if (input == "n")
+                {
+                    Console.Clear();
+                    ascii.Returning();
+                    Thread.Sleep(1000);
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("_________________________________________________________________________________________");
+                    Console.WriteLine("|                                                                                       |");
+                    Console.WriteLine("|                              Please enter valid option.                               |");
+                    Console.WriteLine("|                              Press any key to continue.                               |");
+                    Console.WriteLine("|_______________________________________________________________________________________|");
+                    Console.ReadKey();
+                    Console.Clear();
+
                 }
             }
         }
