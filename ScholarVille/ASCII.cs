@@ -88,6 +88,8 @@ namespace ScholarVille
         }
         public void LoginSelected() 
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
@@ -108,6 +110,7 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("_________________________________________________________________________________________");
         }
         public void Register()
         {
@@ -122,6 +125,8 @@ namespace ScholarVille
         }
         public void RegisterSelected()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
@@ -142,9 +147,12 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         public void RegisterSuccess()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
@@ -165,9 +173,12 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         public void InvalidInput() 
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
@@ -188,9 +199,12 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|"); 
         }
         public void LogOut() 
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
@@ -211,8 +225,8 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
-
         public void Returning()
         {
             Console.ForegroundColor = ConsoleColor.Red;

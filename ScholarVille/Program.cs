@@ -46,24 +46,18 @@ namespace ScholarVille
                     case ConsoleKey.NumPad1:
                         Console.Clear();
 
-                        Console.WriteLine("=========================================================================================");
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
                         ascii.LoginSelected();
                         Console.ResetColor();
-                        Console.WriteLine("=========================================================================================");
-                        Console.ReadKey();
+                        Thread.Sleep(1000);
                         Console.Clear();
                         Login();
                         break;
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
                         Console.Clear();
-                        Console.WriteLine("=========================================================================================");
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
                         ascii.RegisterSelected();
                         Console.ResetColor();
-                        Console.WriteLine("=========================================================================================");
-                        Console.ReadKey();
+                        Thread.Sleep(1000);
                         Console.Clear();
                         Register();
                         Users = File.ReadAllLines("Users.txt").ToList();
@@ -74,12 +68,8 @@ namespace ScholarVille
                         break;
                     default:
                         Console.Clear();
-                        
-                        Console.WriteLine("=========================================================================================");
-                        Console.ForegroundColor = ConsoleColor.Red;
                         ascii.InvalidInput();
                         Console.ResetColor();
-                        Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -345,12 +335,11 @@ namespace ScholarVille
                     }
                 }
                 
-                Console.WriteLine("=========================================================================================");
-                Console.ForegroundColor = ConsoleColor.Red;
+                
                 ascii.InvalidInput();
                 Console.WriteLine("                         Invalid User or Password. Now Returning...");
                 Console.ResetColor();
-                Console.WriteLine("=========================================================================================");
+                
                 Console.ReadKey();
                 Console.Clear();
                 break;
@@ -398,7 +387,7 @@ namespace ScholarVille
                         break;
                     case ConsoleKey.D6:
                     case ConsoleKey.NumPad6:
-                        Logout();
+                        Logout(userName);
                         return;
                     default:
                         Console.WriteLine("=========================================================================================");
@@ -412,36 +401,36 @@ namespace ScholarVille
                 }
             }
         }
-        static void Logout()
+        static void Logout(string userName)
         {
             while (true)
             {
                 Console.WriteLine("_________________________________________________________________________________________");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                   Confirm Logout?                                     |");
+                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                     Enter (Y/N)                                       |");
                 Console.WriteLine("|_______________________________________________________________________________________|");
 
                 string input = Console.ReadLine().ToLower();
+                Console.Clear();
 
                 if (input == "y")
                 {
-                    Console.WriteLine("=========================================================================================");
-                    Console.ForegroundColor = ConsoleColor.Red;
                     ascii.LogOut();
-                    Console.ResetColor();
-                    Console.WriteLine("=========================================================================================");
-                    Console.ReadKey();
+                    Thread.Sleep(1000);
                     Console.Clear();
+                    Console.ResetColor();
                     Start();
                 }
                 else if (input == "n")
                 {
-                    Console.Clear();
-                    ascii.Returning();
+                    ascii.ReturningMenu();
                     Thread.Sleep(1000);
-                    return;
+                    Console.Clear();
+                    Console.ResetColor(); 
+                    MainMenu(userName);
                 }
                 else
                 {
