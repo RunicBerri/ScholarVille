@@ -1059,6 +1059,8 @@ namespace ScholarVille
                     Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
+                    Console.BackgroundColor= ConsoleColor.DarkGreen;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("|                                       Pine Tree                                       |");
                     tree1(pine);
                     Console.ResetColor();
@@ -1081,6 +1083,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Oak Tree                                        |");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     tree2(oak);
                     Console.ResetColor();
 
@@ -1102,6 +1106,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Nara Tree                                       |");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     tree3(narra);
                     Console.ResetColor();
 
@@ -1123,6 +1129,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                       Birch Tree                                      |");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     tree4(birch);
                     Console.ResetColor();
 
@@ -1144,6 +1152,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                      Sakura Tree                                      |");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     tree5(sakura);
                     Console.ResetColor();
 
@@ -1178,6 +1188,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                         Tilapia                                       |");
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     fish1(tilapia);
                     Console.ResetColor();
                     ConsoleKey input = Console.ReadKey(true).Key;
@@ -1198,6 +1210,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                         Milkfish                                      |");
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     fish2(milkfish);
                     Console.ResetColor();
                     ConsoleKey input2 = Console.ReadKey(true).Key;
@@ -1218,6 +1232,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                          Catfish                                      |");
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     fish3(catfish);
                     Console.ResetColor();
                     ConsoleKey input3 = Console.ReadKey(true).Key;
@@ -1238,6 +1254,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                           Tuna                                        |");
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     fish4(tuna);
                     Console.ResetColor();
                     ConsoleKey input4 = Console.ReadKey(true).Key;
@@ -1258,6 +1276,8 @@ namespace ScholarVille
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                        Golden Fish                                    |");
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
                     fish5(goldFish);
                     Console.ResetColor();
                     ConsoleKey input6 = Console.ReadKey(true).Key;
