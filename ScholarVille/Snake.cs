@@ -56,6 +56,7 @@ public class Snake
         Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
         Console.ResetColor();
         Console.WriteLine("|                                   Press any key to start.                             |");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.WriteLine("|_______________________________________________________________________________________|");
         ConsoleKey input = Console.ReadKey(true).Key;
         Console.Clear();

@@ -42,8 +42,9 @@ namespace ScholarVille
             Console.WriteLine("|                               Press \"Spacebar\" reel the fish.                         |");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ResetColor();
             Console.WriteLine("|                                   Press any key to start.                             |");
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("|_______________________________________________________________________________________|");
             ConsoleKey input = Console.ReadKey(true).Key;
             Console.Clear();

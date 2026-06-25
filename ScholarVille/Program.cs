@@ -68,8 +68,10 @@ namespace ScholarVille
                         break;
                     default:
                         Console.Clear();
+                        Console.WriteLine("=========================================================================================");
                         ascii.InvalidInput();
                         Console.ResetColor();
+                        Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -334,12 +336,12 @@ namespace ScholarVille
                         return;
                     }
                 }
-                
-                
+
+                Console.WriteLine("=========================================================================================");
                 ascii.InvalidInput();
                 Console.WriteLine("                         Invalid User or Password. Now Returning...");
                 Console.ResetColor();
-                
+                Console.WriteLine("=========================================================================================");
                 Console.ReadKey();
                 Console.Clear();
                 break;
