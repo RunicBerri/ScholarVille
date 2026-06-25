@@ -408,7 +408,6 @@ namespace ScholarVille
                 Console.WriteLine("_________________________________________________________________________________________");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                   Confirm Logout?                                     |");
-                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                     Enter (Y/N)                                       |");
                 Console.WriteLine("|_______________________________________________________________________________________|");
