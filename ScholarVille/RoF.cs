@@ -85,7 +85,9 @@ public class RoF
         Console.WriteLine("|                                         Controls:                                     |");
         Console.WriteLine("|                                    Type R = Real News                                 |");
         Console.WriteLine("|                                    Type F = Fake News                                 |");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.ResetColor();
         Console.WriteLine("|                                   Press any key to start.                             |");
         Console.WriteLine("|_______________________________________________________________________________________|");
 
@@ -163,10 +165,18 @@ public class RoF
 
     private bool AskQuestion()
     {
-        int color = rnd.Next(1,6);
+        int color = rnd.Next(1,5);
         var question = questions[rnd.Next(questions.Count)];
         while(true)
         {
+            
+            
+            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|  NEWS:                                                                                |");
+            Console.WriteLine($"   {question.Question}");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.WriteLine("|                                                                                       |");
             switch (color)
             {
                 case 1:
@@ -181,25 +191,17 @@ public class RoF
                 case 4:
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     break;
-                case 5:
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    break;
             }
-            
-            Console.WriteLine("_________________________________________________________________________________________");
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|  NEWS:                                                                                |");
-            Console.WriteLine($"   {question.Question}");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-            Console.WriteLine("|                                                                                       |");
             Console.WriteLine($"|                                   Current Score: {rofScore}                                    |");
             Console.WriteLine("|                               Is this REAL or FAKE? (R/F)                             |");
             Console.WriteLine("|                               Press \"X\" to leave the game.                            |");
+            Console.ResetColor();
             string answer = Console.ReadLine().ToLower();
 
             if ((answer == "r" && question.IsReal) || (answer == "f" && !question.IsReal))
             {
                 rofScore++;
+                Console.ForegroundColor= ConsoleColor.DarkYellow;
                 ShowTip(question.TipType);
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                               Nice! You earned point.                                 |");
@@ -219,6 +221,7 @@ public class RoF
                 {
                     rofScore--;
                 }
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                           Wrong! This affects public safety.                          |");
                 Console.WriteLine("|                              Press any key to continue.                               |");
@@ -254,7 +257,9 @@ public class RoF
         Console.WriteLine("|                      Being able to know which news or post is true,                   |");
         Console.WriteLine("|                    can allow you to stop the spread of misinformation.                |");
         Console.WriteLine("|                                                                                       |");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.WriteLine($"|                                   Final Score: {rofScore}                                        |");
+        Console.ResetColor();
 
         if (rofScore >= 5)
         {

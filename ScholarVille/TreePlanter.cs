@@ -38,9 +38,12 @@ public class TreePlanter
         Console.WriteLine("|                 Care for your tree by giving it what it needs to grow                 |");
         Console.WriteLine("|                                and help create a greener world.                       |");
         Console.WriteLine("|                                                                                       |");
-        Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                                                                       |");       
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.ResetColor();
         Console.WriteLine("|                                   Press any key to start.                             |");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("|_______________________________________________________________________________________|");
         ConsoleKey input = Console.ReadKey(true).Key;
         Console.Clear();
@@ -61,12 +64,16 @@ public class TreePlanter
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine($"|                                    Tree Growth : {growth}");
-            Console.WriteLine($"|                                    Feritlizer  : {fertilizer}");
+            Console.WriteLine($"|                                    Feritilizer  : {fertilizer}");
             Console.WriteLine($"|                                    Water       : {water}");
             Console.WriteLine("|                                                                                       |");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
-            Console.WriteLine("|                                   Press any key to explore.                           |");
+            Console.ResetColor();
+            Console.WriteLine("|                               Press \"L\",\"F\",\"R\" to explore.                           |");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("|_______________________________________________________________________________________|");
+            Console.ResetColor();
             string input2 = Console.ReadLine().ToLower();
             switch (input2) 
             {

@@ -52,7 +52,9 @@ public class Snake
         Console.WriteLine("|                        SDG 12: Responsible Consumption and Production                 |");
         Console.WriteLine("|                  Grow your cleanup crew by collecting trash and help support!         |");
         Console.WriteLine("|                                                                                       |");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.ResetColor();
         Console.WriteLine("|                                   Press any key to start.                             |");
         Console.WriteLine("|_______________________________________________________________________________________|");
         ConsoleKey input = Console.ReadKey(true).Key;

@@ -104,7 +104,9 @@ public class SDGquiz
         Console.WriteLine("|                and discover how you can help make the world a better place!           |");
         Console.WriteLine("|                                                                                       |");
         Console.WriteLine("|                                                                                       |");
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+        Console.ResetColor();
         Console.WriteLine("|                                   Press any key to start.                             |");
         Console.WriteLine("|_______________________________________________________________________________________|");
         ConsoleKey input = Console.ReadKey(true).Key;
@@ -152,25 +154,7 @@ public class SDGquiz
 
     private bool AskQuestion(int i)
     {
-        int color = rnd.Next(1, 6);
-        switch (color)
-        {
-            case 1:
-                Console.ForegroundColor = ConsoleColor.Red;
-                break;
-            case 2:
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                break;
-            case 3:
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                break;
-            case 4:
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                break;
-            case 5:
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                break;
-        }
+        
         var question = questions[i];
         while (true)
         {
@@ -181,11 +165,26 @@ public class SDGquiz
             {
                 Console.WriteLine($"   { choice}");
             }
+            int color = rnd.Next(1, 4);
+            switch (color)
+            {
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
+                case 2:
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
+                    break;
+                case 3:
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    break;
+            }
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine($"|                                   Current Score: {sdgScore}                                    |");                            
-            Console.WriteLine("|                               Press \"X\" to leave the game.                            |");
+            Console.WriteLine($"|                                   Current Score: {sdgScore}                                    |");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+            Console.ResetColor();
             string userAnswer = Console.ReadLine().ToLower();
-
+            Console.ResetColor();
             if (userAnswer == "x")
             {
                 return false;
@@ -214,8 +213,10 @@ public class SDGquiz
 
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                    You're Wrong!                                      |");
+                Console.ResetColor();
             }
 
             Console.WriteLine("|                              Press any key to continue.                               |");
@@ -297,11 +298,13 @@ public class SDGquiz
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("_________________________________________________________________________________________");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                              Please enter valid option.                               |");
                 Console.WriteLine("|                              Press any key to continue.                               |");
                 Console.WriteLine("|_______________________________________________________________________________________|");
+                Console.ResetColor();
                 Console.ReadKey();
                 Console.Clear();
 

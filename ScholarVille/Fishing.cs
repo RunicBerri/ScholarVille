@@ -10,7 +10,7 @@ namespace ScholarVille
 {
     public class Fishing
     {
-        int fishCaught = 5;
+        int fishCaught = 0;
         int trashCollected = 0;
 
         bool game = true;
@@ -28,8 +28,7 @@ namespace ScholarVille
 
             Users = File.ReadAllLines("Users.txt").ToList();
             UserFishCollection = File.ReadAllLines("UserFish.txt").ToList();
-
-            Console.ForegroundColor = ConsoleColor.Blue;
+            
             Console.WriteLine("_________________________________________________________________________________________");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                    Catch & Conserve                                   |");
@@ -41,7 +40,9 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                               Press \"Spacebar\" reel the fish.                         |");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("|                                   Press any key to start.                             |");
             Console.WriteLine("|_______________________________________________________________________________________|");
             ConsoleKey input = Console.ReadKey(true).Key;

@@ -389,12 +389,10 @@ namespace ScholarVille
                     case ConsoleKey.NumPad6:
                         Logout(userName);
                         return;
-                    default:
-                        Console.WriteLine("=========================================================================================");
+                    default:  
                         Console.ForegroundColor = ConsoleColor.Red;
                         ascii.InvalidInput();
-                        Console.ResetColor();
-                        Console.WriteLine("=========================================================================================");
+                        Console.ResetColor();  
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -486,11 +484,9 @@ namespace ScholarVille
                         MainMenu(userName);
                         break;
                     default:
-                        Console.WriteLine("=========================================================================================");
                         Console.ForegroundColor = ConsoleColor.Red;
                         ascii.InvalidInput();
                         Console.ResetColor();
-                        Console.WriteLine("=========================================================================================");
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -1473,10 +1469,7 @@ namespace ScholarVille
             Console.WriteLine("|                     Give every child the chance to learn and go to school.            |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                    SDG 5 - Gender Equality                            |");
-            Console.WriteLine("|            Treat boys and girls fairly and give them the same opportunities.          |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
+            
 
             ConsoleKey input = Console.ReadKey(true).Key;
             Console.Clear();
@@ -1491,9 +1484,13 @@ namespace ScholarVille
                 MainMenu(userName);
             }
 
-
             ascii.SdgList();
             Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                                    SDG 5 - Gender Equality                            |");
+            Console.WriteLine("|            Treat boys and girls fairly and give them the same opportunities.          |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
             Console.WriteLine("|                                                                                       |");
@@ -1511,16 +1508,6 @@ namespace ScholarVille
             Console.WriteLine("|                         Help people find good jobs and earn a living.                 |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                     SDG 9 - Industry, Innovation and Infrastructure                   |");
-            Console.WriteLine("|          Build useful roads, technology, and inventions that improve lives.           |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                               SDG 10 - Reduced Inequalities                           |");
-            Console.WriteLine("|      Give everyone a fair chance no matter who they are or where they come from.      |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
             ConsoleKey input2 = Console.ReadKey(true).Key;
             Console.Clear();
 
@@ -1534,9 +1521,18 @@ namespace ScholarVille
                 MainMenu(userName);
             }
 
-
             ascii.SdgList();
             Console.WriteLine("|                             Press any key to return to menu...                        |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                     SDG 9 - Industry, Innovation and Infrastructure                   |");
+            Console.WriteLine("|          Build useful roads, technology, and inventions that improve lives.           |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|                               SDG 10 - Reduced Inequalities                           |");
+            Console.WriteLine("|      Give everyone a fair chance no matter who they are or where they come from.      |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
             Console.WriteLine("|                                                                                       |");
@@ -1547,6 +1543,24 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                       SDG 12 - Responsible Consumption and Production                 |");
             Console.WriteLine("|                     Use resources wisely and avoid wasting things.                    |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
+
+            ConsoleKey input3 = Console.ReadKey(true).Key;
+            Console.Clear();
+
+
+            if (input3 == ConsoleKey.X)
+            {
+                Console.Clear();
+                ascii.ReturningMenu();
+                Thread.Sleep(1000);
+                Console.Clear();
+                MainMenu(userName);
+            }
+
+
+            ascii.SdgList();
+            Console.WriteLine("|                             Press any key to return to menu...                        |");
             Console.WriteLine("|_______________________________________________________________________________________|");
 
             Console.WriteLine("|                                                                                       |");
@@ -1575,6 +1589,7 @@ namespace ScholarVille
             Console.WriteLine("|_______________________________________________________________________________________|");
 
 
+            ConsoleKey input4 = Console.ReadKey(true).Key;
             Console.Clear();
             ascii.ReturningMenu();
             Thread.Sleep(1000);
