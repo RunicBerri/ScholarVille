@@ -70,7 +70,7 @@ public class TreePlanter
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
             Console.ResetColor();
-            Console.WriteLine("|                               Press \"L\",\"F\",\"R\" to explore.                           |");
+            Console.WriteLine("|                               Press \"A\",\"W\",\"D\" to explore.                           |");
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("|_______________________________________________________________________________________|");
             Console.ResetColor();
@@ -78,21 +78,21 @@ public class TreePlanter
             switch (input2) 
             {
 
-                case "l":
+                case "a":
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("_________________________________________________________________________________________");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                                 You went left and...                                  |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     break;
-                case "f":
+                case "w":
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("_________________________________________________________________________________________");
                     Console.WriteLine("|                                                                                       |");
                     Console.WriteLine("|                               You went forward and...                                 |");
                     Console.WriteLine("|_______________________________________________________________________________________|");
                     break;
-                case "r":
+                case "d":
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("_________________________________________________________________________________________");
                     Console.WriteLine("|                                                                                       |");

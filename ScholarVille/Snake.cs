@@ -49,12 +49,14 @@ public class Snake
         Console.WriteLine("|                                          Eco Snake                                    |");
         Console.WriteLine("|_______________________________________________________________________________________|");
         Console.WriteLine("|                                                                                       |");
+        Console.WriteLine("|                                                                                       |");
         Console.WriteLine("|                        SDG 12: Responsible Consumption and Production                 |");
         Console.WriteLine("|                  Grow your clean-up crew by collecting trash and help support!        |");
         Console.WriteLine("|                                                                                       |");
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
         Console.ResetColor();
+        Console.WriteLine("|                        Controls: W = Up, A = Left, S = Down, D = Right                |");
         Console.WriteLine("|                                   Press any key to start.                             |");
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.WriteLine("|_______________________________________________________________________________________|");
