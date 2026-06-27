@@ -19,74 +19,75 @@ public class SDGquiz
     static ASCII ascii = new ASCII();
     List<SDGQuestion> questions = new List<SDGQuestion>()
     {
-        new SDGQuestion("SDG 1: Which SDG aims to end poverty?", "a", new string[]{"A. No Poverty",
-            "B. Zero Hunger",
-            "C. Quality Education"}
+        new SDGQuestion("Which SDG aims to end poverty?", "a", new string[]{"" +
+            "A. SDG 1: No Poverty",
+            "B. SDG 2: Zero Hunger",
+            "C. SDG 4: Quality Education"}
             ),
-        new SDGQuestion("SDG 2: Which SDG aims to end hunger?", "b", new string[]{
-            "A. Good Health and Well-Being",
-            "B. Zero Hunger",
-            "C. Climate Action" }),
-        new SDGQuestion("SDG 3: Which SDG focuses on health?", "c",new string[]{
-            "A. Life Below Water",
-            "B. Industry, Innovation and Infrastructure",
-            "C. Good Health and Well-Being"}),
-        new SDGQuestion("SDG 4: Which SDG promotes education for all?", "a",new string[]{
-            "A. Quality Education",
-            "B. Gender Equality",
-            "C. Reduced Inequalities"}),
-        new SDGQuestion("SDG 5: Which SDG promotes equal rights for women and men?", "b",new string[]{
-            "A. Peace, Justice and Strong Institutions",
-            "B. Gender Equality",
-            "C. Affordable and Clean Energy"}),
-        new SDGQuestion("SDG 6: Which SDG focuses on access to clean water?", "c",new string[]{
-            "A. Climate Action",
-            "B. Sustainable Cities and Communities",
-            "C. Clean Water and Sanitation"}),
-        new SDGQuestion("SDG 7: Which SDG promotes renewable energy?", "a",new string[]{
-            "A. Affordable and Clean Energy",
-            "B. Responsible Consumption and Production",
-            "C. Partnerships for the Goals"}),
-        new SDGQuestion("SDG 8: Which SDG focuses on decent jobs and economic growth?", "b", new string[]{
-            "A. No Poverty",
-            "B. Decent Work and Economic Growth",
-            "C. Life on Land"}),
-        new SDGQuestion("SDG 9: Which SDG promotes innovation and infrastructure?", "c", new string[]{
-            "A. Reduced Inequalities",
-            "B. Climate Action",
-            "C. Industry, Innovation and Infrastructure"}),
-        new SDGQuestion("SDG 10: Which SDG aims to reduce inequality?", "a", new string[]{
-            "A. Reduced Inequalities",
-            "B. Zero Hunger",
-            "C. Clean Water and Sanitation"}),
-        new SDGQuestion("SDG 11: Which SDG focuses on making cities safer and more sustainable?", "b", new string[]{
-            "A. Responsible Consumption and Production",
-            "B. Sustainable Cities and Communities",
-            "C. Life Below Water"}),
-        new SDGQuestion("SDG 12: Which SDG encourages responsible use of resources?", "c", new string[]{
-            "A. Peace, Justice and Strong Institutions",
-            "B. Affordable and Clean Energy",
-            "C. Responsible Consumption and Production"}),
-        new SDGQuestion("SDG 13: Which SDG focuses on fighting climate change?", "a", new string[]{
-            "A. Climate Action",
-            "B. Life on Land",
-            "C. Decent Work and Economic Growth"}),
-        new SDGQuestion("SDG 14: Which SDG protects oceans and marine life?", "b", new string[]{
-            "A. Life on Land",
-            "B. Life Below Water",
-            "C. Good Health and Well-Being"}),
-        new SDGQuestion("SDG 15: Which SDG protects forests and wildlife?", "c", new string[]{
-            "A. Partnerships for the Goals",
-            "B. Sustainable Cities and Communities",
-            "C. Life on Land"}),
-        new SDGQuestion("SDG 16: Which SDG promotes peace and justice?", "a", new string[]{
-            "A. Peace, Justice and Strong Institutions",
-            "B. No Poverty",
-            "C. Quality Education"}),
-        new SDGQuestion("SDG 17: Which SDG encourages countries to work together?", "b", new string[]{
-            "A. Industry, Innovation and Infrastructure",
-            "B. Partnerships for the Goals",
-            "C. Climate Action" })
+        new SDGQuestion("Which SDG aims to end hunger?", "b", new string[]{
+            "A. SDG 3: Good Health and Well-Being",
+            "B. SDG 2: Zero Hunger",
+            "C. SDG 13: Climate Action" }),
+        new SDGQuestion("Which SDG focuses on health?", "c",new string[]{
+            "A. SDG 14: Life Below Water",
+            "B. SDG 9: Industry, Innovation and Infrastructure",
+            "C. SDG 3: Good Health and Well-Being"}),
+        new SDGQuestion("Which SDG promotes education for all?", "a",new string[]{
+            "A. SDG 4: Quality Education",
+            "B. SDG 5: Gender Equality",
+            "C. SDG 10: Reduced Inequalities"}),
+        new SDGQuestion("Which SDG promotes equal rights for women and men?", "b",new string[]{
+            "A. SDG 16: Peace, Justice and Strong Institutions",
+            "B. SDG 5: Gender Equality",
+            "C. SDG 7: Affordable and Clean Energy"}),
+        new SDGQuestion("Which SDG focuses on access to clean water?", "c",new string[]{
+            "A. SDG 13: Climate Action",
+            "B. SDG 11: Sustainable Cities and Communities",
+            "C. SDG 6: Clean Water and Sanitation"}),
+        new SDGQuestion("Which SDG promotes renewable energy?", "a",new string[]{
+            "A. SDG 7: Affordable and Clean Energy",
+            "B. SDG 12: Responsible Consumption and Production",
+            "C. SDG 17: Partnerships for the Goals"}),
+        new SDGQuestion("Which SDG focuses on decent jobs and economic growth?", "b", new string[]{
+            "A. SDG 1: No Poverty",
+            "B. SDG 8: Decent Work and Economic Growth",
+            "C. SDG 15: Life on Land"}),
+        new SDGQuestion("Which SDG promotes innovation and infrastructure?", "c", new string[]{
+            "A. SDG 10: Reduced Inequalities",
+            "B. SDG 13: Climate Action",
+            "C. SDG 9: Industry, Innovation and Infrastructure"}),
+        new SDGQuestion("Which SDG aims to reduce inequality?", "a", new string[]{
+            "A. SDG 10: Reduced Inequalities",
+            "B. SDG 2: Zero Hunger",
+            "C. SDG 6: Clean Water and Sanitation"}),
+        new SDGQuestion("Which SDG focuses on making cities safer and more sustainable?", "b", new string[]{
+            "A. SDG 12: Responsible Consumption and Production",
+            "B. SDG 11: Sustainable Cities and Communities",
+            "C. SDG 14: Life Below Water"}),
+        new SDGQuestion("Which SDG encourages responsible use of resources?", "c", new string[]{
+            "A. SDG 16: Peace, Justice and Strong Institutions",
+            "B. SDG 7: Affordable and Clean Energy",
+            "C. SDG 12: Responsible Consumption and Production"}),
+        new SDGQuestion("Which SDG focuses on fighting climate change?", "a", new string[]{
+            "A. SDG 13: Climate Action",
+            "B. SDG 15: Life on Land",
+            "C. SDG 8: Decent Work and Economic Growth"}),
+        new SDGQuestion("Which SDG protects oceans and marine life?", "b", new string[]{
+            "A. SDG 15: Life on Land",
+            "B. SDG 14: Life Below Water",
+            "C. SDG 3: Good Health and Well-Being"}),
+        new SDGQuestion("Which SDG protects forests and wildlife?", "c", new string[]{
+            "A. SDG 17: Partnerships for the Goals",
+            "B. SDG 11: Sustainable Cities and Communities",
+            "C. SDG 15: Life on Land"}),
+        new SDGQuestion("Which SDG promotes peace and justice?", "a", new string[]{
+            "A. SDG 16: Peace, Justice and Strong Institutions",
+            "B. SDG 1: No Poverty",
+            "C. SDG 4: Quality Education"}),
+        new SDGQuestion("Which SDG encourages countries to work together?", "b", new string[]{
+            "A. SDG 9: Industry, Innovation and Infrastructure",
+            "B. SDG 17: Partnerships for the Goals",
+            "C. SDG 13: Climate Action" })
     };
 
     public void Start(string userName)
@@ -179,7 +180,7 @@ public class SDGquiz
                     break;
             }
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine($"|                                   Current Score: {sdgScore}                                    |");
+            Console.WriteLine($"|                                          Score: {sdgScore}                                    ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("|                                Press \"X\" to leave the game.                           |");
             Console.ResetColor();
@@ -294,6 +295,7 @@ public class SDGquiz
                 Console.Clear();
                 ascii.Returning();
                 Thread.Sleep(1000);
+                Console.Clear();
                 return;
             }
             else

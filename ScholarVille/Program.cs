@@ -538,6 +538,7 @@ namespace ScholarVille
                 string[] parts = Users[i].Split(',');
                 if (parts[1] == userName) 
                 {
+
                     int trashCollected = Convert.ToInt32(parts[3]);
                     int rofScore = Convert.ToInt32(parts[4]);
                     int treesPlanted = Convert.ToInt32(parts[5]);
@@ -546,114 +547,92 @@ namespace ScholarVille
                     int fishCollected = Convert.ToInt32(parts[8]);
                     int quizHiScore = Convert.ToInt32(parts[9]);
 
-                    ascii.Achievement();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.WriteLine("|                                       Eco Snake                                       |");
-                    Console.ResetColor();
-                    Achievments1(trashCollected);
-                    ConsoleKey input = Console.ReadKey(true).Key;
-                    Console.Clear();
 
+                    int currentPage = 1;
 
-                    if (input == ConsoleKey.X)
+                    while (true)
                     {
                         Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
+
+                        switch (currentPage)
+                        {
+                            case 1:
+                                ascii.Achievement();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                                Console.WriteLine("|                                       Eco Snake                                       |");
+                                Console.ResetColor();
+                                Achievments1(trashCollected);
+                                break;
+                            case 2:
+                                ascii.Achievement();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");                                
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("|                                    News Detective                                     |");
+                                Console.ResetColor();
+                                Achievments2(rofScore);
+                                break;
+                            case 3:
+                                ascii.Achievement();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                Console.WriteLine("|                                      Grow A Tree                                      |");
+                                Console.ResetColor();
+                                Achievments3(treesPlanted, treesCollected);
+                                break;
+                            case 4:
+                                ascii.Achievement();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkCyan;
+                                Console.WriteLine("|                                    Catch & Conserve                                   |");
+                                Console.ResetColor();
+                                Achievments4(fishCaught, fishCollected);
+                                break;
+                            case 5:
+                                ascii.Achievement();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                                Console.WriteLine("|                                        SDG Quiz                                       |");
+                                Console.ResetColor();
+                                Achievments5(quizHiScore);
+                                break;
+                        }
+
+                        ConsoleKey key = Console.ReadKey(true).Key;
+
+                        if (key == ConsoleKey.N && currentPage < 5)
+                            currentPage++;
+
+                        else if (key == ConsoleKey.B && currentPage > 1)
+                            currentPage--;
+
+                        else if (key == ConsoleKey.X)
+                            break;
                     }
 
-                    ascii.Achievement();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("|                                    News Detective                                     |");
-                    Console.ResetColor();
-                    Achievments2(rofScore);
-                    ConsoleKey input2 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-                    if (input2 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Achievement();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("|                                      Grow A Tree                                      |");
-                    Console.ResetColor();
-                    Achievments3(treesPlanted,treesCollected);
-                    ConsoleKey input3 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-                    if (input3 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-                    ascii.Achievement();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine("|                                    Catch & Conserve                                   |");
-                    Console.ResetColor();
-                    Achievments4(fishCaught,fishCollected);
-                    ConsoleKey input4 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-                    if (input4 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Achievement();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkMagenta;
-                    Console.WriteLine("|                                        SDG Quiz                                       |");
-                    Console.ResetColor();
-                    Achievments5(quizHiScore);
-                    ConsoleKey input5 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-                    if (input5 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
+                    MainMenu(userName);
                 }
             }
-            Console.ReadKey();
-            Console.Clear();
         }
         static void Achievments1(int trashCollected) 
         {
@@ -1465,156 +1444,141 @@ namespace ScholarVille
                 ascii.GoldfishArt();
             }
         }
-        static void SDGs(string userName) 
+        static void SDGs(string userName)  
         {
-            ascii.SdgList();
-            Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
+            int currentPage = 1;
 
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                     SDG 1 - No Poverty                                |");
-            Console.WriteLine("|          Help everyone have enough money and resources to live a good life.           |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                     SDG 2 - Zero Hunger                               |");
-            Console.WriteLine("|                   Make sure everyone has healthy food to eat every day.               |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                               SDG 3 - Good Health and Well-Being                      |");
-            Console.WriteLine("|                           Help people stay healthy, safe, and strong.                 |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                   SDG 4 - Quality Education                           |");
-            Console.WriteLine("|                     Give every child the chance to learn and go to school.            |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            
-
-            ConsoleKey input = Console.ReadKey(true).Key;
-            Console.Clear();
-
-
-            if (input == ConsoleKey.X)
+            while (true)
             {
                 Console.Clear();
-                ascii.ReturningMenu();
-                Thread.Sleep(1000);
-                Console.Clear();
-                MainMenu(userName);
+
+                switch (currentPage)
+                {
+                    case 1:
+                        ascii.SdgList();
+                        Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                        Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                                     SDG 1 - No Poverty                                |");
+                        Console.WriteLine("|          Help everyone have enough money and resources to live a good life.           |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                                     SDG 2 - Zero Hunger                               |");
+                        Console.WriteLine("|                   Make sure everyone has healthy food to eat every day.               |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                               SDG 3 - Good Health and Well-Being                      |");
+                        Console.WriteLine("|                           Help people stay healthy, safe, and strong.                 |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                                   SDG 4 - Quality Education                           |");
+                        Console.WriteLine("|                     Give every child the chance to learn and go to school.            |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+                        break;
+
+                    case 2:
+                        ascii.SdgList();
+                        Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                        Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                                    SDG 5 - Gender Equality                            |");
+                        Console.WriteLine("|            Treat boys and girls fairly and give them the same opportunities.          |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                                SDG 6 - Clean Water and Sanitation                     |");
+                        Console.WriteLine("|                    Make sure everyone has clean water and proper toilets.             |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                             SDG 7 - Affordable and Clean Energy                       |");
+                        Console.WriteLine("|                      Provide safe and clean energy that everyone can use.             |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                          SDG 8 - Decent Work and Economic Growth                      |");
+                        Console.WriteLine("|                         Help people find good jobs and earn a living.                 |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+                        break;
+
+                    case 3:
+                        ascii.SdgList();
+                        Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                        Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                     SDG 9 - Industry, Innovation and Infrastructure                   |");
+                        Console.WriteLine("|          Build useful roads, technology, and inventions that improve lives.           |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                               SDG 10 - Reduced Inequalities                           |");
+                        Console.WriteLine("|      Give everyone a fair chance no matter who they are or where they come from.      |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                         SDG 11 - Sustainable Cities and Communities                   |");
+                        Console.WriteLine("|                Create clean, safe, and friendly places for people to live.            |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                       SDG 12 - Responsible Consumption and Production                 |");
+                        Console.WriteLine("|                     Use resources wisely and avoid wasting things.                    |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+                        break;
+
+                    case 4:
+                        ascii.SdgList();
+                        Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                        Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                               SDG 13 - Climate Action                                 |");
+                        Console.WriteLine("|                     Protect the Earth by helping stop climate change.                 |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                             SDG 14 - Life Below Water                                 |");
+                        Console.WriteLine("|               Keep oceans, rivers, and marine animals clean and healthy.              |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                                  SDG 15 - Life on Land                                |");
+                        Console.WriteLine("|                 Protect forests, plants, and animals that live on land.               |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                     SDG 16 - Peace, Justice and Strong Institutions                   |");
+                        Console.WriteLine("|                   Promote kindness, fairness, and peaceful communities.               |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+
+                        Console.WriteLine("|                                                                                       |");
+                        Console.WriteLine("|                        SDG 17 - Partnerships for the Goals                            |");
+                        Console.WriteLine("|             Work together to make the world a better place for everyone.              |");
+                        Console.WriteLine("|_______________________________________________________________________________________|");
+                        break;
+                }
+
+                ConsoleKey key = Console.ReadKey(true).Key;
+
+                if (key == ConsoleKey.N && currentPage < 4)
+                    currentPage++;
+
+                else if (key == ConsoleKey.B && currentPage > 1)
+                    currentPage--;
+
+                else if (key == ConsoleKey.X)
+                    break;
             }
-
-            ascii.SdgList();
-            Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                    SDG 5 - Gender Equality                            |");
-            Console.WriteLine("|            Treat boys and girls fairly and give them the same opportunities.          |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                SDG 6 - Clean Water and Sanitation                     |");
-            Console.WriteLine("|                    Make sure everyone has clean water and proper toilets.             |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                             SDG 7 - Affordable and Clean Energy                       |");
-            Console.WriteLine("|                      Provide safe and clean energy that everyone can use.             |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                          SDG 8 - Decent Work and Economic Growth                      |");
-            Console.WriteLine("|                         Help people find good jobs and earn a living.                 |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            ConsoleKey input2 = Console.ReadKey(true).Key;
-            Console.Clear();
-
-
-            if (input2 == ConsoleKey.X)
-            {
-                Console.Clear();
-                ascii.ReturningMenu();
-                Thread.Sleep(1000);
-                Console.Clear();
-                MainMenu(userName);
-            }
-
-            ascii.SdgList();
-            Console.WriteLine("|                             Press any key to return to menu...                        |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                     SDG 9 - Industry, Innovation and Infrastructure                   |");
-            Console.WriteLine("|          Build useful roads, technology, and inventions that improve lives.           |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                               SDG 10 - Reduced Inequalities                           |");
-            Console.WriteLine("|      Give everyone a fair chance no matter who they are or where they come from.      |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                         SDG 11 - Sustainable Cities and Communities                   |");
-            Console.WriteLine("|                Create clean, safe, and friendly places for people to live.            |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                       SDG 12 - Responsible Consumption and Production                 |");
-            Console.WriteLine("|                     Use resources wisely and avoid wasting things.                    |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            ConsoleKey input3 = Console.ReadKey(true).Key;
-            Console.Clear();
-
-
-            if (input3 == ConsoleKey.X)
-            {
-                Console.Clear();
-                ascii.ReturningMenu();
-                Thread.Sleep(1000);
-                Console.Clear();
-                MainMenu(userName);
-            }
-
-
-            ascii.SdgList();
-            Console.WriteLine("|                             Press any key to return to menu...                        |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                               SDG 13 - Climate Action                                 |");
-            Console.WriteLine("|                     Protect the Earth by helping stop climate change.                 |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                             SDG 14 - Life Below Water                                 |");
-            Console.WriteLine("|               Keep oceans, rivers, and marine animals clean and healthy.              |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                  SDG 15 - Life on Land                                |");
-            Console.WriteLine("|                 Protect forests, plants, and animals that live on land.               |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                     SDG 16 - Peace, Justice and Strong Institutions                   |");
-            Console.WriteLine("|                   Promote kindness, fairness, and peaceful communities.               |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-            Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                        SDG 17 - Partnerships for the Goals                            |");
-            Console.WriteLine("|             Work together to make the world a better place for everyone.              |");
-            Console.WriteLine("|_______________________________________________________________________________________|");
-
-
-            ConsoleKey input4 = Console.ReadKey(true).Key;
-            Console.Clear();
-            ascii.ReturningMenu();
-            Thread.Sleep(1000);
             Console.Clear();
             MainMenu(userName);
         }

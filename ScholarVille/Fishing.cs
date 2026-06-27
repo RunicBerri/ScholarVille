@@ -34,7 +34,7 @@ namespace ScholarVille
             Console.WriteLine("|                                    Catch & Conserve                                   |");
             Console.WriteLine("|_______________________________________________________________________________________|");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("|                                SDG 14 - Life on Below Water                           |");
+            Console.WriteLine("|                                SDG 14 - Life Below Water                              |");
             Console.WriteLine("|                           Balance your catch, protect sea life,                       |");
             Console.WriteLine("|                            and become a guardian of the ocean.                        |");
             Console.WriteLine("|                                                                                       |");
@@ -311,6 +311,7 @@ namespace ScholarVille
                     Console.Clear();
                     ascii.Returning();
                     Thread.Sleep(1000);
+                    Console.Clear();
                     return;
                 }
                 else

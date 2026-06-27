@@ -276,6 +276,7 @@ public class Snake
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 UpdateInfo(userName, snakeScore);
                 Console.ReadKey();
+                Console.Clear();
                 break;
             }
         }

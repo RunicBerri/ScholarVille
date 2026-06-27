@@ -284,6 +284,7 @@ public class TreePlanter
                 Console.Clear();
                 ascii.Returning();
                 Thread.Sleep(1000);
+                Console.Clear();
                 return;
             }
             else
