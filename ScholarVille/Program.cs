@@ -1020,8 +1020,58 @@ namespace ScholarVille
         }
         static void UserCollection(string userName)
         {
+            while (true)
+            {
+
+                ascii.Collection();
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                            Choose which collection to view!                           |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                 [1] Tree Collection                [2] Fish Collection                |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                  [3] Return to Menu                                   |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|                                                                                       |");
+                Console.WriteLine("|_______________________________________________________________________________________|");
+                ConsoleKey input = Console.ReadKey(true).Key;
+                Console.Clear();
+
+                switch (input)
+                {
+                    case ConsoleKey.D1:
+                    case ConsoleKey.NumPad1:
+                        treeCollection(userName);
+                        break;
+                    case ConsoleKey.D2:
+                    case ConsoleKey.NumPad2:
+                        fishCollection(userName);
+                        break;
+                    case ConsoleKey.D3:
+                    case ConsoleKey.NumPad3:
+                        MainMenu(userName);
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        ascii.InvalidInput();
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                }
+            }
+        }
+        static void treeCollection(string userName)
+        {
             UserTreeCollection = File.ReadAllLines("UserTrees.txt").ToList();
-            UserFishCollection = File.ReadAllLines("UserFish.txt").ToList();
 
             for (int i = 0; i < UserTreeCollection.Count; i++)
             {
@@ -1034,122 +1084,89 @@ namespace ScholarVille
                     int birch = Convert.ToInt32(parts[5]);
                     int sakura = Convert.ToInt32(parts[6]);
 
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.BackgroundColor= ConsoleColor.DarkGreen;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("|                                       Pine Tree                                       |");
-                    tree1(pine);
-                    Console.ResetColor();
 
-                    ConsoleKey input = Console.ReadKey(true).Key;
-                    Console.Clear();
+                    int currentPage = 1;
 
-
-                    if (input == ConsoleKey.X)
+                    while (true)
                     {
                         Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
+
+                        switch (currentPage)
+                        {
+                            case 1:
+                                ascii.Collection();
+                                Console.ResetColor();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                tree1(pine);
+                                Console.ResetColor();
+                                break;
+                            case 2:
+                                ascii.Collection();
+                                Console.ResetColor();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                tree2(oak);
+                                Console.ResetColor();
+                                break;
+                            case 3:
+                                ascii.Collection();
+                                Console.ResetColor();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                tree3(narra);
+                                Console.ResetColor();
+                                break;
+                            case 4:
+                                ascii.Collection();
+                                Console.ResetColor();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                tree4(birch);
+                                Console.ResetColor();
+                                break;
+                            case 5:
+                                ascii.Collection();
+                                Console.ResetColor();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                tree5(sakura);
+                                Console.ResetColor();
+                                break;
+
+                        }
+
+                        ConsoleKey key = Console.ReadKey(true).Key;
+
+                        if (key == ConsoleKey.N && currentPage < 5)
+                            currentPage++;
+
+                        else if (key == ConsoleKey.B && currentPage > 1)
+                            currentPage--;
+
+                        else if (key == ConsoleKey.X)
+                            break;
                     }
 
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                       Oak Tree                                        |");
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    tree2(oak);
-                    Console.ResetColor();
-
-                    ConsoleKey input2 = Console.ReadKey(true).Key;
                     Console.Clear();
-
-
-                    if (input2 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                       Nara Tree                                       |");
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    tree3(narra);
-                    Console.ResetColor();
-
-                    ConsoleKey input3 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input3 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                       Birch Tree                                      |");
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    tree4(birch);
-                    Console.ResetColor();
-
-                    ConsoleKey input4 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input4 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                      Sakura Tree                                      |");
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    tree5(sakura);
-                    Console.ResetColor();
-
-                    ConsoleKey input5 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input5 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
+                    return;
                 }
             }
+        }
+        static void fishCollection(string userName) 
+        {
+            UserFishCollection = File.ReadAllLines("UserFish.txt").ToList();
+
             for (int i = 0; i < UserFishCollection.Count; i++)
             {
                 string[] parts = UserFishCollection[i].Split(',');
@@ -1161,116 +1178,74 @@ namespace ScholarVille
                     int tuna = Convert.ToInt32(parts[5]);
                     int goldFish = Convert.ToInt32(parts[6]);
 
+                    int currentPage = 1;
 
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                         Tilapia                                       |");
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    fish1(tilapia);
-                    Console.ResetColor();
-                    ConsoleKey input = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input == ConsoleKey.X)
+                    while (true)
                     {
                         Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
 
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                         Milkfish                                      |");
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    fish2(milkfish);
-                    Console.ResetColor();
-                    ConsoleKey input2 = Console.ReadKey(true).Key;
+                        switch (currentPage)
+                        {
+                            case 1:
+                                ascii.Collection();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                fish1(tilapia);
+                                Console.ResetColor();
+                                break;
+                            case 2:
+                                ascii.Collection();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |"); 
+                                fish2(milkfish);
+                                Console.ResetColor();
+                                break;
+                            case 3:
+                                ascii.Collection();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                fish3(catfish);
+                                Console.ResetColor();
+                                break;
+                            case 4:
+                                ascii.Collection();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                fish4(tuna);
+                                Console.ResetColor();
+                                break;
+                            case 5:
+                                ascii.Collection();
+                                Console.WriteLine("|                             B = Previous Page & N = Next Page                         |");
+                                Console.WriteLine("|                             Press \"X\" to return to selection.                         |");
+                                Console.WriteLine("|_______________________________________________________________________________________|");
+                                Console.WriteLine("|                                                                                       |");
+                                fish5(goldFish);
+                                Console.ResetColor();
+                                break;
+                        }
+
+                        ConsoleKey key = Console.ReadKey(true).Key;
+
+                        if (key == ConsoleKey.N && currentPage < 3)
+                            currentPage++;
+
+                        else if (key == ConsoleKey.B && currentPage > 1)
+                            currentPage--;
+
+                        else if (key == ConsoleKey.X)
+                            break;
+                    }
                     Console.Clear();
-
-
-                    if (input2 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                          Catfish                                      |");
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    fish3(catfish);
-                    Console.ResetColor();
-                    ConsoleKey input3 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input3 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                           Tuna                                        |");
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    fish4(tuna);
-                    Console.ResetColor();
-                    ConsoleKey input4 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input4 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
-
-                    ascii.Collection();
-                    Console.WriteLine("|                               Press \"X\" to return to menu.                            |");
-                    Console.WriteLine("|_______________________________________________________________________________________|");
-                    Console.WriteLine("|                                                                                       |");
-                    Console.WriteLine("|                                        Golden Fish                                    |");
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
-                    fish5(goldFish);
-                    Console.ResetColor();
-                    ConsoleKey input6 = Console.ReadKey(true).Key;
-                    Console.Clear();
-
-
-                    if (input6 == ConsoleKey.X)
-                    {
-                        Console.Clear();
-                        ascii.ReturningMenu();
-                        Thread.Sleep(1000);
-                        Console.Clear();
-                        MainMenu(userName);
-                    }
+                    return;
                 }
             }
         }
@@ -1278,6 +1253,9 @@ namespace ScholarVille
         {
             if (pine >= 1)
             {
+                Console.BackgroundColor= ConsoleColor.DarkGreen;
+                Console.WriteLine("|                                       Pine Tree                                       |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -1285,6 +1263,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                       Pine Tree                                       |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1295,6 +1277,9 @@ namespace ScholarVille
         {
             if (oak >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|                                       Oak Tree                                        |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -1302,6 +1287,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                       Oak Tree                                        |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1312,6 +1301,9 @@ namespace ScholarVille
         {
             if (narra >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|                                       Narra Tree                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -1319,6 +1311,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                       Narra Tree                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1329,6 +1325,9 @@ namespace ScholarVille
         {
             if (birch >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|                                      Birch Tree                                       |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -1336,6 +1335,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                      Birch Tree                                       |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1346,6 +1349,9 @@ namespace ScholarVille
         {
             if (sakura >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("|                                      Sakura Tree                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -1353,6 +1359,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                      Sakura Tree                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1363,6 +1373,9 @@ namespace ScholarVille
         {
             if (tilapia >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|                                         Tilapia                                       |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.Blue;
@@ -1370,6 +1383,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                         Tilapia                                       |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1380,6 +1397,9 @@ namespace ScholarVille
         {
             if (milkfish >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|                                         Milkfish                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.Blue;
@@ -1387,6 +1407,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                         Milkfish                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1397,6 +1421,9 @@ namespace ScholarVille
         {
             if (catfish >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|                                          Catfish                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.Blue;
@@ -1404,6 +1431,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                          Catfish                                      |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1414,6 +1445,9 @@ namespace ScholarVille
         {
             if (tuna >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|                                           Tuna                                        |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.Blue;
@@ -1421,6 +1455,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                           Tuna                                        |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -1431,6 +1469,9 @@ namespace ScholarVille
         {
             if (goldFish >= 1)
             {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine("|                                        Golden Fish                                    |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.BackgroundColor = ConsoleColor.Blue;
@@ -1438,6 +1479,10 @@ namespace ScholarVille
             }
             else
             {
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|                                        Golden Fish                                    |");
+                Console.ResetColor();
                 Console.WriteLine("|_______________________________________________________________________________________|");
                 Console.BackgroundColor = ConsoleColor.DarkGray;
                 Console.ForegroundColor = ConsoleColor.Black;
