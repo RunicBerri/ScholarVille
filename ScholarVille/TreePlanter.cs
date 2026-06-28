@@ -240,7 +240,7 @@ public class TreePlanter
             Console.WriteLine("|      By planting trees you are able to help reduce the effects of climate change!     |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                  Congratulations!                                     |");
-            Console.WriteLine("|                                Your tree grew into a:                                 |");
+            Console.WriteLine("|                             Your sappling grew into a:                                |");
             var treeType = GenerateTree(userName);
             Console.WriteLine($"|                                     {treeType}");
             

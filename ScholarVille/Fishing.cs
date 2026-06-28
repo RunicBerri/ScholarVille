@@ -132,7 +132,7 @@ namespace ScholarVille
                         fishCaught++;
 
                         Console.WriteLine("|                                                                                       |");
-                        Console.WriteLine($"|                               You caught a {fish}                                      ");
+                        Console.WriteLine($"|                               You caught a {fish}!                                      ");
                     }
                     else
                     {
@@ -140,7 +140,7 @@ namespace ScholarVille
 
                         Console.WriteLine("|                                                                                       |");
                         Console.WriteLine("|                              You removed trash from the water!                        |");
-                        Console.WriteLine("|                                   The river is cleaner.                               |");
+                        Console.WriteLine("|                                     The sea is cleaner.                               |");
                     }
                 }
                 else

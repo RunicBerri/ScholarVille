@@ -1037,7 +1037,7 @@ namespace ScholarVille
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                                                                       |");
-                Console.WriteLine("|                                  [3] Return to Menu                                   |");
+                Console.WriteLine("|                                        [3] Menu                                       |");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                                                                       |");
                 Console.WriteLine("|                                                                                       |");
