@@ -34,6 +34,7 @@ namespace ScholarVille
             Console.WriteLine("|                                     [3] Exit                                          |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         public void MainMenu()
         {
@@ -54,6 +55,7 @@ namespace ScholarVille
             Console.WriteLine("|                                   [6] Logout                                          |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         public void GameMenu()
         {
@@ -74,6 +76,7 @@ namespace ScholarVille
             Console.WriteLine("|                                   [6] Return                                          |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         public void Login() 
         {
@@ -110,7 +113,7 @@ namespace ScholarVille
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
             Console.WriteLine("|                                                                                       |");
-            Console.WriteLine("_________________________________________________________________________________________");
+            Console.WriteLine("|_______________________________________________________________________________________|");
         }
         public void Register()
         {
